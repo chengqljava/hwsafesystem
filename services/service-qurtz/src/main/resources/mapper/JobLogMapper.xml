@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hwsafe.qurtz.repository.JobLogMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.hwsafe.qurtz.domain.JobLog" id="jobLogMap">
+        <result property="id" column="id"/>
+        <result property="jobId" column="job_id"/>
+        <result property="beanName" column="bean_name"/>
+        <result property="methodName" column="method_name"/>
+        <result property="params" column="params"/>
+        <result property="status" column="status"/>
+        <result property="error" column="error"/>
+        <result property="times" column="times"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+	<select id="list" resultMap="jobLogMap">
+		SELECT
+			*
+		FROM
+			job_log
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="jobId != null">
+			   job_id = #{jobId}
+			</if>
+			<if test="searchBeanName !=null and searchBeanName !=''">
+				AND bean_name LIKE concat('%',concat(#{searchBeanName},'%'))
+			</if>
+			<if test="searchStartDate !=null">
+				<![CDATA[AND DATE_FORMAT(create_time,'%Y-%m-%d')>=DATE_FORMAT(#{searchStartDate},'%Y-%m-%d')]]>
+			</if>
+			<if test="searchEndDate !=null">
+				<![CDATA[AND DATE_FORMAT(create_time,'%Y-%m-%d')<=DATE_FORMAT(#{searchEndDate},'%Y-%m-%d')]]>
+			</if>
+		</trim>
+		<choose>
+            <when test="orders != null">
+            	ORDER BY
+            	<foreach collection="orders" item="item"  open=" " separator="," close=" ">
+			    	${item.property} ${item.direction}
+			    </foreach>
+            </when>
+			<otherwise>
+                ORDER BY id ASC
+			</otherwise>
+        </choose>
+	</select>
+
+	
+
+</mapper>
