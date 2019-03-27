@@ -1,0 +1,195 @@
+<%for(var value in jsPart!){%>
+    <%
+      switch(value){
+                    case "orgcharts":
+                        println("<script type='text/javascript' src='/static/js/lib/orgcharts/js/jquery.orgchart.js'></script>");
+                        break;
+                    case "htmltopdf":
+                        println("<script type='text/javascript' src='/static/js/lib/html2pdf/html2canvas.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/html2pdf/jsPdf.debug.js'></script>");
+                        break;
+                    case "pager":
+                        println("<script type='text/javascript' src='/static/js/lib/pager/pager.js'></script>");
+                        break;
+                    case "jquerynav":
+                        println("<script type='text/javascript' src='/static/js/lib/jquery.nav/jquery.nav.js'></script>");
+                        break;
+                    case "daterangepicker":
+                        println("<script type='text/javascript' src='/static/js/lib/daterangepicker/moment.min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/daterangepicker/daterangepicker.js'></script>");
+                        break;
+                    case "select_two":
+                        println("<script type='text/javascript' src='/static/js/common/select_two.js'></script>");
+                        break;
+                    case "layer":
+                        println("<script type='text/javascript' src='/static/js/lib/layer/layer-2.2.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/common/mylayer.js'></script>");
+                        break;
+                    case "shrink":
+                        println("<script type='text/javascript' src='/static/js/common/shrink.js'></script>");
+                        break;
+                    case "jquery":
+                        println("<script type='text/javascript' src='/static/js/lib/jquery-1.11.2.min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/common/jquery-customer.js'></script>");
+                        break;
+                    case "bootstrap":
+                        println("<script type='text/javascript' src='/static/js/lib/bootstrap.min.js'></script>");
+                        break;
+                    case "jqueryui":
+                        println("<script type='text/javascript' src='/static/js/lib/jqueryUI/jquery-ui.js'></script>");
+                        break;
+                    case "jqgrid":
+                        println("<script type='text/javascript' src='/static/js/lib/jqGrid/jquery.jqGrid.min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/jqGrid/i18n/grid.locale-cn.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/jqGrid/jquery.jqGrid.groupHeader-0.2.1.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/jqGrid/gridscroll.js'></script>");
+                        break;
+                        println("<script type='text/javascript' src='/static/js/lib/validate/jquery.validate.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/validate/additional-methods.min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/validate/additional-methods.js'></script>");
+                        break;
+                    case "date":
+                        println("<script type='text/javascript' src='/static/js/lib/datetimepicker/bootstrap-datetimepicker.min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js'></script>");
+                        break;
+                    case "datepicker":
+                        println("<script type='text/javascript' src='/static/js/lib/datepicker/WdatePicker.js'></script>");
+                        break;
+                    case "calendar":
+                        println("<script type='text/javascript' src='/static/js/lib/calendar/bootstrap-year-calendar.min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/calendar/bootstrap-popover.js'></script>");
+                        break;
+                    case "ztree":
+                        println("<script type='text/javascript' src='/static/js/lib/ztree/jquery.ztree.core-3.5.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/ztree/jquery.ztree.excheck-3.5.min.js'></script>");
+                        break;
+                    case "pushlet":
+                        println("<script type='text/javascript' src='/static/js/lib/pushlet/ajax-pushlet-client.js'></script>");
+                        break;
+                    case "echarts":
+                        println("<script type='text/javascript' src='/static/js/lib/echarts/echarts.min.js'></script>");
+                        break;
+                    case "drag":
+                        println("<script type='text/javascript' src='/static/js/lib/drag/draggabilly.pkgd.min.js'></script>");
+                        break;
+                    case "fastclick":
+                        println("<script type='text/javascript' src='/static/js/lib/fastclick/fastclick.min.js'></script>");
+                        break;
+                    case "slimscroll":
+                        println("<script type='text/javascript' src='/static/js/lib/slimScroll/jquery.slimscroll.min.js'></script>");
+                        break;
+                    case "fileinput":
+                        println("<script type='text/javascript' src='/static/js/lib/fileinput/fileinput.min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/fileinput/fileinput_locale_zh.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/common/fileutil.js'></script>");
+                        break;
+                    case "ajaxfileupload":
+                        println("<script type='text/javascript' src='/static/js/lib/ajaxfileupload/ajaxfileupload.js'></script>");
+                        break;
+                    case "dateutil":
+                        println("<script type='text/javascript' src='/static/js/common/dateutil.js'></script>");
+                        break;
+                    case "select_option":
+                        println("<script type='text/javascript' src='/static/js/common/select_option.js'></script>");
+                        break;
+                    case "select_tree":
+                        println("<script type='text/javascript' src='/static/js/common/select_tree.js'></script>");
+                        break;
+                    case "formutils":
+                        println("<script type='text/javascript' src='/static/js/common/formutils.js'></script>");
+                        break;
+                    case "input_select":
+                        println("<script type='text/javascript' src='/static/js/lib/inputSelect/bootstrap-select.min.js'></script>");
+                        break;
+                    case "multiselect":
+                        println("<script type='text/javascript' src='/static/js/lib/multiselect/bootstrap-multiselect.js'></script>");
+                        break;
+                    case "modernizr":
+                        println("<script type='text/javascript' src='/static/js/lib/modernizr/modernizr.js'></script>");
+                        break;
+                    case "contabs":
+                        println("<script type='text/javascript' src='/static/js/lib/contabs/contabs.min.js'></script>");
+                        break;
+                    case "superSlide":
+                        println("<script type='text/javascript' src='/static/js/lib/superSlide/jquery.SuperSlide.js'></script>");
+                        break;
+                    case "ueditor":
+                        println("<script type='text/javascript' src='/static/js/lib/UEditor/ueditor.config.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/UEditor/ueditor.all.min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/UEditor/lang/zh-cn/zh-cn.js'></script>");
+                        break;
+                    case "timeline":
+                        println("<script type='text/javascript' src='/static/js/common/cameraZW/cameraZW.js'></script>");
+                        break;
+                    case "displayOper":
+                        println("<script type='text/javascript' src='/static/js/common/jquery.displayOper.js'></script>");
+                        break;
+                    case "underscore":
+                        println("<script type='text/javascript' src='/static/js/lib/underscore/underscore-min.js'></script>");
+                        break;
+                    case "maputil":
+                        //map类型工具类
+                        println("<script type='text/javascript' src='/static/js/common/maputil.js'></script>");
+                        break;
+                    case "chosen":
+                        //chosen下拉复选框
+                        println("<script type='text/javascript' src='/static/js/lib/chosen/chosen.jquery.min.js'></script>");
+                        break;
+                    case "select2":
+                        //输入选择框
+                        println("<script type='text/javascript' src='/static/js/lib/select2/select2.full.min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/select2/i18n/zh-CN.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/common/select_two.js'></script>");
+                        // println("<script type='text/javascript' src='/static/js/lib/select2/js/select2.full.min.js'></script>");
+                        break;
+                    case "numeral":
+                        //金额-千分位等数值转换工具类
+                        println("<script type='text/javascript' src='/static/js/lib/numeraljs/numeral.min.js'></script>");
+                        break;
+                    case "html5":
+                        //html5对老浏览器的兼容调整
+                        println("<!--[if lt IE 9]>");
+                        println("<script src='/static/js/lib/html5shiv-3.7.2.min.js'></script>");
+                        println("<script src='/static/js/lib/respond-1.4.2.min.js'></script>");
+                        println("<![endif]-->");
+                        break;
+                    case "websocket":
+                        //Websocket-sockJS(兼容各种浏览器的websocket支持)
+                        println("<script type='text/javascript' src='/static/js/lib/websocket/sockjs-1.1.1.min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/websocket/reconnecting-websocket.min.js'></script>");
+                        break;
+                    case "gisMap":
+                        //gis地图
+                        println("<script type='text/javascript' src='http://api.map.baidu.com/api?v=2.0&ak=kgpndOpekdOymqCmM7GBEFg7'></script>");
+                        println("<script type='text/javascript' src='/static/js/common/gis/AreaRestriction_min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/common/gis/DrawingManager_min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/common/gis/GeoUtils_min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/common/gis/DistanceTool_min.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/lib/baidumaplib/BMapLib_InfoBox.min.js'></script>");
+                        break;
+                    case "metisMenu":
+                        //手风琴菜单导航及其配置
+                        println("<script type='text/javascript' src='/static/js/common/metisMenu.js'></script>");
+                        println("<script type='text/javascript' src='/static/js/common/gis/gnmenu.js'></script>");
+                        break;
+                    case "ObserverJS":
+                    	//观察者模式实现事件监听JS
+                    	println("<script type='text/javascript' src='/static/js/common/Observer.js'></script>");
+                    	break;
+                    case "jPlayer":
+                    	//输入选择框
+                    	println("<script type='text/javascript' src='/static/js/lib/jPlayer-master/dist/jplayer/jquery.jplayer.min.js'></script>");
+                    	break;
+                    case "autoheight":
+                    	//输入选择框
+                    	println("<script type='text/javascript' src='/static/js/common/autoheight.js'></script>");
+                    	break;
+                    case "nicescroll":
+                    	//滚动条插件
+                    	println("<script type='text/javascript' src='/static/js/lib/scroll/jquery.nicescroll.min.js'></script>");
+                    	break;
+                    default:
+                        break;
+                }
+    %>
+<%}%>

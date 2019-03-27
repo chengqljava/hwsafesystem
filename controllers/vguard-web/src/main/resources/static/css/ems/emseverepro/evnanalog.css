@@ -1,0 +1,118 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+ul,li{
+    list-style: none;
+}
+ul li{
+    float: left;
+    cursor: pointer;
+}
+ul,li,p{
+    margin: 0;
+    padding: 0;
+}
+.navBar{
+    width: 100%;
+    height: 40px;
+    background-color: #f2f2f2;
+}
+.navBar li{
+    width: 116px;
+    line-height: 40px;
+    text-align: center;
+    color: #0773BB;
+    font-size: 14px;
+}
+.navBar li.active{
+    background-color: #0773BB;
+    color: #fff;
+}
+.mncsDiv{
+    width: 100%;
+    margin: 10px 0;
+    height: calc( 100% - 60px );
+    display: none;
+}
+.mncsDiv table{
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+.mncsDiv table tr td{
+    border: 1px solid #D8D8D8;
+    line-height: 35px;
+    padding-left: 12px;
+    font-size: 14px;
+}
+.mncsDiv table tr td:nth-of-type(2n+1){
+    background: #EEFAFF;
+    width: 120px;
+}
+.mnjgDiv{
+    width: 100%;
+    height: calc( 100% - 50px);
+    margin: 10px 0;
+}
+.mnjgDiv section{
+    float: left;
+    width: calc( 100% - 430px );
+    height: 100%;
+    box-sizing: border-box;
+}
+.mnjgDiv>div{
+    float: right;
+    box-sizing: border-box;
+    width: 410px;
+    height: 100%;
+    padding:0 10px 10px;
+    background-color: #f9fcff;
+}
+.areaKind{
+    height: 40px;
+    padding: 5px 0;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 30px;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+}
+.areaKind span{
+    padding: 4px 6px;
+    cursor: pointer;
+}
+.areaKind span.active,.areaKind span:hover{
+    background-color: #0773bb;
+    color: #fff;
+}
+.allArea{
+    width: 100%;
+    height: calc( 100% - 40px );
+}
+.singleArea{
+    width: 390px;
+    height: 100px;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.20);
+}
+.singleArea:hover,.singleArea.active{
+    background: #DFFDFF;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.20);
+}
+.singleArea p{
+    line-height: 20px;
+    font-size: 12px;
+    color: #666;
+}

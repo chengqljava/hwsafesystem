@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.sys.mapper.LkUserRoleMapper" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.sys.domain.LkUserRole" >
+	<result column="conid" property="conid" jdbcType="VARCHAR" />
+	<result column="roleid" property="roleid" jdbcType="VARCHAR" />
+	<result column="userid" property="userid" jdbcType="VARCHAR" />
+</resultMap>
+       
+<!-- lk_user_role table all fields -->
+<sql id="Base_Column_List" >
+	 conid,roleid,userid
+</sql>
+   
+ <!-- 分页查询 -->
+<select id ="loadByPage" resultType="map">
+  	select 
+	<include refid="Base_Column_List"/>
+	from lk_user_role 
+  </select>
+
+<!-- 查询用户角色关联列表 -->
+<select id="loadByList" resultMap="BaseResultMap"  parameterType="map">
+	select 
+	<include refid="Base_Column_List"/>
+	from lk_user_role lkur
+    where 1=1 
+        <if test="userid!=null and userid!='' and userid!='null'"> and lkur.userid=#{userid}</if>
+        <if test="roleid!=null and roleid!='' and roleid!='null'"> and lkur.roleid=#{roleid}</if>
+    
+</select>
+
+<!-- 插入记录 -->
+<insert id="save" parameterType="com.hwsafe.sys.domain.LkUserRole"  useGeneratedKeys="true" keyProperty="conid" >
+	<selectKey  resultType="java.lang.String" keyProperty="conid" order="BEFORE">    
+         select sys_guid() as conid from dual 
+    </selectKey>  
+  insert into lk_user_role(conid,roleid,userid)
+ values(#{conid,jdbcType=VARCHAR},#{roleid,jdbcType=VARCHAR},#{userid,jdbcType=VARCHAR})
+</insert>
+
+<!-- 插入记录 -->
+<insert id="saveUserRole" parameterType="map">
+    <selectKey  resultType="java.lang.String" keyProperty="conid" order="BEFORE">    
+          select sys_guid() as conid from dual 
+    </selectKey>  
+    insert into lk_user_role(conid,roleid,userid)
+ 	values(#{conid},#{roleid},#{userid})
+</insert>
+
+<!-- 根据id修改记录-->  
+ <update id="update" parameterType="com.hwsafe.sys.domain.LkUserRole" >
+  update lk_user_role set roleid=#{roleid},userid=#{userid} where conid=#{conid}
+ </update>
+ 
+<!-- 删除记录 -->
+<delete id="delete" parameterType="string">
+	delete 	 from lk_user_role where conid = #{conid}
+</delete>
+
+<!-- 根据用户id删除记录 -->
+<delete id="deleteByUserid" parameterType="string">
+	delete 	 from lk_user_role where userid = #{userid}
+</delete>
+
+
+
+<!-- 根据id查询 用户角色关联 -->
+<select id="loadById"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from lk_user_role where conid = #{conid}
+</select>
+
+<!-- 根据用户ids查询总数  -->
+<select id="loadLkRoleById"  resultType="Integer" parameterType="map">
+	select count(*)
+	from lk_user_role ur
+	<where> 
+  		<if test="ids!=null">
+ 			 ur.userid  in 
+			<foreach collection="ids" index="index" item="items" open="(" separator="," close=")">  
+   		 	   #{items,jdbcType=VARCHAR}  
+   			</foreach> 
+		</if>
+	</where>
+</select>
+
+<!-- 根据角色ids查询总数  -->
+<select id="loadLkUserRolesByRoleIds"  resultType="Integer">
+	select count(*)
+	from lk_user_role ur
+	<where> 
+  		<if test="array!=null and array.length > 0 ">
+ 			 ur.roleid  in 
+			<foreach collection="array" index="index" item="items" open="(" separator="," close=")">  
+   		 	   #{items,jdbcType=VARCHAR}  
+   			</foreach> 
+		</if>
+	</where>
+</select>
+
+	<select id="loadRoleByUserId" parameterType="string" resultType="com.hwsafe.sys.domain.SysRole">
+		SELECT
+		ur.*
+		FROM sys_role ur
+		LEFT JOIN lk_user_role rl ON UR.ROLEID = RL.ROLEID
+		where rl.USERID = #{userid}
+	</select>
+  	
+</mapper>   

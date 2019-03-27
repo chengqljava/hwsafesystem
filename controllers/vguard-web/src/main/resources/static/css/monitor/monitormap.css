@@ -1,0 +1,1013 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a:focus {
+  outline: none;
+  -moz-outline: none;
+}
+#entMonData{
+	color: #62dee7;
+	text-decoration: none;
+}
+body {
+  font-family: "open sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  margin: 0;
+}
+.trCur {
+	background-color: #6cb5fe;
+}
+.searchArea {
+  background-color: #fff;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+  padding: 15px 10px;
+  width: 230px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.searchArea .area1 input {
+  border: 1px solid #b5b5b5;
+  height: 24px;
+  width: 184px;
+  float: left;
+  padding-left: 3px;
+}
+.searchArea .area1 .searchBtn {
+  background-color: #f5f5f5;
+  border: 1px solid #b5b5b5;
+  border-left: none;
+  background-image: url(../../images/monitor/searchIcon.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  width: 26px;
+  height: 24px;
+  vertical-align: middle;
+}
+.searchArea .area2 {
+  display: none;
+ /*  height:200px; */
+}
+/* .searchArea .area2 ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.searchArea .area2 ul li a {
+  color: #676767;
+  text-decoration: none;
+  font-size: 12px;
+  padding-top: 18px;
+  display: block;
+  margin: 0 6px;
+  width: 180px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.searchArea .area2 ul li a i {
+  background-image: url(../../images/monitor/list.png);
+  background-repeat: no-repeat;
+  width: 17px;
+  margin-right: 6px;
+  height: 22px;
+  color: #fff;
+  padding-bottom: 6px;
+  text-align: center;
+  float: left;
+} */
+.textVal {
+	width: 77px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-bottom: 0;
+}
+.detection {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+}
+
+.detectionAlarm {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, 0.2);
+  width: 130px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 36px;
+  border-radius: 3px;
+  padding: 0 12px;
+}
+.detectionAlarm i {
+  background-image: url(../../images/monitor/icon4.png);
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 19px;
+  padding-left: 22px;
+}
+.detectionAlarm span {
+  color: #f21414;
+}
+
+.detectionShow {
+  position: absolute;
+  right: 0;
+  top: 45px;
+  background-color: #fff;
+  box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, 0.2);
+  width: 350px;
+  padding: 16px 3px;
+  display: none;
+}
+.detectionShow .table {
+  width: 100%;
+  display: table;
+}
+.detectionShow .table .thead {
+  display: table-header-group;
+  line-height: 25px;
+}
+.detectionShow .table .tbody {
+  display: table-row-group;
+}
+.detectionShow .table .tr {
+  width: 100%;
+  display: table-row;
+}
+.detectionShow .table .tr .th {
+  display: table-cell;
+  text-align: center;
+  border-bottom: 1px solid #d5d5d5;
+}
+.detectionShow .table .tr .td {
+  display: table-cell;
+  text-align: center;
+  padding-top: 6px;
+}
+.detectionShow .table .tr .td button {
+  background-color: #f87a0b;
+  border: none;
+  padding: 1px 3px;
+  color: #fff;
+  border-radius: 3px;
+}
+.detectionShow .table .tr .td button[disabled] {
+  background-color: #e0dddd;
+  color: #b0afaf;
+  border: none;
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+.detectionShow .table .tr .th:nth-child(1), .detectionShow .table .tr .td:nth-child(1) {
+  width: 60px;
+}
+.detectionShow .table .tr .th:nth-child(2), .detectionShow .table .tr .td:nth-child(2) {
+  width: 170px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.detectionShow .table .tr .th:nth-child(3), .detectionShow .table .tr .td:nth-child(3) {
+  width: 60px;
+}
+.detectionShow .table .tr .th:nth-child(4), .detectionShow .table .tr .td:nth-child(4) {
+  width: 60px;
+}
+
+.showContent {
+  background-color: #fff;
+  box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.showContent .arrow {
+  background-image: url(../../images/monitor/openBtn.png);s
+  cursor: pointer;
+  width: 170px;
+  height: 26px;
+  padding-left: 170px;
+  position: absolute;
+  top: -26px;
+  left: 40%;
+  cursor:pointer;
+}
+ 
+.showContent .allContent {
+  display: none;
+}
+.showContent .showArea {
+  position: relative;
+  border-right: 1px solid #d5d5d5;
+  padding: 0;
+  padding-top: 6px;
+  float: left;
+}
+.showContent .showArea .showTitle {
+  line-height: 35px;
+  padding-left: 16px;
+  border-bottom: 1px solid #d5d5d5;
+}
+.showContent .showArea .showTitle i.videoIcon, .showContent .showArea .showTitle i.cameraIcon, .showContent .showArea .showTitle i.chart {
+  background-repeat: no-repeat;
+  width: 22px;
+  height: 21px;
+  padding-left: 26px;
+  padding-top: 5px;
+  vertical-align: middle;
+}
+.showContent .showArea .showTitle i.videoIcon {
+  background-image: url(../../images/monitor/videoIcon.png);
+}
+.showContent .showArea .showTitle i.cameraIcon {
+  background-image: url(../../images/monitor/cameraIcon.png);
+}
+.showContent .showArea .showTitle i.chart {
+  background-image: url(../../images/monitor/icon3.png);
+}
+.showContent .areaContent {
+  position: relative;
+  height:174px;
+}
+
+.showContent .areaContent.grid {
+  height:174px;
+}
+
+.showContent .areaContent .carousel {
+  padding: 12px 52px;
+  height: 174px;
+}
+.showContent .areaContent .carousel .focus-img-con {
+  height: 134px;
+}
+.showContent .areaContent .carousel .focus-img-con ul li {
+  text-align: center;
+  margin-right: 4px;
+  margin-top: 6px;
+  display: inline;
+  float: left;
+  height: 134px;
+  overflow: hidden;
+}
+.showContent .areaContent .carousel .focus-img-con ul li a {
+  font-size: 12px;
+  color: #676767;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+.vCur {
+	background-color: #d6edfc;
+	color: #fff;
+}
+.showContent .areaContent .carousel .focus-img-con ul li a .img {
+  width: 71px;
+  height: 47px;
+  position: relative;
+  margin: auto;
+}
+.showContent .areaContent .carousel .focus-img-con ul li a.videoAlarm .img {
+	box-shadow: 0px 0px 6px rgba(255,63,14,1);
+}
+.showContent .areaContent .carousel .focus-img-con ul li a .img:hover {
+  box-shadow: 0px 0px 6px #47a0d8;
+}
+.showContent .areaContent .carousel .focus-img-con ul li a .img span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  color: #fff;
+  height: 16px;
+  line-height: 16px;
+}
+
+.prev-bnt, .next-bnt {
+  width: 11px;
+  height: 19px;
+  padding-left: 16px;
+  padding-bottom: 3px;
+  position: absolute;
+  top: 68px;
+  background-repeat: no-repeat;
+}
+
+.next-bnt {
+  right: 8px;
+  background-image: url(../../images/monitor/rightTriangle.png);
+}
+
+.next-bnt:hover {
+  background-image: url(../../images/monitor/rightTriangleCur.png);
+}
+
+.prev-bnt {
+  left: 8px;
+  background-image: url(../../images/monitor/leftTriangle.png);
+}
+
+.prev-bnt:hover {
+  background-image: url(../../images/monitor/leftTriangleCur.png);
+}
+	  
+.videoPop {
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: move;
+  width: 708px;
+  height: 373px;
+  position: absolute;
+  top: 3%;
+  left: 25%;
+  display: none;
+}
+.videoPop .videoLeft {
+  float: left;
+  width: 510px;
+  height: 373px;
+  overflow: hidden;
+  position: relative;
+}
+.videoPop .videoLeft .bg {
+  background-color: black;
+  height: 334px;
+  width: 510px;
+}
+.videoPop .videoRight {
+  width: 198px;
+  float: right;
+}
+.videoPop .videoRight .videoClose {
+  cursor: pointer;
+  float: right;
+  margin: 6px;
+  background-image: url(../../images/gis/blue/btnIcon/btn_close.png);
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  padding-left: 24px;
+}
+.videoPop .videoRight .videoClose:hover {
+	background-position: -48px 0;
+}
+.videoPop .videoRight .videoTitle {
+  color: #fff;
+  width: 160px;
+  position: absolute;
+  top: 7%;
+  right: 3%;
+}
+.videoPop .videoRight .controllerBtn {
+  bottom: 10px;
+  margin-left: 10px;
+  position: absolute;
+  width: 180px;
+}
+.videoPop .videoRight .controllerBtn ul li {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.videoBtnLeft {
+  float: left;
+}
+
+.videoBtnRight {
+  float: right;
+}
+
+.videoBtn {
+  background: url(../../images/monitor/icon-video/icon-videobg.png) repeat-x;
+  height: 38px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.videoBtn ul li {
+  display: block;
+  position: relative;
+  float: left;
+  margin-left: 16px;
+  margin-top: 2px;
+}
+
+.iconCamera, .iconVideo, .iconOn, .iconStop, .iconStopVideo {
+  width: 31px;
+  height: 33px;
+  padding-left: 33px;
+  border: none;
+}
+
+.iconStopVideo {
+  background: url(../../images/monitor/icon-video/icon-stopVideo.png) no-repeat;
+}
+.iconCamera {
+  background: url(../../images/monitor/icon-video/icon-camera.png) no-repeat;
+}
+
+.iconVideo {
+  background: url(../../images/monitor/icon-video/icon-video.png) no-repeat;
+}
+
+.iconOn {
+  background: url(../../images/monitor/icon-video/icon-on.png) no-repeat;
+}
+
+.iconStop {
+  background: url(../../images/monitor/icon-video/icon-stop.png) no-repeat;
+}
+
+.iconStopVideo:hover {
+  background: url(../../images/monitor/icon-video/icon-stopVideo-hover.png) no-repeat;
+}
+
+.iconCamera:hover {
+  background: url(../../images/monitor/icon-video/icon-camera-hover.png) no-repeat;
+}
+
+.iconVideo:hover {
+  background: url(../../images/monitor/icon-video/icon-video-hover.png) no-repeat;
+}
+
+.iconOn:hover {
+  background: url(../../images/monitor/icon-video/icon-on-hover.png) no-repeat;
+}
+
+.iconStop:hover {
+  background: url(../../images/monitor/icon-video/icon-stop-hover.png) no-repeat;
+}
+
+.iconAdd {
+  background: url(../../images/monitor/icon-video/icon-add01.png) no-repeat 50% 40%;
+  width: 8px;
+  height: 8px;
+  padding-left: 12px;
+}
+
+.icondel {
+  background: url(../../images/monitor/icon-video/icon-reduce01.png) no-repeat 50% 50%;
+  width: 8px;
+  height: 2px;
+  padding-left: 12px;
+}
+
+button.camerabtn {
+  position: relative;
+  background: url(../../images/monitor/icon-video/icon-direction.png) no-repeat;
+  width: 24px;
+  height: 24px;
+  padding-left: 24px;
+  border: none;
+  vertical-align: middle;
+  margin-top: 6px;
+}
+
+button.controladdBtn, button.controldelBtn {
+  background: #6b7075;
+  border: 1px solid #4d5257;
+  height: 24px;
+  vertical-align: middle;
+  margin-top: 6px;
+  float: left;
+  padding: 3px;
+  color: #fff;
+  width: 48px;
+}
+
+button.controladdBtn:hover, button.controldelBtn:hover {
+  background: #4d5257;
+}
+
+button.controladdBtn {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+button.controldelBtn {
+  border-left: none;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+button.camerabtn:hover {
+  background: url(../../images/monitor/icon-video/icon-direction-hover.png) no-repeat;
+}
+
+button.camerabtn i {
+  position: absolute;
+  top: 5px;
+  left: 6px;
+}
+
+button.camerabtn i.cameraCenter {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}
+
+.leftUp, .topCenter, .rightUp, .cameraLeft, .cameraCenter, .cameraRight, .cameraDown, .cameraLeftDown, .camerarightDwon {
+  width: 14px;
+  height: 14px;
+  padding-left: 14px;
+  border: none;
+  vertical-align: middle;
+}
+
+.cameraCenter {
+  width: 19px;
+  height: 18px;
+  padding-left: 19px;
+  border: none;
+  vertical-align: middle;
+}
+
+.leftUp {
+  background: url(../../images/monitor/icon-video/left-top.png) no-repeat;
+}
+
+.topCenter {
+  background: url(../../images/monitor/icon-video/center-top.png) no-repeat;
+}
+
+.rightUp {
+  background: url(../../images/monitor/icon-video/right-top.png) no-repeat;
+}
+
+.cameraLeft {
+  background: url(../../images/monitor/icon-video/center-left.png) no-repeat;
+}
+
+.cameraCenter {
+  background: url(../../images/monitor/icon-video/center-center.png) no-repeat;
+}
+
+.cameraRight {
+  background: url(../../images/monitor/icon-video/center-right.png) no-repeat;
+}
+
+.cameraDown {
+  background: url(../../images/monitor/icon-video/bottom-left.png) no-repeat;
+}
+
+.cameraLeftDown {
+  background: url(../../images/monitor/icon-video/center-bottom.png) no-repeat;
+}
+
+.camerarightDwon {
+  background: url(../../images/monitor/icon-video/bottom-right.png) no-repeat;
+}
+
+button.gradientBtn {
+  border: none;
+  color: #fff;
+  background: url(../../images/monitor/icon-video/wiperBg.png) repeat-x;
+  height: 38px;
+  width: 60px;
+  text-align: center;
+  border: 1px solid #656a71;
+  float: left;
+}
+
+button.gradientBtn:hover {
+  background: url(../../images/monitor/icon-video/wiperBgHover.png) repeat-x;
+}
+
+button.gradientBtn:nth-child(1), button.gradientBtn:nth-child(2) {
+  border-right: 1px solid #b1b8c0;
+}
+
+button.gradientBtn:hover:nth-child(1), button.gradientBtn:hover:nth-child(2) {
+  border-right: 1px solid #70757c;
+}
+
+.iconEarth {
+  background: url(../../images/monitor/icon-video/icon-earth.png) no-repeat;
+  width: 14px;
+  height: 15px;
+  padding-left: 14px;
+}
+
+.iconLight {
+  background: url(../../images/monitor/icon-video/icon-light.png) no-repeat;
+  width: 12px;
+  height: 15px;
+  padding-left: 12px;
+}
+
+.iconSector {
+  background: url(../../images/monitor/icon-video/icon-sector.png) no-repeat;
+  width: 18px;
+  height: 16px;
+  padding-left: 18px;
+}
+
+.voice {
+  position: relative;
+  padding-bottom: 25px;
+  width: 100%;
+}
+
+.voiceDel {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  background: url(../../images/monitor/icon-video/icon-reduce.png) no-repeat;
+  width: 12px;
+  height: 2px;
+  padding-left: 12px;
+  border: none;
+  z-index: 999;
+}
+
+.vocieAdd {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  background: url(../../images/monitor/icon-video/icon-add.png) no-repeat;
+  width: 12px;
+  height: 12px;
+  padding-left: 12px;
+  border: none;
+}
+
+.cameraTable {
+  width: 100%;
+  text-align: center;
+}
+.cameraTable thead tr {
+  border-bottom: 1px solid #d5d5d5;
+  line-height: 35px;
+}
+.cameraTable tbody tr {
+  line-height: 35px;
+}
+
+/*# sourceMappingURL=gis.css.map */
+
+.bubble {
+	border-color: #ccc;
+	background-color: #fff;
+}
+.bubbleTop {
+	border-bottom-color: #ccc;
+	background-color: #f9f9f9;
+}
+.bubbleContent {
+	background-color: #fff;
+}
+.bubbleContent ul li a {
+	color: #444444;
+}
+.bubbleContent ul li a img {
+	border-color: #e6e6e6;
+}
+.bubbleContent ul li a:hover img {
+	border-color: #4fbde9;
+} 
+
+.popup-bubble {
+	border-color: #ccc;
+	box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+.popup-bubbleTop {
+	border-bottom-color: #ccc;
+	background-color: #209bdb;
+	color: #fff;
+}
+.dyTable,.dyTable tr td {
+	border-color: #ccc;
+}
+.popup-bubbleTop h3 {
+	color: #000;
+}
+.popup-bubbleContent {
+	background-color:rgba(255,255,255,.93);
+}
+em.popup-bot {
+	border-color:rgba(137,175,202,.9) transparent transparent; 
+}
+ em.popup-top {
+	border-color:rgba(255,255,255,.99) transparent transparent; 
+}
+.btnClose {
+	background-image: url(../../../images/gis/blue/map/closeBtn.png);
+}
+.btnClose:hover {
+	background-image: url(../../../images/gis/blue/map/closeBtnHover.png);
+}
+
+.popup-bubble {
+	border-style: solid;
+	border-width: 1px;
+	position: relative;
+	border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.popup-bubbleTop {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	position: relative;
+	overflow: hidden;
+	height: 34px;
+}
+.popup-closeBtn {
+	position: absolute;
+	right: 12px;
+	top: 12px;
+	cursor: pointer;
+}
+.popup-bubleTitle {
+	position: absolute;
+	left: 12px;
+	top: 8px;
+}
+.popup-bubbleContent {
+	padding: 0;
+}
+.popup-bubbleContent p{
+	line-height: 25px;
+	margin-bottom: 0px;
+	margin-top:0px;
+}
+.popup-bubble  em {
+	width:0; 
+	height:0; 
+	font-size:0; 
+	overflow:hidden; 
+	position:absolute;
+	}
+em.popup-bot {
+    border-width:20px; 
+    border-style:solid dashed dashed; 
+    left:172px; 
+    bottom:-40px;
+}
+em.popup-top {
+    border-width:20px; 
+    border-style:solid dashed dashed; 
+    left:172px; 
+    bottom:-39px;
+}
+
+.dyTable {
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+}
+.dyTable tr td {
+	border-width: 1px;
+	border-style: solid;
+	padding: 3px;
+}
+
+/* 视频右侧按钮 */
+
+.btnArea {
+	position: absolute;
+	top: 18%;
+	right: 3%;
+}
+.btnContent {
+	margin-top: 15px;
+	overflow: hidden;
+}
+/* 圆形按钮 */
+.btnContent .controlBg {
+	position: relative;
+	background-image: url(../../images/gis/blue/btnIcon/ind_bg.png);
+	width: 152px;
+	height: 152px;
+	padding-left: 152px;
+}
+.controlMiddle {
+	position: absolute;
+	left: 32px;
+    top: 32px;
+}
+.btn_closer,.btn_out {
+	width: 88px;
+	height: 44px;
+	cursor: pointer;
+}
+.btn_closer {
+	background-image: url(../../images/gis/blue/btnIcon/btn_closer.png);
+}
+.btn_closer:hover {
+	background-image: url(../../images/gis/blue/btnIcon/btn_closerHover.png);
+}
+.btn_out {
+	background-image: url(../../images/gis/blue/btnIcon/btn_out.png);
+}
+.btn_out:hover {
+	background-image: url(../../images/gis/blue/btnIcon/btn_outHover.png);
+}
+.left,.right {
+	height: 14px;
+	position: absolute;
+    top: 70px;
+    cursor: pointer;
+}
+.left {
+	background-image: url(../../images/gis/blue/btnIcon/ind_left.png);
+	width: 8px;
+    left: 12px;
+}
+.left:hover {
+	background-image: url(../../images/gis/blue/btnIcon/ind_leftCur.png);
+}
+.right {
+	background-image: url(../../images/gis/blue/btnIcon/ind_right.png);
+	width: 11px;
+    right: 12px;
+}
+.right:hover {
+	background-image: url(../../images/gis/blue/btnIcon/ind_rightCur.png);
+}
+.leftUp,.rightUp,.leftDown,.rightDown {
+	position: absolute;
+	width: 11px;
+	height: 11px;
+	cursor: pointer;
+}
+.leftUp {
+	background-image: url(../../images/gis/blue/btnIcon/ind_leftUp.png);
+	left: 26px;
+    top: 34px;
+}
+.leftUp:hover {
+	background-image: url(../../images/gis/blue/btnIcon/ind_leftUpCur.png);
+}
+.rightUp {
+	background-image: url(../../images/gis/blue/btnIcon/ind_rightUp.png);
+	right: 24px;
+    top: 32px;
+}
+.rightUp:hover {
+	background-image: url(../../images/gis/blue/btnIcon/ind_rightUpCur.png);
+}
+.indUp,.indDown {
+	position: absolute;
+	width: 14px;
+	height: 8px;
+	cursor: pointer;
+}
+.indUp {
+	background-image: url(../../images/gis/blue/btnIcon/ind_up.png);
+	left: 68px;
+    top: 14px;
+}
+.indUp:hover {
+	background-image: url(../../images/gis/blue/btnIcon/ind_upCur.png);
+}
+.leftDown {
+	background-image: url(../../images/gis/blue/btnIcon/ind_leftDown.png);
+	left: 26px;
+    bottom: 34px;
+}
+.leftDown:hover {
+	background-image: url(../../images/gis/blue/btnIcon/ind_leftDownCur.png);
+}
+.rightDown {
+	background-image: url(../../images/gis/blue/btnIcon/ind_rightDown.png);
+	right: 24px;
+    bottom: 32px;
+}
+.rightDown:hover {
+	background-image: url(../../images/gis/blue/btnIcon/ind_rightDownCur.png);
+}
+.indDown {
+	background-image: url(../../images/gis/blue/btnIcon/ind_down.png);
+	left: 68px;
+    bottom: 14px;
+}
+.indDown:hover {
+	background-image: url(../../images/gis/blue/btnIcon/ind_downCur.png);
+}
+/* 结束圆形按钮 */
+
+/* 调焦按钮 */
+.btn_focus {
+	background-image: url(../../images/gis/blue/btnIcon/btn_focus.png);
+	width: 72px;
+	height: 27px;
+	float: left;
+	cursor: pointer;
+}
+.btn_focus:hover {
+	background-image: url(../../images/gis/blue/btnIcon/btn_focusHover.png);
+}
+.btn_focus.cur {
+	background-image: url(../../images/gis/blue/btnIcon/btn_focusCur.png);
+}
+.btn_focusAdd {
+	background-image: url(../../images/gis/blue/btnIcon/btn_focusAdd.png);
+	width: 71px;
+	height: 27px;
+	float: right;
+	cursor: pointer;
+}
+.btn_focusAdd:hover {
+	background-image: url(../../images/gis/blue/btnIcon/btn_focusAddHover.png);
+}
+.btn_focusAdd.cur {
+	background-image: url(../../images/gis/blue/btnIcon/btn_focusAddCur.png);
+}
+/* 结束调焦按钮 */
+
+/* 聚焦按钮 */
+.btn_dodge {
+	background-image: url(../../images/gis/blue/btnIcon/btn_dodge.png);
+	width: 72px;
+	height: 27px;
+	float: left;
+	cursor: pointer;
+}
+.btn_dodge:hover {
+	background-image: url(../../images/gis/blue/btnIcon/btn_dodgeHover.png);
+}
+.btn_dodge.cur {
+	background-image: url(../../images/gis/blue/btnIcon/btn_dodgeCur.png);
+}
+.btn_burn {
+	background-image: url(../../images/gis/blue/btnIcon/btn_burn.png);
+	width: 71px;
+	height: 27px;
+	float: right;
+	cursor: pointer;
+}
+.btn_burn:hover {
+	background-image: url(../../images/gis/blue/btnIcon/btn_burnHover.png);
+}
+.btn_burn.cur {
+	background-image: url(../../images/gis/blue/btnIcon/btn_burnCur.png);
+}
+/* 结束聚焦按钮  */
+
+/* 光圈按钮  */
+.sliderBg {
+	position: relative;
+	background-image: url(../../images/gis/blue/btnIcon/ind_processbarBg.png);
+	width: 163px;
+	height: 27px;
+}
+.btn_minus,.btn_add {
+	width: 27px;
+	height: 27px;
+	cursor: pointer;
+}
+.btn_minus {
+	background-image: url(../../images/gis/blue/btnIcon/btn_minus.png);
+	float: left;
+}
+.btn_minus:hover {
+	background-position: -54px 0;
+}
+.btn_add {
+	background-image: url(../../images/gis/blue/btnIcon/btn_add.png);
+	float: right;
+}
+.btn_add:hover {
+	background-position: -54px 0;
+}
+.ind_processbar {
+	position: absolute;
+    top: 12px;
+    left: 30px;
+	background-image: url(../../images/gis/blue/btnIcon/ind_processbar.png);
+	width: 101px;
+	height: 5px;
+	overflow: hidden;
+}
+.ind_processbar span{
+    display:block;
+    width: 0;
+    height: 100%;
+    border-radius: 3px;
+    background: #3a9acd;
+    -webkit-animation: changePosition 4s linear infinite;
+}
+/* @-webkit-keyframes changePosition{
+    0%{
+        -webkit-transform: translate(-150px);
+    }
+    50%{
+        -webkit-transform: translate(0);
+    }
+    100%{
+        -webkit-transform: translate(150px);
+    }
+} */
+/* 结束光圈按钮  */
+
+/* 结束视频右侧按钮 */

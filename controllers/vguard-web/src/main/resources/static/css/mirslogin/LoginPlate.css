@@ -1,0 +1,1163 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: "Microsoft YaHei";
+    /*闂佽法鍠愰弸濠氬箯閻戣姤鏅搁柡鍌樺�栫�氬綊鏌ㄩ悢鍛婄伄闁归鍏橀弫鎾诲棘閵堝棗顏堕梺顐㈩樀閺佹捇寮妶鍡楊伓 ie 濞戞柨顑呮晶鐘绘煥閻旇袚闁哄牜鍓熼弫鎾诲棘閵堝棗顏堕梺璺ㄥ枑閺嬪骞忛敓绲琻selectable='on' 闂佽法鍠愰弸濠氬箯妞嬪寒鍔梺璺ㄥ枑閺嬪骞忛悜鑺ユ櫢闁哄倶鍊栫�氾拷 */
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Likely future */
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.lgTopContainer {
+    width: 100%;
+    min-width: 1300px;
+    position: absolute;
+    top: 0px;
+    bottom: 100px;
+}
+
+.LoginContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.lgStatement {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    bottom: 0px;
+}
+
+.lgStatementInfo {
+    width: 510px;
+    height: 48px;
+    font-size: 14px;
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 24px;
+    text-align: center;
+    font-family: "Microsoft YaHei";
+}
+
+.lgSilhouetteBG {
+    width: 100%;
+    height: 264px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.lgSilhouetteA {
+    overflow: hidden;
+    height: 246px;
+    width: 100%;
+    position: absolute;
+    z-index: 22;
+    bottom: -2px;
+}
+
+.lgSilhouetteD {
+    overflow: hidden;
+    height: 246px;
+    width: 100%;
+    position: absolute;
+    z-index: 20;
+    bottom: 0px;
+}
+
+.lgSilhouetteEffect {
+    float: none;
+}
+
+.lgpic {
+    position: absolute;
+    bottom: 0px;
+    right: 10%;
+    z-index: 99;
+    width: 590px;
+    height: 365px;
+}
+
+.LoginBlock {
+    position: absolute;
+    top: 120px;
+    left: 190px;
+    width: 620px;
+    height: 250px;
+    overflow: hidden;
+    /*display:none;*/
+    /*background-color:#000;*/
+}
+
+.LoginLogo {
+    height: 70px;
+    width: 70px;
+    float: left;
+}
+
+.LgoinWord {
+    height: 60px;
+    margin-left: 10px;
+    float: left;
+}
+
+.lgCompany {
+    height: 60px;
+    font-size: 27px;
+    line-height: 60px;
+    color: #fff;
+    font-family: "Microsoft YaHei";
+}
+
+.lgEngName {
+    height: 0px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    letter-spacing: 0.6px;
+}
+
+.LoginBox {
+    width: 315px;
+    height: 200px;
+    margin-left: 60px;
+    float: left;
+}
+
+.LoginSrUser {
+    height: 40px;
+    width: 315px;
+    border-radius: 3px;
+    background-color: #fff;
+    font-size: 14px;
+    margin-top: 15px;
+    background-position: 98%;
+    background-repeat: no-repeat;
+    background-image: url('../../images/mirslogin/denglu1.png');
+}
+
+.lgInputUser {
+    height: 38px;
+    width: 260px;
+    border: 0px;
+    margin-left: 10px;
+    /*margin-top: 1px;*/
+    /* color: #333; */
+}
+
+    .lgInputUser:focus {
+        outline: 0px;
+    }
+
+.LoginSrPassword {
+    height: 40px;
+    width: 315px;
+    border-radius: 3px;
+    background-color: #fff;
+    font-size: 14px;
+    border: 0px;
+    margin-top: 18px;
+    background-position: 98%;
+    background-repeat: no-repeat;
+    background-image: url('../../images/mirslogin/denglu2.png');
+}
+
+.lgInputPassword {
+    height: 38px;
+    width: 260px;
+    border: 0px;
+    margin-left: 10px;
+}
+
+    .lgInputPassword:focus {
+        outline: 0px;
+    }
+
+.LoginSrButton {
+    background-image: url("../../images/mirslogin/buttonBG.png");
+    border: 1px solid #03c375;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    height: 40px;
+    letter-spacing: 15px;
+    margin-top: 15px;
+    text-align: center;
+    width: 315px;
+}
+
+.LoginAuxiliary {
+    float: left;
+}
+
+
+
+.lgRecordA {
+    height: 20px;
+    width: 20px;
+    float: left;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.lgRecordB {
+    height: 20px;
+    width: 20px;
+    float: left;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-image: url('../../images/mirslogin/check.png');
+    background-repeat: no-repeat;
+}
+
+.lgmembers {
+    font-size: 12px;
+    width: 100px;
+    height: 40px;
+    line-height: 20px;
+    margin-left: 25px;
+    color: #fff;
+}
+
+.lgforget {
+    color: #f8dd7e;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 10px;
+    text-decoration: underline;
+    margin-top: 34px;
+    cursor: pointer;
+}
+
+.lgRemenber {
+    height: 20px;
+    width: 130px;
+    margin-top: 24px;
+    margin-left: 10px;
+}
+
+.userName {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-color: #0abcf2;
+    border: 1px solid #fff;
+    line-height: 20px;
+    font-size: 20px;
+    float: left;
+}
+
+.lgChooseContainer {
+    position: absolute;
+    top: 195px;
+    left: 210px;
+    width: 530px;
+    height: 185px;
+    overflow: hidden;
+    display: none;
+}
+
+.lgMessageBox {
+    width: 84%;
+    height: 80px;
+    margin-left: 8%;
+    position: relative;
+}
+
+.lgleftMess {
+    width: 1px;
+    height: 80px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.lgrightMess {
+    width: 1px;
+    height: 80px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.lgtopMess {
+    width: 100%;
+    height: 80px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.lgUserPart {
+    width: 30%;
+    height: 52px;
+    margin-top: 14px;
+    border-right: 1px solid #fff;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+}
+
+.lgUser {
+    width: 62px;
+    height: 52px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lgUserInfomation {
+    width: 70%;
+    height: 52px;
+    margin-top: 14px;
+    float: left;
+}
+
+.lgUserInfoBoxA {
+    width: 35%;
+    height: 26px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 26px;
+    float: left;
+    margin-left: 5%;
+    font-family: "Microsoft YaHei";
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.lgUserInfoBoxB {
+    width: 60%;
+    height: 26px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 26px;
+    float: left;
+    font-family: "Microsoft YaHei";
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.lgOrganizationGroup {
+    width: 100%;
+    height: 87px;
+    margin-top: 15px;
+}
+
+.lgOrgPart {
+    width: 84%;
+    height: 87px;
+    float: left;
+    overflow:hidden;
+    position:relative;
+}
+
+.lgOrgLeft {
+    width: 8%;
+    height: 87px;
+    float: left;
+    background-image: url('../../images/mirslogin/lgOrgLeft.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.lgOrgRight {
+    width: 8%;
+    height: 87px;
+    float: right;
+    background-image: url('../../images/mirslogin/lgOrgRight.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.lgOrgPic {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 33px;
+}
+
+.lgOrgIndividual {
+    width:100px;
+    height: 87px;
+    float: left;
+    margin-right:15px;
+    cursor: pointer;
+}
+
+
+
+.lgOrgMainDiv {
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    -moz-box-shadow: 0px 4px 4px rgba(40,131,205,0.3);
+    -webkit-box-shadow: 0px 4px 4px rgba(40,131,205,0.3);
+    box-shadow: 0px 4px 4px rgba(40,131,205,0.3);
+}
+
+.lgOrgDivPic {
+    width: 100%;
+    height: 52px;
+    /*background-image: url('../../images/lgOrgIcon.png');*/
+    background-repeat: no-repeat;
+    background-position: center 16px;
+}
+
+.lgOrgMainDiv:hover {
+    background-color: #d3f3fc;
+}
+
+.lgOrgTrapezoid1 {
+    width: 100%;
+    height: 7px;
+    background-image: url('../../images/mirslogin/lgTrapezoid1.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    
+}
+
+.lgOrgTrapezoid2 {
+    width: 100%;
+    height: 7px;
+    background-image: url('../../images/mirslogin/lgTrapezoid2.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    
+}
+
+.lgOrgTrapezoid3 {
+    width: 100%;
+    height: 7px;
+    background-image: url('../../images/mirslogin/lgTrapezoid3.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.lgOrgTrapezoid4 {
+    width: 100%;
+    height: 7px;
+    background-image: url('../../images/mirslogin/lgTrapezoid4.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.lgOrgTrapezoid5 {
+    width: 100%;
+    height: 7px;
+    background-image: url('../../images/mirslogin/lgTrapezoid5.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+
+.lgOrgTrapezoid6 {
+    width: 100%;
+    height: 7px;
+    background-image: url('../../images/mirslogin/lgTrapezoid6.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+
+.lgOrgTrapezoid7 {
+    width: 100%;
+    height: 7px;
+    background-image: url('../../images/mirslogin/lgTrapezoid7.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.lgOrgDivName {
+    width: 100%;
+    height: 28px;
+    line-height: 32px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.lgCorlor0 {
+    color: #b86ac2;
+}
+
+.lgCorlor1 {
+    color: #e27097;
+}
+
+.lgCorlor2 {
+    color: #dfcd34;
+}
+
+.lgCorlor3 {
+    color: #427bf0;
+}
+
+.lgCorlor4 {
+    color: #1ba57e;
+}
+
+.lgCorlor5 {
+    color: #e3b251;
+}
+
+.lgCorlor6 {
+    color: #c67383;
+}
+
+
+
+/************************             max-width:530px              *************************/
+
+
+@media screen and (min-width:322px) and (max-width:530px) {
+
+    .lgMessageBox{
+        display:none;
+    }
+
+    .lgTopContainer {
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        bottom: 50px;
+        min-width: 320px;
+    }
+
+    .LoginBlock {
+        width: 96%;
+        left: 2%;
+        position: absolute;
+        top: 0px;
+        height: 290px;
+        overflow: hidden;
+        z-index: 100;
+    }
+
+    .lgpic {
+        position: absolute;
+        bottom: 0px;
+        right: 10%;
+        z-index: 99;
+        width: 80%;
+        height: 200px;
+    }
+
+    .lgSilhouetteBG {
+        display: none;
+    }
+
+    .SilhouetteEffect {
+        float: left;
+    }
+
+    .LoginLogo {
+        height: 40px;
+        width: 12%;
+        float: left;
+        margin-left: 2%;
+    }
+
+    .LgoinWord {
+        width: 82%;
+        height: 40px;
+        margin-left: 2%;
+    }
+
+    .lgCompany {
+    	padding-top: 5px;
+        height: 24px;
+        font-size: 17px;
+        line-height: 24px;
+    }
+
+    .lgEngName {
+        height: 0px;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0px;
+    }
+
+    .LoginTop {
+        width: 100%;
+        height: 40px;
+        margin-top: 20px;
+    }
+
+    .LoginBox {
+        width: 315px;
+        height: 140px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    .lgStatement {
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        bottom: 0px;
+    }
+
+    .lgInputUser {
+        height: 34px;
+    }
+
+    .lgInputPassword {
+        height: 34px;
+    }
+
+    .lgStatementInfo {
+        width: 96%;
+        height: 32px;
+        font-size: 12px;
+        margin-top: 2px;
+        margin-left: 2%;
+        line-height: 16px;
+        text-align: center;
+        font-family: "Microsoft YaHei";
+    }
+    
+    .lgStatementInfo span {
+    	display: block;
+    }
+
+    .remenber {
+        height: 20px;
+        width: 130px;
+        float: left;
+    }
+
+    .lgforget {
+        height: 20px;
+        margin-right: 8px;
+        color: #f8dd7e;
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: -20px;
+        text-decoration: underline;
+        float: right;
+        cursor: pointer;
+    }
+
+
+    .LoginAuxiliary {
+        float: left;
+        width: 315px;
+        margin-top:10px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    .lgChooseContainer {
+        position: absolute;
+        top: 80px;
+        left: 0px;
+        width: 100%;
+        height: 185px;
+        overflow: hidden;
+        display: none;
+    }
+
+    .lgUserInfoBoxA {
+        width: 40%;
+        height: 26px;
+        font-size: 12px;
+        color: #fff;
+        line-height: 26px;
+        float: left;
+        font-family: "Microsoft YaHei";
+    }
+
+
+    .lgUserInfoBoxB {
+        width: 55%;
+        height: 26px;
+        font-size: 12px;
+        color: #fff;
+        line-height: 26px;
+        float: left;
+        font-family: "Microsoft YaHei";
+    }
+
+    .lgUserPart {
+        width: 25%;
+    }
+
+    .lgOrgDivName{
+        width: 100%;
+        height:18px;
+        line-height: 18px;
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+
+/************************             max-width:321px              *************************/
+
+@media screen and (max-width:321px) {
+
+    .lgMessageBox{
+        display:none;
+    }
+
+    .lgTopContainer {
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        min-width: 320px;
+    }
+
+
+    .lgOrgDivName{
+        height:16px;
+        line-height:16px;
+        font-size:12px;
+        text-align: center;
+    }
+
+    .LoginBlock {
+        width: 96%;
+        left: 2%;
+        position: absolute;
+        top: 0px;
+        height: 290px;
+        overflow: hidden;
+    }
+
+    .lgpic {
+        position: absolute;
+        bottom: 0px;
+        right: 10%;
+        z-index: 99;
+        width: 80%;
+        height: 160px;
+    }
+
+    .lgSilhouetteBG {
+        display: none;
+    }
+
+    .LoginLogo {
+        width: 15%;
+        height: 40px;
+    }
+
+    .LgoinWord {
+        width: 80%;
+        height: 40px;
+        margin-left: 2%;
+    }
+
+    .lgCompany {
+        height: 24px;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 1.5px;
+    }
+
+    .lgEngName {
+        height: 16px;
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: 0px;
+    }
+
+    .LoginTop {
+        height: 40px;
+        margin-top: 10px;
+    }
+
+    .LoginBox {
+        width: 100%;
+        height: 140px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+
+    .lgStatement {
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        bottom: 0px;
+        display: none;
+    }
+
+    .lgInputUser {
+        height: 34px;
+        width: 240px;
+    }
+
+    .lgInputPassword {
+        height: 34px;
+        width: 240px;
+    }
+
+    .lgStatementInfo {
+        width: 96%;
+        height: 32px;
+        font-size: 12px;
+        margin-top: 9px;
+        margin-left: 2%;
+        line-height: 16px;
+        text-align: center;
+        font-family: "Microsoft YaHei";
+    }
+
+    .LoginSrUser {
+        width: 96%;
+        margin-left: 2%;
+    }
+
+    .LoginSrPassword {
+        width: 96%;
+        margin-left: 2%;
+    }
+
+    .LoginButton {
+        width: 96%;
+        margin-left: 2%;
+    }
+
+    .LoginSrButton {
+        height: 40px;
+        width: 96%;
+        margin-left: 2%;
+        border-radius: 3px;
+        margin-top: 15px;
+        cursor: pointer;
+        border: 1px solid #03c375;
+        background-image: url('../../images/mirslogin/buttonBG.png');
+        color: #fff;
+        Letter-spacing: 15px;
+        text-align: center;
+    }
+
+    .lgUserInfoBoxA {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .lgUserInfoBoxB {
+        display: none;
+    }
+
+    .lgUserPart {
+        width: 30%;
+    }
+
+
+    .LoginAuxiliary {
+        width: 100%;
+        height:30px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:20px;
+        float: none;
+    }
+
+    .lgChooseContainer {
+        position: absolute;
+        top: 80px;
+        left: 0px;
+        width: 100%;
+        height: 185px;
+        overflow: hidden;
+        display: none;
+    }
+
+    .lgRemenber {
+        height: 20px;
+        width: 130px;
+        float:left;
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+
+    .lgforget{
+        margin-top: 0px;
+        margin-right:10px;
+        float:right;
+    }
+}
+
+
+
+@media screen and (min-width:521px) and (max-width:769px) {
+
+    .lgMessageBox{
+        display:none;
+    }
+
+    .lgTopContainer {
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        bottom: 70px;
+        min-width: 320px;
+    }
+
+    .lgChooseContainer {
+        position: absolute;
+        top: 120px;
+        left: 120px;
+        width: 530px;
+        height: 185px;
+        overflow: hidden;
+        display: none;
+    }
+
+    .LoginBlock {
+        position: absolute;
+        top: 40px;
+        left: 119px;
+        height: 290px;
+        overflow: hidden;
+    }
+
+    .lgpic {
+        position: absolute;
+        bottom: 0px;
+        right: 10%;
+        z-index: 99;
+        width: 80%;
+        height: 350px;
+    }
+
+    .lgSilhouetteBG {
+        display: none;
+    }
+
+    .SilhouetteEffect {
+        float: left;
+    }
+
+    .LoginBox {
+        width: 315px;
+        height: 150px;
+        margin-top: 80px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    .lgStatement {
+        position: absolute;
+        width: 100%;
+        height: 70px;
+        bottom: 0px;
+        background-color: #fff;
+    }
+
+    .lgInputUser {
+        margin-top: 1px;
+        height: 34px;
+    }
+
+    .lgInputPassword {
+        height: 34px;
+    }
+
+    .lgStatementInfo {
+        width: 96%;
+        height: 32px;
+        font-size: 12px;
+        margin-top: 19px;
+        margin-left: 2%;
+        line-height: 16px;
+        text-align: center;
+        font-family: "Microsoft YaHei";
+    }
+
+    .remenber {
+        height: 20px;
+        width: 130px;
+        float: left;
+    }
+
+    .lgforget {
+        height: 20px;
+        margin-right: 8px;
+        color: #f8dd7e;
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: -20px;
+        text-decoration: underline;
+        float: right;
+        cursor: pointer;
+    }
+
+
+    .LoginAuxiliary {
+        float: left;
+        width: 315px;
+        margin-left: 105px;
+    }
+}
+
+
+@media screen and (min-width:770px) and (max-width:1500px) {
+
+    .lgMessageBox{
+        display:none;
+    }
+
+    .lgTopContainer {
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        bottom: 70px;
+        min-width: 320px;
+    }
+
+    .lgChooseContainer {
+        position: absolute;
+        top: 120px;
+        left:5%;
+        width: 530px;
+        height: 185px;
+        overflow: hidden;
+        display: none;
+    }
+
+    .LoginBlock {
+        position: absolute;
+        top: 40px;
+        left: 5%;
+        height: 290px;
+        overflow: hidden;
+    }
+
+    .lgpic {
+        position: absolute;
+        bottom: 0px;
+        right: 5%;
+        z-index: 99;
+        width: 354px;
+        height: 263px;
+    }
+
+    .lgSilhouetteBG {
+        display: block;
+    }
+
+    .SilhouetteEffect {
+        float: left;
+    }
+
+    .LoginBox {
+        width: 315px;
+        height: 150px;
+        margin-top: 80px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+
+    .lgStatement {
+        position: absolute;
+        width: 100%;
+        height: 70px;
+        bottom: 0px;
+        background-color: #fff;
+    }
+
+    .lgInputUser {
+        height: 34px;
+    }
+
+    .lgInputPassword {
+        height: 34px;
+    }
+
+    .lgStatementInfo {
+        width: 96%;
+        height: 32px;
+        font-size: 12px;
+        margin-top: 19px;
+        margin-left: 2%;
+        line-height: 32px;
+        text-align: center;
+        font-family: "Microsoft YaHei";
+    }
+
+    .remenber {
+        height: 20px;
+        width: 130px;
+        float: left;
+    }
+
+    .lgforget {
+        height: 20px;
+        margin-right: 8px;
+        color: #f8dd7e;
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: -20px;
+        text-decoration: underline;
+        float: right;
+        cursor: pointer;
+    }
+
+
+    .LoginAuxiliary {
+        float: left;
+        width: 315px;
+        margin-left: 130px;
+    }
+}
+
+@media screen and (min-width:1501px) {
+	.LoginBlock {
+		height: 300px;
+	}
+	
+	.lgforget {
+		float: right;
+		margin-top: -20px;
+	}
+	
+	.lgRemenber {
+		margin-top: 0;
+	}
+	
+	.LoginAuxiliary {
+        width: 315px;
+        margin-left: 130px;
+    }
+    
+    .lgTopContainer {
+    	bottom: 80px;
+    }
+    
+    .lgStatement {
+    	height: 80px;
+    }
+    
+    .lgStatementInfo {
+    	width: 100%;
+    	margin-top: 30px;
+    }
+}
+

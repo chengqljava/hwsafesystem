@@ -1,0 +1,227 @@
+a.gn-icon {
+	background-image: url(../../../images/gis/blue/map/gn-icon-menu.png);
+}
+.gn-menu-wrapper,.subnav ,.subnav2{
+	box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+.gn-scroller,.subnav,.subnav2 {
+	background-color: #fff;
+}
+.gn-scroller ul li {
+	border-bottom-color: #e0e3e6;
+}
+.gn-scroller ul li a,.subTitle {
+	color: #292929;
+}
+.syqy {
+	background-image: url(../../../images/gis/blue/map/syqy.png);
+}
+.gn-scroller ul li.active .syqy {
+	background-image: url(../../../images/gis/blue/map/syqyHover.png);
+}
+.zdwxy {
+	background-image: url(../../../images/gis/blue/map/icon-1.png);
+}
+.gn-scroller ul li.active .zdwxy {
+	background-image: url(../../../images/gis/blue/map/icon-01.png);
+} 
+.whpqy {
+	background-image: url(../../../images/gis/blue/map/icon-2.png);
+}
+.gn-scroller ul li.active .whpqy {
+	background-image: url(../../../images/gis/blue/map/icon-02.png);
+} 
+.aqyh {
+	background-image: url(../../../images/gis/blue/map/aqyh.png);
+}
+.gn-scroller ul li.active .aqyh {
+	background-image: url(../../../images/gis/blue/map/aqyhHover.png);
+} 
+.yjzy {
+	background-image: url(../../../images/gis/blue/map/yjzy.png);
+}
+.gn-scroller ul li.active .yjzy {
+	background-image: url(../../../images/gis/blue/map/yjzyHover.png);
+} 
+.sgzczy {
+	background-image: url(../../../images/gis/blue/map/icon-3.png);
+}
+.gn-scroller ul li.active .sgzczy {
+	background-image: url(../../../images/gis/blue/map/icon-03.png);
+} 
+.cxtj {
+	background-image: url(../../../images/gis/blue/map/icon-4.png);
+}
+.gn-scroller ul li.active .cxtj {
+	background-image: url(../../../images/gis/blue/map/icon-04.png);
+} 
+.kjfx {
+	background-image: url(../../../images/gis/blue/map/icon-5.png);
+}
+.gn-scroller ul li.active .kjfx {
+	background-image: url(../../../images/gis/blue/map/icon-05.png);
+} 
+.scada {
+	background-image: url(../../../images/gis/blue/map/icon-6.png);
+}
+.gn-scroller ul li.active .scada {
+	background-image: url(../../../images/gis/blue/map/icon-06.png);
+} 
+.xcgl {
+	background-image: url(../../../images/gis/blue/map/icon-7.png);
+}
+.gn-scroller ul li.active .xcgl {
+	background-image: url(../../../images/gis/blue/map/icon-07.png);
+} 
+ul.gn-submenu {
+	border-top-color: #5f6f81;
+}
+ul.gn-submenu li a:hover,ul.gn-submenu li.active a {
+	background-color: #e5f2fc;
+}
+.inputSearch {
+	border-color: #a2a2a2;
+}
+.searchBtn {
+	background-image: url(../../../images/gis/blue/map/searchBtn.png);
+}
+.searchTable thead tr {
+	background-color: #e8e9ea;
+}
+.picAll {
+	background-image: url(../../../images/gis/blue/map/ss.png);
+}
+.btnClass,.special,.carousel {
+	background-color: #fff;
+	box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+.btnClass ul li {
+	border-bottom-color: #ccc;
+
+}
+.addBtn {
+	background-image: url(../../../images/gis/blue/map/addIcon.png);
+}
+.delBtn {
+	background-image: url(../../../images/gis/blue/map/delIcon.png);
+}
+.home {
+	background-image: url(../../../images/gis/blue/map/home.png);
+}
+.btnTop ul li:hover .home,.btnTop ul li.active .home {
+	background-image: url(../../../images/gis/blue/map/homeHover.png);
+}
+.eye {
+	background-image: url(../../../images/gis/blue/map/eye.png);
+}
+.btnTop ul li:hover .eye,.btnTop ul li.active .eye {
+	background-image: url(../../../images/gis/blue/map/eyeHover.png);
+}
+.rule {
+	background-image: url(../../../images/gis/blue/map/rule.png);
+}
+.btnTop ul li:hover .rule,.btnTop ul li.active .rule {
+	background-image: url(../../../images/gis/blue/map/ruleHover.png);
+}
+.tuli {
+	background-image: url(../../../images/gis/blue/map/tuli.png);
+}
+.btnTop ul li:hover .tuli,.btnTop ul li.active .tuli {
+	background-image: url(../../../images/gis/blue/map/tuliHover.png);
+}
+.pic {
+	background-image: url(../../../images/gis/blue/map/img.png);
+}
+.btnTop ul li:hover .pic,.btnTop ul li.active .pic {
+	background-image: url(../../../images/gis/blue/map/imgHover.png);
+}
+.area {
+	background-image: url(../../../images/gis/blue/map/area.png);
+}
+.btnTop ul li:hover .area,.btnTop ul li.active .area {
+	background-image: url(../../../images/gis/blue/map/areaHover.png);
+}
+.ball {
+	background-image: url(../../../images/gis/blue/map/worldIcon.png);
+}
+.special a {
+	color: #323232;
+}
+.downTriangle {
+	background-image: url(../../../images/gis/blue/map/downTriangle.png);
+}
+.prev-bnt {
+	background-image: url(../../../images/gis/blue/map/leftTriangle.png);
+}
+.next-bnt {
+	background-image: url(../../../images/gis/blue/map/rightTriangle.png);
+}
+
+a.srcImg {
+	color: #fff;
+}
+a.srcImg img {
+	border-color: #e7e7e7;
+}
+a.srcImg:hover img {
+	border-color: #4fbde9;
+}
+a.srcImg span {
+	background-color: rgba(0,0,0,.5);
+}
+a.srcImg span i {
+	background-image: url(../../../images/gis/blue/map/caremaIcon.png);
+}
+/* 气泡 */
+
+.bubble {
+	border-color: #ccc;
+	background-color: #fff;
+}
+.bubbleTop {
+	border-bottom-color: #ccc;
+	background-color: #f9f9f9;
+}
+.bubbleContent {
+	background-color: #fff;
+}
+.bubbleContent ul li a {
+	color: #444444;
+}
+.bubbleContent ul li a img {
+	border-color: #e6e6e6;
+}
+.bubbleContent ul li a:hover img {
+	border-color: #4fbde9;
+} 
+
+.popup-bubble {
+	border-color: #ccc;
+	box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+.popup-bubbleTop {
+	border-bottom-color: #ccc;
+	background-color: #209bdb;
+	color: #fff;
+}
+.dyTable,.dyTable tr td {
+	border-color: #ccc;
+}
+.popup-bubbleTop h3 {
+	color: #000;
+}
+.popup-bubbleContent {
+	background-color:rgba(255,255,255,.93);
+}
+em.popup-bot {
+	border-color:rgba(137,175,202,.9) transparent transparent; 
+}
+ em.popup-top {
+	border-color:rgba(255,255,255,.99) transparent transparent; 
+}
+.btnClose {
+	background-image: url(../../../images/gis/blue/map/closeBtn.png);
+}
+.btnClose:hover {
+	background-image: url(../../../images/gis/blue/map/closeBtnHover.png);
+}

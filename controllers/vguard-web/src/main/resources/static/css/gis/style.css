@@ -1,0 +1,372 @@
+@CHARSET "UTF-8";
+
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow:hidden;
+}
+#map{
+	width: 100%;
+	padding: 0;
+	height:100%;
+	
+}
+
+
+.ol-custom-overviewmap, .ol-custom-overviewmap.ol-uncollapsible {
+	bottom:50px;
+	left: auto;
+	right: 49px;
+	top: auto;
+}
+
+.ol-custom-overviewmap:not(.ol-collapsed)
+{
+	border:1px solid black;
+}
+.ol-custom-overviewmap .ol-overviewmap-map {
+	border: none;
+	width: 250px;
+}
+
+.ol-custom-overviewmap .ol-overviewmap-box {
+	border: 2px solid red;
+}
+
+.ol-custom-overviewmap:not (.ol-collapsed ) button {
+	bottom: auto;
+	left: auto;
+	right: 1px;
+	top: 1px;
+}
+
+.tooltip {
+	position: relative;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 4px;
+	color: white;
+	padding: 4px 8px;
+	opacity: 0.7;
+	white-space: nowrap;
+}
+
+.tooltip-measure {
+	opacity: 1;
+	font-weight: bold;
+}
+
+.tooltip-static {
+	background-color: #ffcc33;
+	color: black;
+	border: 1px solid white;
+}
+
+.tooltip-measure:before, .tooltip-static:before {
+	border-top: 6px solid rgba(0, 0, 0, 0.5);
+	border-right: 6px solid transparent;
+	border-left: 6px solid transparent;
+	content: "";
+	position: absolute;
+	bottom: -6px;
+	margin-left: -7px;
+	left: 50%;
+}
+
+.tooltip-static:before {
+	border-top-color: #ffcc33;
+}
+
+.mouse-position{
+	position:absolute;
+	display:block;
+	margin:2px;
+	padding:2px;
+	bottom: 35px;
+    //left: 8px;
+    z-index:99;
+    font-size:12px;
+    margin-left:10px;
+}
+
+.tooltip {
+	position: relative;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 4px;
+	color: white;
+	padding: 4px 8px;
+	opacity: 0.7;
+	white-space: nowrap;
+}
+
+.tooltip-measure {
+	opacity: 1;
+	font-weight: bold;
+}
+
+.tooltip-static {
+	background-color: #ffcc33;
+	color: black;
+	border: 1px solid white;
+}
+
+.tooltip-measure:before, .tooltip-static:before {
+	border-top: 6px solid rgba(0, 0, 0, 0.5);
+	border-right: 6px solid transparent;
+	border-left: 6px solid transparent;
+	content: "";
+	position: absolute;
+	bottom: -6px;
+	margin-left: -7px;
+	left: 50%;
+}
+
+.tooltip-static:before {
+	border-top-color: #ffcc33;
+}
+
+.ol-rotate {
+    //top: 3.5em;
+}
+
+.ol-scale-line {
+    bottom: 10px;
+} 
+
+.ol-zoom {
+	top: 186px;
+    right: 49px;
+    left:auto
+}
+
+.ol-control button{
+	width:30px;
+	height:36px;
+}
+
+.time-control-btn{
+	margin-left:5px;
+	padding:5px 10px;
+	border:1px solid #acb2bb;
+	background:#fff;
+	color:#000;
+	text-decoration:none;
+	float:left;
+}
+.time-control-btn.active{
+	background:#278df2;
+	color:#fff;
+}
+#time-panel{
+	background:rgba(255,255,255,.6);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF);
+	border:1px solid #acb2bb;
+	padding:13px;
+	margin-top:5px;
+	width:323px;
+	overflow:hidden;
+	position:absolute;
+	top:10px;
+	right:120px;
+	display:block;
+}
+.time-panel-title{
+	font-weight:100;
+	font-size:10px;
+	height:10px;
+	padding-top: 5px;
+}
+.time-panel-title .time-panel-time{
+	font-size:12px;
+	font-weight:400;
+	margin-left:10px;
+}
+.time-panel-control{
+	overflow:hidden;
+}
+.time-panel-progress-container{
+	float:left;
+	width:252px;
+}
+.time-panel-progress-bar{
+	background:url(../../images/gis/time-progress-bar.png) no-repeat right 0;
+	width:252px;
+	height:8px;
+	position:relative;
+	margin-top:30px;
+}
+.time-panel-progress-text{
+	overflow:hidden;
+	margin-top:-3px;
+	width:270px;
+	position:relative;
+	left:-5px;
+}
+/* .time-panel-progress-tick{
+	float:left;
+	background:url(http://webmap0.map.bdstatic.com/newheatmap/static/index/images/tick_72211ea.png?__sprite) no-repeat 50% 0;
+	padding-top:7px;
+	width:12.5%;
+	text-align:center;
+	*width:12.4%;
+} */
+.time-panel-week .time-panel-progress-tick{
+	width:14.28%;
+	*width:14.2%;
+}
+.time-panel-progress{
+	background:url(../../images/gis/time-progress.png) no-repeat 0 0;
+	width:16px;
+	height:16px;
+	position:absolute;
+	top:-5px;
+	left:0;
+}
+.time-panel-btn{
+	background:url(../../images/gis/time-btn-pause.png) no-repeat 0 0;
+	width:33px;
+	height:33px;
+	float:right;
+	cursor:pointer;
+	margin-top: 15px;
+}
+.time-panel-btn.play{
+	background:url(../../images/gis/time-btn-play.png) no-repeat 0 0;
+}
+
+.time-close-img{
+	opacity: 0.5;
+    width: 16px;
+    height: 16px;
+    background: red;
+    margin-top: -75px;
+    margin-right: -12px;
+    left: auto;
+    float: right;
+    cursor:pointer;
+}
+
+.time-title{
+	padding:2px;
+}
+
+table{
+	font-size:12px;
+}
+
+/* 弹出框 */
+/* .pop {
+  background-color: #fff;
+  width: 380px;
+  height: 254px;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.pop .popTitle {
+  height: 36px;
+  background-color: #209cdc;
+  padding-left: 16px;
+  line-height: 36px;
+  color: #fff;
+}
+.pop em.popup-bot {
+  border-style: solid dashed dashed;
+  border-width: 20px;
+  bottom: -40px;
+  left: 172px;
+  border-color: rgba(194, 194, 194, 0.9) transparent transparent;
+}
+.pop em {
+  font-size: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+}
+.pop em.popup-top {
+  border-style: solid dashed dashed;
+  border-width: 20px;
+  bottom: -39px;
+  left: 172px;
+  border-color: rgba(255, 255, 255, 0.99) transparent transparent;
+}
+.pop .popup-closeBtn {
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 0;
+} */
+
+.BMap_center{
+	/*top:0 !important;
+	width:450px !important;
+	height:250px !important; */
+}
+.popu-bubbleTop{
+	display:none !important;
+}
+ .tab .tab_menu {
+  /*background-color: #f1f1f1;*/
+  width: 100px;
+  height: 250px;
+  font-size: 12px;
+  float: left;
+  margin-left:-15px;
+}
+.tab .tab_menu ul {
+	margin: 0;
+	padding: 0;
+}
+.tab .tab_menu ul li {
+  padding: 0;
+  text-align: center;
+  float: none;
+  list-style: none;
+  line-height: 35px;
+  cursor: pointer;
+  color:#333333;
+  border:none;
+  border-radius:0;
+  background-color:#f8fbfe;
+  border:1px solid #e2e2e2;
+  border-right:none;
+}
+ .tab .tab_menu ul li:hover,  .tab .tab_menu ul li.active {
+  background-color: #fff;
+  border-left:2px solid #00b1d4;
+}
+.tab .tab_box {
+  float: left;
+  width: 300px;
+}
+.tab .tab_box table {
+  width: 100%;
+}
+.tab .tab_box table tbody tr td {
+  text-align: left;
+  font-size: 12px;
+  line-height: 35px;
+  padding-left: 10.7px;
+  white-space: nowrap;
+}
+.tab .tab_box table.bTable tbody tr td:nth-child(even) {
+	color: #333;
+}
+.tab .tab_box table.bTable tbody tr td:nth-child(odd) {
+	/*font-weight: bold;*/
+}
+.second a {
+	width: 50%;
+	padding-left: 12%;
+}
+.tab .tab_box a {
+  color: #333;
+  display: block;
+  float: left;
+  line-height: 35px;
+  text-decoration: none;
+}
+ .tab .tab_box a img {
+  padding-right: 8px;
+}

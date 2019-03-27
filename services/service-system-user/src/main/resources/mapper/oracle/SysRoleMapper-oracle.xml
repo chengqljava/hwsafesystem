@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.sys.mapper.SysRoleMapper" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.sys.domain.SysRole" >
+	<result column="roleid" property="roleid" jdbcType="VARCHAR" />
+	<result column="rolename" property="rolename" jdbcType="VARCHAR" />
+	<result column="note" property="note" jdbcType="VARCHAR" />
+	<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+	<result column="updateper" property="updateper" jdbcType="VARCHAR" />
+	<result column="usertype" property="usertype" jdbcType="VARCHAR" />
+	<result column="orgid" property="orgid" jdbcType="VARCHAR" />
+    <result column="ismember" property="ismember" jdbcType="VARCHAR" />
+    <result column="userlevel" property="userlevel" jdbcType="CHAR" />
+</resultMap>
+       
+<!-- sys_role table all fields -->
+<sql id="Base_Column_List" >
+	 roleid,rolename,note,updatetime,updateper,usertype,orgid,ismember,userlevel
+</sql>
+   
+ <!-- 分页查询 -->
+<select id ="loadByPage" resultType="map">
+  	select sr.*,org.orgname 
+	from sys_role sr left join sys_org org on sr.orgid = org.orgid
+	where 1=1
+	<if test="rolename!=null and rolename!='' and rolename!='null'">
+		and sr.rolename like '%'||#{rolename}||'%'
+	</if>
+	<if test="usertype!=null and usertype!='' and usertype!='null'">
+		and sr.usertype = #{usertype}
+	</if>
+	<if test="orgid!=null and orgid!='' and orgid!='null'">
+		and sr.orgid = #{orgid}
+	</if>
+  </select>
+
+<!-- 查询角色列表 -->
+<select id="loadByList" resultMap="BaseResultMap"  parameterType="map">
+	select 
+	<include refid="Base_Column_List"/>
+	from sys_role 
+	where 1=1
+	<if test="rolename!=null and rolename!='' and rolename!='null'">
+		and rolename like '%'||#{rolename}||'%'
+	</if>
+	<if test="usertype!=null and usertype!='' and usertype!='null'">
+		and usertype = #{usertype}
+	</if>
+	<if test="orgid!=null and orgid!='' and orgid!='null'">
+		and orgid = #{orgid}
+	</if>
+</select>
+
+<!-- 插入记录 -->
+<insert id="save" parameterType="com.hwsafe.sys.domain.SysRole"  useGeneratedKeys="true" keyProperty="roleid" > 
+	<selectKey  resultType="java.lang.String" keyProperty="roleid" order="BEFORE">    
+          select sys_guid() as roleid from dual 
+    </selectKey>  
+  insert into sys_role(roleid,rolename,note,updatetime,updateper,usertype,orgid,ismember,userlevel)
+ values(
+ #{roleid,jdbcType=VARCHAR},
+ #{rolename,jdbcType=VARCHAR},
+ #{note,jdbcType=VARCHAR},
+ #{updatetime,jdbcType=TIMESTAMP},
+ #{updateper,jdbcType=VARCHAR},
+ #{usertype,jdbcType=VARCHAR},
+ #{orgid,jdbcType=VARCHAR},
+ #{ismember,jdbcType=VARCHAR},
+ #{userlevel,jdbcType=CHAR}
+ )
+</insert>
+
+<!-- 根据id修改记录-->  
+ <update id="update" parameterType="com.hwsafe.sys.domain.SysRole" >
+  update sys_role set 
+  rolename=#{rolename,jdbcType=VARCHAR},
+  note=#{note,jdbcType=VARCHAR},
+  updatetime=#{updatetime,jdbcType=TIMESTAMP},
+  updateper=#{updateper,jdbcType=VARCHAR},
+  usertype=#{usertype,jdbcType=VARCHAR},
+  orgid=#{orgid,jdbcType=VARCHAR},
+  ismember=#{ismember,jdbcType=VARCHAR},
+  userlevel=#{userlevel,jdbcType=CHAR}   
+  where roleid=#{roleid,jdbcType=VARCHAR}
+ </update>
+ 
+<!-- 删除记录 -->
+<delete id="delete" parameterType="string">
+	delete from sys_role where roleid = #{roleid}
+</delete>
+
+<!-- 根据id查询 角色 -->
+<select id="loadById"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from sys_role where roleid = #{roleid}
+</select>
+
+<!-- 根据角色名查询 角色 -->
+<select id="loadByName"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from sys_role where rolename = #{rolename}
+</select>
+
+<!-- 查询权限菜单 -->
+	<select id="loadPrivByid" resultType="map"  parameterType="map">
+		<if test="ids.length == 0 or ids==null">
+			select DISTINCT sf.privid "id",sf.privname "name",
+			sf.parentid "pId",'false' "checked"
+			from sys_priv sf
+			<where>
+				 <if test="usertype!=null and usertype!='' and usertype!='null'"> sf.usertype=#{usertype}</if>
+			</where>
+			union 
+			select oper.operid "id",oper.opername "name", oper.privid "pId", 
+			'false' "checked"
+			 from sys_oper oper left join sys_priv pri on oper.privid = pri.privid
+			 <where>
+				 <if test="usertype!=null and usertype!='' and usertype!='null'"> pri.usertype=#{usertype}</if>
+			</where>
+		</if>
+		<if test="ids!=null and ids.length > 0 ">
+			select DISTINCT sf.privid "id",sf.privname "name",
+			sf.parentid "pId",
+			case when lrf.conid is null then 'false'
+			else 'true' end as "checked"
+			from sys_priv sf
+			LEFT JOIN (SELECT * from lk_role_priv
+			<where>
+				roleid in
+				<foreach collection="ids" index="index" item="item" open="("
+					separator="," close=")">
+					#{item}
+				</foreach>
+			</where>
+			) lrf on sf.privid = lrf.privid 
+			<where>
+				 <if test="usertype!=null and usertype!='' and usertype!='null'"> sf.usertype=#{usertype}</if>
+			</where>
+			union
+ 			select op.operid "id",op.opername "name",
+ 			op.privid "pId", 
+ 			case when lrp.conid is null then 'false' else 'true' end as "checked" 
+ 			from sys_oper op left join lk_role_priv lrp on op.operid = lrp.operid 
+ 			left join sys_role role on lrp.roleid = role.roleid 
+ 			<where>
+				role.roleid in 
+				<foreach collection="ids" index="index" item="item" open="("
+					separator="," close=")">
+					#{item}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
+  <!-- 根据用户类型查询 -->
+<select id="loadByUsertype"  resultType="map" parameterType="string">
+	 select  
+	    roleid,rolename,note,updatetime,updateper,usertype,orgid
+	 from sys_role role
+	 <where>
+		 <if test="usertype!=null and usertype!='' and usertype!='null'"> role.usertype=#{usertype}</if>
+	 </where>
+</select>	
+</mapper>   

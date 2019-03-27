@@ -1,0 +1,823 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    font-size: 12px;
+    background-color: #090F1B !important;
+}
+
+#testMap {
+    position: relative;
+    color: #000;
+    text-align: left;
+    overflow: hidden;
+    z-index: 0;
+    background-color: #090F1B !important;
+}
+
+.main {
+    height: calc( 100% - 20px );
+    width: 350px;
+    background: rgba(16,16,16,0.60);
+    position: absolute;
+    /* 濞达絽绉堕悿鍡欐嫬閸愨晜娈� */
+    left: 10px;
+    top: 10px;
+    box-shadow: 0 0 1px #000 inset;
+}
+
+.mainTitle {
+    margin: 0;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    /*border-bottom: 1px solid #f4f4f4;*/
+    color: #6DF5FE;
+    font-size: 12px;
+    line-height: 40px;
+    padding-left: 20px;
+    font-family: '鐎甸偊鍠涢拏瀣⒖閸涘鎷�';
+}
+
+/* 閻庝絻澹堥崺鍛村级閿燂拷 */
+#navbar {
+    width: 350px;
+    height: 77px;
+    box-sizing: border-box;
+    font-size: 0;
+    -webkit-text-size-adjust: none;
+    border-bottom: 1px solid #424242;
+}
+.mainHeader{
+	line-height: 40px;
+	font-size: 14px;
+	color: #00BFFF;
+	text-align: center;
+}
+.type {
+    display: inline-block;
+    width: 25%;
+    height: 40px;
+    box-sizing: border-box;
+    margin-top: -10px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.type:hover {
+    /*color: #478de4;*/
+}
+
+.selected {
+    /*color: #478de4;*/
+}
+
+.type:hover > .content > #sylx {
+    background-image: url('../../../images/module/monitor/sylx-hover.png') !important;
+}
+
+.type:hover > .content > #wxhxp {
+    background-image: url('../../../images/module/monitor/wxhxp-hover.png') !important;
+}
+
+.type:hover > .content > #rql {
+    background-image: url('../../../images/module/monitor/rql-hover.png') !important;
+}
+
+.type:hover > .content > #gk {
+    background-image: url('../../../images/module/monitor/gk-hover.png') !important;
+}
+
+#sylx {
+    background-image: url('../../../images/module/monitor/sylx-hover.png');
+}
+
+#wxhxp {
+    background-image: url('../../../images/module/monitor/wxhxp.png');
+}
+
+#rql {
+    background-image: url('../../../images/module/monitor/rql.png');
+}
+
+#gk {
+    background-image: url('../../../images/module/monitor/gk.png');
+}
+
+.typeImg {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.content {
+    width: 78px;
+    height: 70px;
+    margin: 0 auto;
+    border-radius: 20px;
+    /* background-color: black; */
+}
+
+.mes {
+    margin-top: -7px;
+    /*padding: 0px 0 10px;*/
+}
+
+/* 闁瑰吋绮庨崒銊ヮ浖閿燂拷 */
+.search {
+    width: 350px;
+    height: 50px;
+    box-sizing: border-box;
+    position: relative;
+    /*border-bottom: 4px solid #f4f4f4;*/
+}
+
+.searchBox {
+    box-sizing: border-box;
+    position: absolute;
+    height: 36px;
+    width: 320px;
+    background-color: #f4f4f4;
+    color: #999;
+    left: 50%;
+    margin: 0;
+    margin-left: -160px;
+    background: rgba(47,54,63,0.00);
+	border: 1px solid #FFFFFF;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.15);
+	border-radius: 3px;
+	padding-left: 12px;
+    /*outline: none;*/
+}
+
+#searchIcon {
+    position: absolute;
+    right: 27px;
+    top: 11px;
+}
+
+/* 閻犱礁澧介悿鍡涘箵閹邦喓浠涘ǎ鍥ｅ墲娴煎懐锟芥稒銇炵紞瀣紣濠婂棗顥�*/
+input::-webkit-input-placeholder { /* 閻犲鏀遍悺锟�*/
+    color: #999;
+}
+
+input:-moz-placeholder { /* 闁诲浚鍋嗙�氾拷 */
+    color: #999;
+}
+
+input::-moz-placeholder { /* 闁诲浚鍋嗙�氾拷 */
+    color: #999;
+}
+
+input:-ms-input-placeholder { /* IE */
+    color: #999;
+}
+
+/* 闁稿浚鍓欏鍐╃┍閳╁啩绱� */
+.company {
+    width: 300px;
+    padding-left: 20px;
+    text-align: left;
+    color: #fff;
+    height: calc( 100% - 230px );
+}
+
+.companyHeader {
+    width: 320px;
+    margin: 10px 0;
+}
+
+.companyHeader span {
+    font-weight: normal;
+    color: #fff;
+}
+
+.companyLeft {
+    display: inline-block;
+    width: 35px;
+}
+
+.companyCenter {
+    display: inline-block;
+    width: 190px;
+
+
+}
+.companyCenterName{
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+
+.circlePoint {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    /*background-color: #53dca4;*/
+    /*color: white;*/
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 3px;
+}
+
+.singleCompany {
+    margin:  0;
+    cursor: pointer;
+    line-height: 35px;
+    width: 292px;
+    border: 2px solid;
+    border-color: rgba(0,0,0,0);
+}
+
+.singleCompany:hover{
+	border: 2px solid #00BFFF;
+	border-radius: 3px;
+	color: #00bfff;
+}
+
+.singleCompany:nth-of-type(1) {
+    margin-top: 0px;
+}
+
+.companyInfo {
+    width: 320px;
+    margin: 0;
+    padding: 0;
+    height: calc( 100% - 27px );
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* x濞戞挸顑夊鐗堢▔婢跺鍤嬮柡鍕靛灡缁挳宕濋妸锔借拫闁烩晝顭堥崣褔寮藉畡鎵 */
+#area {
+    position: relative;
+    top: 0px;
+}
+
+#scroll {
+    width: 3px;
+    height: 100px;
+    position: absolute;
+    background-color: #478de4;
+    /* top left 濞达絽绉堕悿鍡涘矗閸屾稒娈� */
+    top: 220px;
+    left: 330px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+#scrollBg {
+    width: 3px;
+    height: 165px;
+    position: absolute;
+    background-color: #f4f4f4;
+    /* 闁煎啿鏈▍娆撳级閳ヨ尙绉寸紓鍐挎嫹 */
+    top: 220px;
+    left: 330px;
+    z-index: 996;
+}
+
+/*!*闁烩晜鍨剁粊鎾箮閵夘煈鍔�*!*/
+@media (max-width: 700px) {
+    .detection {
+        position: absolute;
+        top: 64px;
+        left: 10px;
+        right: 0;
+        width: 120px;
+    }
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \0000373*/
+    /*}*/
+/*}*/
+
+.detection {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \0000378*/
+    /*}*/
+/*}*/
+
+.detectionAlarm {
+    cursor: pointer;
+    background-color: #ef6a6a;
+    box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, 0.2);
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    border-radius: 3px;
+    padding: 0 12px;
+    color: #fff;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \0000389*/
+    /*}*/
+/*}*/
+
+.detectionShow {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background-color: #fff;
+    box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, 0.2);
+    width: 350px;
+    display: none;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \0000397*/
+    /*}*/
+/*}*/
+
+.detectionShow .table {
+    width: 100%;
+    display: table;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003100*/
+    /*}*/
+/*}*/
+
+.detectionShow .table .thead {
+    display: table-header-group;
+    line-height: 38px;
+    background-color: #f3f3f5;
+    height: 38px;
+    border-bottom: 1px solid #ccc;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003107*/
+    /*}*/
+/*}*/
+
+.detectionShow .table .tbody {
+    display: table-row-group;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003110*/
+    /*}*/
+/*}*/
+
+.detectionShow .table .tr {
+    width: 100%;
+    display: table-row;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003113*/
+    /*}*/
+/*}*/
+
+.detectionShow .table .tr .th {
+    display: table-cell;
+    text-align: center;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003118*/
+    /*}*/
+/*}*/
+
+.detectionShow .table .tr .td {
+    cursor: pointer;
+    display: table-cell;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #e9e7e7;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003125*/
+    /*}*/
+/*}*/
+
+.detectionShow .table .tr .td button {
+    background-image: url(../../../images/monitor/gis/xl.png);
+    background-color: #fff;
+    border: none;
+    padding-left: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003133*/
+    /*}*/
+/*}*/
+
+.detectionShow .table .tr .td button[disabled] {
+    background-image: url(../../../images/monitor/gis/xy.png);
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003137*/
+    /*}*/
+/*}*/
+
+.detectionShow .table .tr .th:nth-child(1), .detectionShow .table .tr .td:nth-child(1) {
+    width: 60px;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003140*/
+    /*}*/
+/*}*/
+
+.detectionShow .table .tr .th:nth-child(2), .detectionShow .table .tr .td:nth-child(2) {
+    width: 170px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003145*/
+    /*}*/
+/*}*/
+
+.detectionShow .table .tr .th:nth-child(3), .detectionShow .table .tr .td:nth-child(3) {
+    width: 60px;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003148*/
+    /*}*/
+/*}*/
+
+.detectionShow .table .tr .th:nth-child(4), .detectionShow .table .tr .td:nth-child(4) {
+    width: 60px;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003157*/
+    /*}*/
+/*}*/
+
+.wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 615px;
+    height: 100%;
+    display: none;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003166*/
+    /*}*/
+/*}*/
+
+.header-top {
+    position: relative;
+    width: 100%;
+    min-height: 50px;
+    padding-left: 20px;
+    background-color: #F3F3F5;
+    border-bottom: 1px solid #CCCCCC;
+    overflow: hidden;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003173*/
+    /*}*/
+/*}*/
+
+.header-top h3 {
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003183*/
+    /*}*/
+/*}*/
+
+.header-top a.back-btn {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 50px;
+    margin-right: 15px;
+    background: url("../../../images/monitor/gis/back.png") no-repeat center left;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003191*/
+    /*}*/
+/*}*/
+
+.header-top a.back-btn:hover {
+    background: url("../../../images/monitor/gis/back-hover.png") no-repeat center left;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003195*/
+    /*}*/
+/*}*/
+
+.header-top a.iback-btn {
+    display: block;
+    float: left;
+    width: 30px;
+    height: 50px;
+    margin-right: 15px;
+    background: url("../../../images/monitor/gis/inback.png") no-repeat center left;
+    display: none;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003205*/
+    /*}*/
+/*}*/
+
+.header-top .header-right {
+    position: relative;
+    right: 0;
+    height: 50px;
+    top: 8px;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003209*/
+    /*}*/
+/*}*/
+
+.header-top .header-right a {
+    display: inline-block;
+    border: 1px solid #3385FF;
+    width: 78px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #333;
+    padding-left: 35px;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003220*/
+    /*}*/
+/*}*/
+
+.header-top .header-right a.alarm {
+    background: url("../../../images/monitor/gis/alarm.png") no-repeat 10px 5px;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003223*/
+    /*}*/
+/*}*/
+
+.header-top .header-right a.video {
+    background: url("../../../images/monitor/gis/video.png") no-repeat 10px 5px;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003226*/
+    /*}*/
+/*}*/
+
+.header-top .header-right a.data {
+    background: url("../../../images/monitor/gis/data.png") no-repeat 10px 5px;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003229*/
+    /*}*/
+/*}*/
+
+.header-top .header-right a.alarm.active {
+    background: url("../../../images/monitor/gis/alarmcur.png") no-repeat 10px 5px;
+    background-color: #3385FF;
+    color: #fff;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003234*/
+    /*}*/
+/*}*/
+
+.header-top .header-right a.video.active {
+    background: url("../../../images/monitor/gis/videocur.png") no-repeat 10px 5px;
+    background-color: #3385FF;
+    color: #fff;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003239*/
+    /*}*/
+/*}*/
+
+.header-top .header-right a.data.active {
+    background: url("../../../images/monitor/gis/datacur.png") no-repeat 10px 5px;
+    background-color: #3385FF;
+    color: #fff;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003249*/
+    /*}*/
+/*}*/
+
+.entcontent {
+    width: 100%;
+    height: 400px;
+}
+
+/*@media -sass-debug-info {*/
+    /*filename {*/
+        /*font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss*/
+    /*}*/
+
+    /*line {*/
+        /*font-family: \00003255*/
+    /*}*/
+/*}*/
+
+/*.table > thead > tr > th,*/
+/*.table > tbody > tr > th,*/
+/*.table > tfoot > tr > th,*/
+/*.table > thead > tr > td,*/
+/*.table > tbody > tr > td,*/
+/*.table > tfoot > tr > td {*/
+    /*border-top: none;*/
+/*}*/
+
+.anchorBL {
+	display: none;
+}
+.BMap_scaleCtrl {
+	display: block;
+}

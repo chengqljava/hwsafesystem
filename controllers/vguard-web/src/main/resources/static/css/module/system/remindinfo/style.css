@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+ul,li{
+    list-style: none;
+}
+.main{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.sgxxHeader{
+    font-size: 14px;
+    line-height: 40px;
+    color: #0773BB;
+    height: 40px;
+    background: #002E6E;
+	border: 1px solid #336DAF;
+	margin:10px;
+}
+.sgxxHeader li{
+    float: left;
+    line-height: 38px;
+    padding: 0 30px;
+    cursor: pointer;
+    margin-right: 1px;
+}
+.sgxxHeader li.active{
+    color: #fff;
+    background-color:rgba(0,197,255,0.30);
+}
+.sgxxHeader li.active i{
+    color: #fff;
+}
+.sgxxHeader li:hover{
+    color: #fff;
+    background-color: rgba(0,197,255,0.30);
+}

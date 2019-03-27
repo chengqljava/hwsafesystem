@@ -1,0 +1,137 @@
+{
+	"map":{
+		"id":"map",
+		"extent":[ 13367428.678496234,3507547.9628098924,13702330.232222322,3795657.8296175636],
+		"view":{
+			"projection" : "EPSG:3857",
+			"center": [11999428.678496234,3507547.9628098924],
+			"zoom":6,
+			"minZoom":4,
+			"maxZoom":16
+		},
+		"mapLayer":{
+			"tile":"tile",
+			"projection" : "EPSG:3857",
+			"url" : "http://192.168.88.11:8080/geowebcache/service/wms",
+			"params" : {
+				"layers" : "shMap",
+				"version" : "1.1.1",
+				"format" : "image/png"
+			},
+			"view":{
+				"projection" : "EPSG:3857",
+				"center": [13527628.678496234,3647547.9628098924],
+				"zoom":10,
+				"minZoom":4,
+				"maxZoom":16
+		},
+			"visible":false
+		},
+		"googleSH":{
+			"tile":"tile",
+			"projection" : "EPSG:3857",
+			"url" : "http://192.168.88.11:8080/geowebcache/service/wms",
+			"params" : {
+				"layers" : "sh_google_111",
+				"version" : "1.1.1",
+				"format" : "image/png"
+			},
+			"view":{
+				"projection" : "EPSG:3857",
+				"center": [13527628.678496234,3647547.9628098924],
+				"zoom":10,
+				"minZoom":4,
+				"maxZoom":16
+		},
+			"visible":true
+		},
+		"imageLayer":{
+			"tile":"tile",
+			"projection" : "EPSG:3857",
+			"url" : "http://192.168.88.11:8080/geowebcache/service/wms",
+			"params" : {
+				"layers" : "shanghaiImage",
+				"version" : "1.1.1",
+				"format" : "image/png"
+			},
+			"view":{
+				"projection" : "EPSG:3857",
+				"center": [13527628.678496234,3647547.9628098924],
+				"zoom":10,
+				"minZoom":4,
+				"maxZoom":16
+			},
+			"visible":false
+		},
+		"googleWTQ":{
+			"tile":"tile",
+			"projection" : "EPSG:3857",
+			"url" : "/geowebcache/service/wms",
+			"params" : {
+				"layers" : "qp_google_dx",
+				"version" : "1.1.1",
+				"format" : "image/png"
+			},
+			"view":{
+				"projection" : "EPSG:3857",
+				"center": [8051898.228505341,2169343.397935410],
+				"zoom":13,
+				"minZoom":6,
+				"maxZoom":18
+			},
+			"visible":true
+		},
+		"googleImageWTQ":{
+			"tile":"tile",
+			"projection" : "EPSG:3857",
+			"url" : "/geowebcache/service/wms",
+			"params" : {
+				"layers" : "wtq_google_yx",
+				"version" : "1.1.1",
+				"format" : "image/png"
+			},
+			"view":{
+				"projection" : "EPSG:3857",
+				"center": [11545428.678496234,3428547.9628098924],
+				"zoom":11,
+				"minZoom":10,
+				"maxZoom":18
+			},
+			"visible":false
+		},
+		"googleZG":{
+			"tile":"tile",
+			"projection" : "EPSG:3857",
+			"url" : "http://192.168.88.11:8080/geowebcache/service/wms",
+			"params" : {
+				"layers" : "zg_google_000",
+				"version" : "1.1.1",
+				"format" : "image/png"
+			},
+			"view":{
+				"projection" : "EPSG:3857",
+				"center": [11999428.678496234,3507547.9628098924],
+				"zoom":4,
+				"minZoom":4,
+				"maxZoom":11
+			},
+			"visible":false
+		}
+     },
+     "overviewMap":{
+     	"className" : "ol-overviewmap ol-custom-overviewmap",
+		"collapsed" : true,
+		"tipLabel":"鹰眼图",
+		"view":{
+			"projection" : "EPSG:3857",
+			"zoom":6
+		}
+     },
+     "mousePositionControl":{
+     	"coordinateFormat":3,
+     	"projection":"EPSG:4326",
+     	"className":"custom-mouse-position",
+     	"target":"mouse-position",
+     	"undefinedHTML":"移动鼠标显示位置"
+     }
+}

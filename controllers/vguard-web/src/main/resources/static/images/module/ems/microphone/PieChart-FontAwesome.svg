@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>Pie Chart - FontAwesome</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="过程再现" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-552.000000, -626.000000)">
+        <g id="一企一档" transform="translate(270.000000, 115.000000)" fill="#FFFFFF">
+            <g id="Group-Copy-8" transform="translate(271.000000, 500.000000)">
+                <g id="Pie-Chart---FontAwesome_export" transform="translate(11.000000, 11.000000)">
+                    <path d="M10.7142842,13.2053335 L18.0267929,20.5178423 C16.1651835,22.4062374 13.5669662,23.5714173 10.7142842,23.5714173 C5.03570598,23.5714173 0.428557634,18.964269 0.428557634,13.2856908 C0.428557634,7.60711259 5.03570598,2.99996424 10.7142842,2.99996424 L10.7142842,13.2053335 Z M13.2187515,13.2856908 L23.5714424,13.2856908 C23.5714424,16.1383728 22.4062624,18.7365901 20.5178673,20.5981995 L13.2187515,13.2856908 Z M22.7142985,11.571403 L12.4285719,11.571403 L12.4285719,1.28567648 C18.1071501,1.28567648 22.7142985,5.89282483 22.7142985,11.571403 Z" id="Pie-Chart---FontAwesome"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

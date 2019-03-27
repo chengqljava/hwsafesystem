@@ -1,0 +1,28 @@
+{
+   "rows":[
+      {
+         "monArea":"合成氨车间",
+         "allMonPtCnts":"60",
+         "alarmMonPtCnts":"20",
+         "faultMonPtCnts":"5"
+      },
+      {
+         "monArea":"催化车间",
+         "allMonPtCnts":"50",
+         "alarmMonPtCnts":"5",
+         "faultMonPtCnts":"3"
+      },
+      {
+         "monArea":"焦化车间",
+         "allMonPtCnts":"26",
+         "alarmMonPtCnts":"5",
+         "faultMonPtCnts":"1"
+      },
+      {
+         "monArea":"甲醇车间",
+         "allMonPtCnts":"66",
+         "alarmMonPtCnts":"12",
+         "faultMonPtCnts":"7"
+      }
+   ]
+}

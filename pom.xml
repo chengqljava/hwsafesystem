@@ -34,6 +34,8 @@
 		<dozer.version>5.5.1</dozer.version>
 		<guava.version>27.1-jre</guava.version>
 		<fastjson.version>1.2.38</fastjson.version>
+		 <!-- oracle驱动 -->
+        <ojdbc6.version>11.2.0.3</ojdbc6.version>
 	</properties>
 	<modules>
 		<module>common-utils</module>

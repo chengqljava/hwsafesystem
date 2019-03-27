@@ -1,0 +1,422 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+}
+ul,li,p{
+    margin: 0;
+    padding: 0;
+}
+/* 事故列表 */
+.accidentList{
+    position: absolute;
+    box-sizing: border-box;
+    width: 260px;
+    height: 215px;
+    left:29px;
+    top: 18px;
+    background-image: url('../../../images/map/bg_01.svg');
+    background-repeat: no-repeat;
+}
+.accidentListTitle{
+    width: 209px;
+    height: 32px;
+    margin: 0 auto;
+    border-bottom: 1px solid #6DF5FE;
+}
+.accidentListTitle img:nth-of-type(2){
+    width: 13px;
+    margin-top: -2px;
+    vertical-align: middle;
+}
+.accidentListTitle span{
+    display: inline-block;
+    height: 32px;
+    margin-left: 14px;
+    width: 161px;
+    font-size: 12px;
+    line-height: 38px;
+    color: #6DF5FE;
+}
+.content{
+    width: 100%;
+}
+.item{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 57px;
+    height: 64px;
+    font-size: 12px;
+    color: white;
+    margin-right: 11px;
+    text-align: center;
+    padding-top: 12px;
+    margin-top: 17px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.5)
+}
+.item img{
+    height: 25px;
+}
+.item p{
+    margin-top: 1.5px;
+}
+.item:nth-of-type(1){
+    background-color: #58c84c;
+    margin-left: 27px;
+}
+.item:nth-of-type(2){
+    background-color: rgba(189,16,224,1);
+}
+.item:nth-of-type(3){
+    background-color: rgba(208,2,27,1);    
+}
+.item:nth-of-type(4){
+    background-color: rgba(245,166,35,1);
+    margin-left: 27px;
+    margin-top: 11px;
+}
+.item:nth-of-type(5){
+    background-color: rgba(234,218,21,1);
+    margin-top: 11px;    
+}
+.item:nth-of-type(6){
+    background-color: rgba(35,191,245,1);
+    margin-top: 11px;    
+}
+/* 资源详情 */
+.zyxq{
+    position: absolute;
+    box-sizing: border-box;
+    width: 260px;
+    height: calc(100% - 290px );
+    top: 250px;
+    left:29px;
+    padding:0 27px;
+    background-image: url('../../../images/map/bg_02.png');
+    background-size: 100% 100%;
+    min-height:265px;
+}
+.zyxqTitle{
+    box-sizing: border-box;
+    border-bottom: 1px solid #6DF5FE;
+    padding-top:12px;
+    padding-bottom: 6px;
+    width: 100%;
+    font-size: 0;
+    text-align: center;
+}
+.zyxqTitle>span{
+    display: inline-block;
+    white-space: nowrap;
+    line-height: 17px;
+    margin-left: 2px;
+    margin-bottom:3px;
+    padding: 1px 5px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: white;
+    border: 1px solid #fff;
+    color: #fff;
+}
+.zyxqContent{
+    margin-top: 12px;
+    width: 100%;
+    height: calc(100% - 92px);
+    min-height: 177px;
+    overflow:auto;
+}
+.zyxqName{
+    width: 100%;
+    border-collapse:collapse;
+    table-layout: fixed;
+}
+.zyxqName thead tr th{
+    box-sizing: border-box;
+    background-color: #999;
+    height:30px;
+    line-height: 30px;
+    border: 1px solid white;
+    color: white;
+    font-weight: normal;
+    font-size: 12px;
+}
+.zyxqName tbody tr td{
+    background-color: none;
+    box-sizing: border-box;
+    text-align: center;
+    height:30px;
+    line-height: 30px;
+    border: 1px solid white;
+    color: white;
+    font-size: 12px;
+    word-break:keep-all;
+    white-space:nowrap;  
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.zyxqName tbody tr:hover{
+    background-color: #999 !important;
+}
+.zyxqName tbody tr:hover td{
+    color: #6DF5FE !important;
+}
+/* 底部导航 */
+.navBarBottom{
+    height: 105px;
+    background-image: url('../../../images/map/bg_06.svg');
+    position: fixed;
+    bottom:  15px;
+    left: 50%;
+    margin-left: -326px;
+    z-index: 6666;
+    background-size:100% 100%;
+}
+.navBargroup{
+    box-sizing: border-box;
+    float: left;
+    margin-left: 10px;
+}
+.navBargroup:nth-of-type(3){
+    margin-right: 10px;
+}
+.navBargroup .item{
+    margin: 0;
+    margin-top: 20px;
+    margin-right: 2px;
+}
+
+/* 事故简报 */
+.accidentInfo{
+    box-sizing: border-box;
+    position: absolute;
+    width: 240px;
+    height: 166px;
+    padding: 0 27px;
+    background-image: url('../../../images/map/bg_03.svg');
+    top: 18px;
+    right: 29px;
+}
+.accidentInfoTitle{
+    box-sizing: border-box;
+    border-bottom: 1px solid #6DF5FE;
+    width: 100%;
+    font-size: 0;
+    padding-top: 5px;
+}
+.accidentInfoTitle img{
+	float:right;
+	margin-top:9px;
+}
+.accidentInfoTitle span{
+    display: inline-block;
+    width: 90%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 28px;
+    color: #6DF5FE;
+}
+.accidentInfoContent{
+    padding-top: 8px;
+}
+.accidentInfoContent p{
+    font-size: 12px;
+    color: white;
+    text-indent: 2em;
+}
+/* 天气信息 */
+.weatherInfo{
+    position: absolute;
+    width: 240px;
+    height: 156px;
+    right: 29px;
+    top: 201px;
+    padding: 0 27px;
+    background-image: url('../../../images/map/bg_04.svg');
+}
+.weatherInfoTitle{
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #6DF5FE;
+    font-size: 0;
+    text-align: center;
+    padding-top: 5px;
+}
+.weatherInfoTitle img{
+    float: right;
+    margin-top: 9px;
+}
+.weatherInfoTitle span{
+    font-size: 14px;
+    line-height: 28px;
+    color: white;
+    padding: 0 10px;
+}
+.weatherInfoContent{
+    padding-top: 8px;
+    width: 100%;
+    height: 180px;
+    margin-left:-20px;
+}
+/* 视频监控 */
+.probeInfo{
+    position: absolute;
+    width: 240px;
+    height: calc(100% - 408px);
+    padding: 0 27px;
+    top: 369px;
+    right:29px;
+    background-image: url('../../../images/map/bg_05.png');
+    background-size: 100% 100%;
+    min-height:140px;
+}
+.probeInfoTitle{
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #6DF5FE;
+    font-size: 0;
+    text-align: center;
+    padding-top: 5px;
+}
+.probeInfoTitle span{
+    font-size: 14px;
+    line-height: 28px;
+    color: white;
+    padding: 0 10px;
+}
+.probeInfoTitle img{
+    float: right;
+    margin-top: 9px;
+}
+.probeInfoContent{
+    text-align: center;
+    font-size: 12px;
+    line-height: 30px;
+    color: white;
+    height: calc( 100% - 73px);
+}
+.probeInfoContent span{
+    margin-left: 12px;
+}
+.probeInfoContentInfo{
+    width: 100%;
+    height: calc(100% - 5px);
+    overflow:auto;
+    min-height:63px;
+}
+.probeInfoContentInfoTable{
+    width: 100%;
+    border-collapse:collapse;
+}
+.probeInfoContentInfoTable thead tr th{
+    box-sizing: border-box;
+    background-color: #999;
+    height:30px;
+    line-height: 30px;
+    border: 1px solid white;
+    color: white;
+    font-weight: normal;
+}
+.probeInfoContentInfoTable tbody tr td{
+    background-color: none;
+    box-sizing: border-box;
+    text-align: center;
+    height:30px;
+    line-height: 30px;
+    border: 1px solid white;
+    color: white;
+}
+
+/* hover效果 */
+.probeInfoContentInfoTable tbody tr:hover{
+    background-color: #999 !important;
+}
+.probeInfoContentInfoTable tbody tr:hover td{
+    color: #6DF5FE !important;
+}
+.active{
+    color: #6DF5FE !important;
+    border-color: #6DF5FE !important;
+}
+.zyxq1:hover,.zyxq2:hover{
+    color: #6DF5FE !important;
+    border-color: #6DF5FE !important;
+}
+.weather1:hover{
+    color: #6DF5FE !important;
+}
+.probe1:hover{
+    color: #6DF5FE !important;
+}
+.probe2:hover{
+    color: #6DF5FE !important;
+}
+
+.visited1{
+    background-color: #5ca0ff !important;
+}
+.navBottom{
+    background-color: #5ca0ff !important;
+}
+.visited2{
+    background-color: #5ed8e0 !important;
+}
+#open{
+    position: absolute;
+    padding-top: 8px;
+    text-align: center;
+    width: 40px;
+    height: 25px;
+    top: 28px;
+    left: -1000px;
+}
+
+/* 居中标题 */
+.title{
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    width: 470px;
+    height: 15px;
+    margin-left: -235px;
+    z-index: 8888;
+}
+.title span{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    line-height: 45px;
+    color: #6DF5FE;
+    text-shadow: 0 2px 4px 1px rgba(0,0,0,0.5);
+    background-image: url('../../../images/map/bg_top.svg');
+}
+
+.zyxqContent{
+    display: none;
+}
+.bncs{
+    display: block;
+}
+span:hover{
+    cursor: pointer;
+}
+img:hover{
+    cursor: pointer;
+}
+.probeInfoContent span{
+    margin-left: 12px;
+}
+thead tr th{
+	text-align:center;
+}
+
+.infoBoxContent{
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    border:1px solid #ABABAB
+}

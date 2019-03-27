@@ -1,0 +1,32 @@
+
+<svg width="258px" height="461px" viewBox="0 0 258 461" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1D478B" offset="0%"></stop>
+            <stop stop-color="#1A457C" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#6DF5FE" offset="0%"></stop>
+            <stop stop-color="#0096E5" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-3" points="48.7425082 223 274 223 274 651.975806 255.191905 670 30 670 30 241.024194"></polygon>
+        <filter x="-4.3%" y="-1.9%" width="108.6%" height="104.7%" filterUnits="objectBoundingBox" id="filter-4">
+            <feMorphology radius="2.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="应急救援" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="标注标准-copy" transform="translate(-23.000000, -218.000000)">
+            <g id="Rectangle-3-Copy-3">
+                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                <use fill-opacity="0.7" fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <path stroke="url(#linearGradient-2)" stroke-width="2" d="M48.7425082,222 L48.339692,222 L48.0493485,222.279216 L29.3068403,240.30341 L29,240.59849 L29,241.024194 L29,670 L29,671 L30,671 L255.191905,671 L255.593708,671 L255.883806,670.721993 L274.691901,652.697799 L275,652.402541 L275,651.975806 L275,223 L275,222 L274,222 L48.7425082,222 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

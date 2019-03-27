@@ -54,11 +54,11 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- 热部署 -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
-		</dependency> -->
+		</dependency> 
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
@@ -108,11 +108,7 @@
 			<artifactId>service-demo</artifactId>
 			<version>${hwsafe.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.hwsafe</groupId>
-			<artifactId>service-qurtz</artifactId>
-			<version>${hwsafe.version}</version>
-		</dependency>
+		
 
 
 

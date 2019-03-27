@@ -1,0 +1,146 @@
+ul {
+	float: left;
+	width: 24%;
+	margin-right: 1.333%;
+	padding-left: 0px;
+}
+
+li {
+	list-style-type: none;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	padding-top: 4px;
+	position:
+}
+
+p {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#dssLevel{
+	position: fixed;
+    top: 95px;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: none;
+}
+
+img{
+	margin-top: -2px;
+    margin-left: 2px;
+}
+
+.otherInfo {
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.otherInfo thead tr {
+	background: #EEFAFF;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: left;
+	line-height: 30px;
+}
+
+.otherInfo thead tr th {
+	padding-left: 12px;
+	color: #3E4B5C;
+	border: 1px solid #D8D8D8;
+}
+
+.otherInfo tbody tr:nth-of-type(2n+1) {
+	background-color: #F9FCFD;
+}
+
+.otherInfo tbody tr:nth-of-type(2n) {
+	background: #fff;
+}
+
+.otherInfo thead tr th:nth-of-type(1) {
+	width: 10%;
+}
+
+.otherInfo thead tr th:nth-of-type(2) {
+	width: 15%;
+}
+
+.otherInfo thead tr th:nth-of-type(3) {
+	width: 40%;
+}
+
+.otherInfo thead tr th:nth-of-type(4) {
+	width: 20%;
+}
+
+.otherInfo tbody tr td:nth-of-type(1) {
+	width: 10%;
+}
+
+.otherInfo tbody tr td:nth-of-type(2) {
+	width: 15%;
+}
+
+.otherInfo tbody tr td:nth-of-type(3) {
+	width: 40%;
+}
+
+.otherInfo tbody tr td:nth-of-type(4) {
+	width: 20%;
+}
+
+.otherInfo tbody tr td {
+	border: 1px solid #D8D8D8;
+	line-height: 30px;
+	padding-left: 12px;
+	font-size: 12px;
+	color: #333;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.yhzgInfo{
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+}
+.yhzgInfo thead tr th,.yhzgInfo tbody tr td{
+    border: 1px solid #D8D8D8;
+    line-height: 35px;
+    text-align: left;
+    padding-left: 10px;
+    color: #333333;
+}
+.yhzgInfo thead tr th{
+    background: #EEFAFF;
+    color: #3E4B5C;
+}
+.yhzgInfo tbody tr:nth-of-type(2n+1){
+    background: #FFFFFF;
+}
+.yhzgInfo tbody tr:nth-of-type(2n){
+    background: #F9FCFD;
+}
+.yhzgInfo thead tr th:nth-of-type(1){
+    width: 10%;
+}
+.yhzgInfo thead tr th:nth-of-type(2){
+    width: 15%;
+}
+.yhzgInfo thead tr th:nth-of-type(3){
+    width: 25%;
+}
+.yhzgInfo thead tr th:nth-of-type(4){
+    width: 25%;
+}
+.yhzgInfo thead tr th:nth-of-type(5){
+    width: 10%;
+}
+.yhzgInfo thead tr th:nth-of-type(6){
+    width: 15%;
+}

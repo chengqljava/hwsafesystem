@@ -1,0 +1,573 @@
+@media screen and (min-width: 980px) {
+    .qualification {
+        width: 49%;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .qualification {
+        width: 100%;
+    }
+}
+table,thead,tbody,tr,td,th{
+	margin:0;
+	padding:0;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    font-family: "瀵邦喛钂嬮梿鍛寸拨";
+    overflow-x: hidden;
+}
+
+tr td {
+    padding: 10px;
+    background-color: #fff;
+}
+
+.xxinfo {
+    display: none;
+}
+
+.block {
+    display: block !important;
+}
+
+.fr {
+    float: right;
+}
+
+.mp{
+	margin-top: -140px;
+    padding-top: 140px;
+}
+.navbar {
+    width: 180px;
+    height: calc( 100% - 140px );
+    position: fixed;
+    top: 140px;
+    left: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+a {
+    font-style: none;
+    text-decoration: none;
+    color: #666;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.current {
+    background: #0075c7 !important;
+}
+
+li.current a {
+    color: #fff !important;
+}
+
+.navbar ul li ul li {
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+    padding-left: 33px;
+    background-color: #f1f1f1;
+}
+
+.navbar ul li ul li:nth-of-type(1) {
+    color: #0075c7;
+    background-color: #f1f1f1;
+    height: 33px;
+    line-height: 33px;
+    font-size: 14px;
+    padding-left: 20px;
+    font-weight: 700;
+}
+
+.main {
+    float: right;
+    width: calc(100% - 180px);
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #FFF;
+    margin-top: 140px;
+}
+
+.main_header {
+    width: 100%;
+    height: 140px;
+    background-image: url('../../../images/module/enterprise/bg.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    line-height: 30px;
+    font-size: 14px;
+    color: #fff;
+    /*text-indent: 2em;*/
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    padding-left: 180px;
+    box-sizing: border-box;
+}
+
+.main_header i {
+    display: inline-block;
+    color: #6DF5FE;
+    margin-left: 25px;
+    width: 17px;
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+    color: #FFFFFF;
+    line-height: 65px;
+    text-align: center;
+    position: relative;
+    margin-left: -180px;
+}
+
+#output {
+    position: fixed;
+    top: 93px;
+    right: 300px;
+    background-color: #f4716e;
+    border-radius: 3px;
+    padding: 5px 8px;
+    text-indent: 0;
+    line-height: 20px;
+}
+
+#output i,#print i{
+    color: #fff;
+    width: 16px;
+    margin-left: 4px;
+}
+
+#print {
+    position: fixed;
+    top: 93px;
+    right: 220px;
+    background-color: #FABB54;
+    border-radius: 3px;
+    padding: 5px 8px;
+    text-indent: 0;
+    line-height: 20px;
+}
+
+h2.title {
+	background: #4790E3;
+	line-height: 40px;
+	color: #fff;
+	padding-left: 8px;
+	font-size: 16px;
+	width: calc( 100% - 40px );
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+h2.header {
+    line-height: 30px;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #0099FF;;
+    margin-bottom: 0;
+    background-color: #F1F1F1;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+h2.header::before {
+    content: '';
+    background-color: #0099FF;
+    display: inline-block;
+    width: 3px;
+    height: 16px;
+    /*margin-left: 20px;*/
+    position: relative;
+    top: 2px;
+    margin-right: 6px;
+}
+
+h2.header span {
+    font-size: 12px;
+    /*color: #333;*/
+    line-height: 30px;
+    float: right;
+    margin-right: 30px;
+}
+
+h2.header span progress {
+    width: 40px;
+    color: #98D628;
+    background: #ccc;
+}
+
+h2.header span i {
+    font-style: normal;
+    margin-left: 5px;
+    /*color: #98D628;*/
+    font-weight: normal;
+}
+h2.title span {
+    font-size: 12px;
+    /*color: #333;*/
+    line-height: 39px;
+    float: right;
+    margin-right: 30px;
+}
+
+h2.title span progress {
+    width: 40px;
+    color: #98D628;
+    background: #ccc;
+}
+
+h2.title span i {
+    font-style: normal;
+    margin-left: 5px;
+    /*color: #98D628;*/
+    font-weight: normal;
+}
+
+.infoContent {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+    /* line-height: 35px; */
+}
+
+.infoContent tr td:nth-of-type(2n+1) {
+    color: #3E4B5C;
+    background: #EEFAFF;
+	border: 1px solid #D8D8D8;
+    padding-left: 1em;
+    width: 20%;
+    font-weight: 700;
+}
+
+.infoContent tr td:nth-of-type(2n) {
+    color: #000000;
+    background: #FFFFFF;
+    border: 1px solid #D8D8D8;
+    padding-left: 1em;
+    width: 20%;
+}
+
+.t3232 tr td:nth-of-type(1) {
+    width: 30%;
+}
+
+.t3232 tr td:nth-of-type(2) {
+    width: 20%;
+}
+
+.t3232 tr td:nth-of-type(3) {
+    width: 20%;
+}
+
+.t3232 tr td:nth-of-type(4) {
+    width: 30%;
+}
+
+.qypmt, .qyzgxx {
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.companyImg {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+.companyImg img {
+    width: calc(33.3% - 9px);
+    margin-bottom: 10px;
+}
+
+.companyImg img:nth-of-type(3n+1), .companyImg img:nth-of-type(3n+2) {
+    margin-right: 10px;
+}
+
+.qualificationAll {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.qualification {
+    /* width: 510px; */
+    display: inline-block;
+}
+
+.qualification img {
+    float: left;
+    width: 240px;
+    height: 180px;
+}
+
+.qualification div {
+    width: calc(100% - 245px);
+    text-align: left;
+    text-indent: 1em;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.qualification div p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fa-times {
+    color: #ED5851;
+}
+
+.fa-check {
+    color: #5DBE00;
+}
+
+.table2 {
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 14px;
+    /* line-height: 35px; */
+    width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+table tr td {
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+table.table2 tr td {
+    color: #000;
+    border: 1px solid #E6E6E6;
+    padding-left: 1em;
+}
+
+.table2 tr:nth-of-type(1) td {
+    font-weight: 700;
+    color: #3E4B5C !important;
+    background: #EEFAFF;
+	border: 1px solid #D8D8D8;
+}
+
+.table2 tr td:nth-of-type(1) {
+    width: 30%;
+}
+
+.table4 tr td {
+    /*width: 20% !important;*/
+}
+
+.table4 {
+    width: 100%;
+    table-layout: fixed;
+}
+.table4 tr td:nth-of-type(1){
+	width: 130px !important;
+}
+
+.table5 {
+    width: 100%;
+    table-layout: fixed;
+}
+.hjxxdiv {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding: 5px 0;
+    box-sizing: content-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.nicescroll-rails:hover {
+    cursor: pointer !important;
+}
+
+/*闂呮劖鍋呯悰銊ф畱閺堬拷鐏忓繐顔旀惔锟�*/
+.hdigovregistratable {
+    min-width: 1109px;
+}
+
+/*鐞涘本鏂傛径鍕稈閻ㄥ嫭娓剁亸蹇擃啍鎼达拷*/
+.entsafepunishtable {
+    min-width: 424px;
+}
+
+/*娴滃鏅犳穱鈩冧紖閻ㄥ嫭娓剁亸蹇擃啍鎼达拷*/
+.emssuceventtable {
+    min-width: 747px;
+}
+
+/*閼卞奔绗熼崑銉ユ倣閻ㄥ嫭娓剁亸蹇擃啍鎼达拷*/
+.entProharmtable {
+    min-width: 867px;
+}
+
+/*鏉堟捇锟戒胶顓搁柆锟�*/
+.entrunningpiptable {
+    min-width: 784px;
+}
+
+/*閸屻劎缍�*/
+.entstoragetanktable {
+    min-width: 1384px;
+}
+
+/*鎼存挸灏�*/
+.entwarehousetable {
+    min-width: 797px;
+}
+
+/*閸栨牕浼愮憗鍛枂*/
+.entcheengdevicetable {
+    min-width: 786px;
+}
+
+/*閸楅亶娅撻崠鏍т紣瀹搞儴澹�*/
+.entdancheprotable {
+    min-width: 1077px;
+}
+
+/*娑撳鎮撻弮锟�*/
+.entthreemeantable {
+    min-width: 889px;
+}
+
+/*閸楅亶娅撴担婊�绗�*/
+.enthazardousjobtable {
+    min-width: 984px;
+}
+
+.entsuperdanchemicaltable {
+    min-width: 2744px;
+}
+
+.entchelicencestable {
+    min-width: 800px;
+}
+
+.entdanexclusivetable {
+    min-width: 800px;
+}
+
+.entsaferiskinfotable {
+    min-width: 800px;
+}
+
+.hyjgtable {
+    min-width: 800px;
+}
+
+.hyjgtable tr td:nth-of-type(2n+1) {
+    width: 25%;
+}
+
+.jcxxtable {
+    min-width: 800px;
+}
+
+.jcxxtable tr td:nth-of-type(2n+1) {
+    width: 32%;
+}
+
+.entdangercharatable {
+    min-width: 800px;
+}
+
+.entsafeinvestinfotable {
+    min-width: 800px;
+}
+
+.entrewardinfotable {
+    min-width: 800px;
+}
+
+.entsafeorgtable {
+    min-width: 800px;
+}
+
+.entsafepersontable {
+    min-width: 869px;
+}
+
+.entsafemanagertable {
+    min-width: 964px;
+}
+
+.entoperatortable {
+    min-width: 880px;
+}
+
+.entoperatortable tr td:nth-of-type(1) {
+    width: 20%;
+}
+
+.entsafestandardtable {
+    min-width: 800px;
+}
+
+.entsafeprodatatable {
+    min-width: 700px;
+}
+
+.entequipprevesseltable {
+    min-width: 2100px;
+}
+
+.entequipconduittable {
+    min-width: 2000px;
+}
+
+.entequipsafevalvetable {
+    min-width: 2000px;
+}
+
+.entequipforkfilttable {
+    min-width: 1500px;
+}
+
+.entequipboliertable {
+    min-width: 1000px;
+}
+
+.hyjgxx {
+    background: #FFF;
+    margin-top: -120px
+}
+.sensitiveRecord{
+    margin-bottom: 20px;
+}
+#entName{
+	position: fixed;
+	top:0;
+	left:200px;
+	height: 50px;
+	width: calc( 100% - 200px );
+	text-align:center;
+	font-size: 25px;
+	line-height: 50px;
+	font-weight: 700;
+	background-color: #fff;
+}

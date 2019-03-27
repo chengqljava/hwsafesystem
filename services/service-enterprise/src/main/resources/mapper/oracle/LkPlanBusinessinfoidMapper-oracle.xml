@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.enterprise.mapper.LkPlanBusinessinfoidMapper" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.enterprise.domain.LkPlanBusinessinfoid" >
+	<result column="busplanid" property="busplanid" jdbcType="VARCHAR" />
+	<result column="planid" property="planid" jdbcType="VARCHAR" />
+	<result column="businessinfoid" property="businessinfoid" jdbcType="VARCHAR" />
+</resultMap>
+       
+<!-- lk_plan_businessinfoid table all fields -->
+<sql id="Base_Column_List" >
+	 busplanid,planid,businessinfoid
+</sql>
+
+ <!-- 分页查询 -->
+<select id ="loadPage" resultType="map">
+  	select 
+	<include refid="Base_Column_List"/>
+	from lk_plan_businessinfoid 
+</select>
+
+<select id="loadByBusinessinfoid" parameterType="string" resultMap="BaseResultMap">
+	select 
+	<include refid="Base_Column_List"/>
+	from lk_plan_businessinfoid 
+	where businessinfoid = #{businessinfoid}
+</select>
+  	
+</mapper>   

@@ -1,0 +1,158 @@
+/*
+* @Author: Marte
+* @Date:   2018-02-02 14:46:20
+* @Last Modified by:   Marte
+* @Last Modified time: 2018-02-02 18:25:16
+*/
+html,body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #dad6e6;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.dangerTable{
+    float: left;
+    width: calc( 100% - 400px );
+    height: calc( 100% - 100px );
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.20);
+}
+.header{
+    width: 100%;
+    height: 80px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.20);
+}
+.header div{
+    line-height: 18px;
+    margin-top: 4px;
+    padding: 0;
+    color: #000;
+    font-size: 12px;
+}
+.year li, .quarter li{
+    padding: 2px 7px;
+    background-color: #ddd;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.header div ul li.active{
+    background-color: #0075c7;
+    color: #fff;
+}
+
+.info{
+    font-size: 14px;
+    color: #333333;
+    line-height: 20px;
+    padding: 5px 12px;
+}
+.address{
+    display: inline-block;
+    width: calc( 100% - 390px );
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    word-break: keep-all;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+.dangerTableTitle{
+    line-height: 40px;
+    font-size: 16px;
+    background-color: #EEF1F7;
+    color: #0075C7;
+    padding-left: 12px;
+    box-sizing: border-box;
+}
+.table-line{
+    width: calc( 100% - 20px );
+    margin: 0 auto;
+    /* height: calc( 100% - 25px ); */
+    padding: 10px 10px;
+}
+.tableTitle{
+	top: 20px;
+}
+.factoryContent{
+    width: 380px;
+    height: calc( 100% - 100px );
+    background: #dad6e6;
+    float: right;
+}
+.serchBox{
+    width: 380px;
+    height: 50px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.20);
+    box-sizing: border-box;
+    padding: 10px;
+}
+.serchBox input{
+    height: 30px;
+    width: 65%;
+}
+.search{
+    background: #0089E9;
+    border-radius: 3px;
+    font-size: 12px;
+    /* padding: 6px 13px; */
+    color: #fff;
+    cursor: pointer;
+    margin-right: 0px;
+    margin-left: 10px;
+}
+.search:hover{
+    background: #0072C2;
+}
+.factoryList{
+    /* margin-top: 20px; */
+    height: 100%;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.20);
+}
+.factoryListContent{
+    padding: 12px;
+    background-color: #fff;
+    height: calc( 100% - 40px );
+}
+.companyName{
+    background-image: linear-gradient(-180deg, #FFFFFF 0%, #F3F3F3 100%);
+    border: 1px solid #CCD3E0;
+    line-height: 37px;
+    font-size: 14px;
+    color: #015293;
+    padding-left: 12px;
+}
+.factoryListContent ul{
+    padding: 0;
+    margin: 0;
+    height: calc( 100% - 40px );
+}
+.factoryListContent ul li{
+    list-style: none;
+    line-height: 37px;
+    font-size: 14px;
+    color: #000;
+    padding-left: 12px;
+    text-align: left;
+    border: 1px solid #E4E8E8;
+}
+.factoryListContent ul li:nth-of-type(2n+1){
+    background: #F9FCFD;
+}
+.factoryListContent ul li:hover,.factoryListContent ul li.active{
+    background: #0075C7;
+    border: 1px solid #E4E8E8;
+    color: #fff;
+    cursor: pointer;
+}

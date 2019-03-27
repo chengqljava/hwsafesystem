@@ -1,0 +1,362 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family:'Microsoft YaHei';
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.gcRootContent {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.gcMainBar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 400px;
+    height: 55px;
+    z-index: 50;
+}
+
+.gcMeasurement {
+    position: absolute;
+    top: 55px;
+    right: 50px;
+    background-color: #f8f8f8;
+    color: #595959;
+    box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+    z-index: 5;
+    display: none;
+    width: 70%;
+    border-radius: 3px;
+    border-top: 2px solid #354052;
+}
+
+.gcMeaTitleBar {
+    height: 30px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.gcMeaTitle {
+    font-size: 16px;
+    float: left;
+    line-height: 30px;
+    margin-left: 15px;
+}
+
+.gcMeaClose {
+    background-image: url('../../../images/gis/geoInfo/control/close.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    float: right;
+    cursor: pointer;
+}
+
+.gcChangeMapBar{
+    position: absolute;
+    top: 55px;
+    right: 50px;
+    background-color: #f8f8f8;
+    color: #595959;
+    box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+    z-index: 5;
+    display: none;
+    width: 70%;
+    border-radius: 3px;
+    border-top: 2px solid #56bfff;
+}
+.gcChgMapTitleBar{
+    height: 30px;
+    border-bottom: 1px solid #cccccc;
+}
+.gcChgMapTitle{
+    font-size: 16px;
+    float: left;
+    line-height: 30px;
+    margin-left: 15px;
+}
+
+.gcChgMapInfoBar{
+    padding:10px;
+}
+.gcChgMapInputbox{
+    width:100%;
+    height:100px;
+    resize:none;
+    border:1px solid #cccccc;
+}
+
+.gcChgMapBtnBar{
+    margin-top:5px;
+}
+.gcReturnBtn{
+    background-color:#56bfff;
+    padding: 5px 15px;
+    float:right;
+    color:#ffffff;
+    cursor:pointer;
+    border-radius:3px;
+    margin-left:5px;
+}
+.gcReturnBtn:hover{
+    background-color:#63c2f9;
+}
+.gcChangeBtn{
+    background-color:#56bfff;
+    padding: 5px 15px;
+    float:right;
+    color:#ffffff;
+    cursor:pointer;
+    border-radius:3px;
+    margin-left:5px;
+}
+.gcChangeBtn:hover{
+    background-color:#63c2f9;
+}
+
+/*图层控制弹窗样式*/
+.gcConLayerBar{
+    position: absolute;
+    top: 55px;
+    right: 50px;
+    background-color: #f8f8f8;
+    color: #595959;
+    box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+    z-index: 5;
+    display: none;
+    width: 70%;
+    border-radius: 3px;
+    border-top: 2px solid #56bfff;
+}
+
+.gcConLayerTitleBar{
+     height: 30px;
+    border-bottom: 1px solid #cccccc;
+}
+.gcConLayerTitle{
+     font-size: 16px;
+    float: left;
+    line-height: 30px;
+    margin-left: 15px;
+}
+
+.gcConLayerInfoBar{
+     padding:10px;
+     height:100px;
+     overflow:auto;
+}
+.gcConItem{
+    padding:10px 5px;
+}
+.gcConItemTitle{
+    width:25%;
+    float:left;
+    line-height:10px;
+}
+.gcConSliderBar{
+    width:75%;
+    float:left;
+}
+
+.gcToolBar {
+    padding-left: 4px;
+    /*padding-right: 4px;*/
+    position: absolute;
+    background-color: #f5f5f5;
+    width: 0px;
+    height: 36px;
+    top: 6px;
+    right: 35px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.2s;
+    -moz-transition: all 0.2s; /* Firefox 4 */
+    -webkit-transition: all 0.2s; /* Safari 和 Chrome */
+    -o-transition: all 0.2s; /* Opera */
+    box-shadow: 1px 2px 1px rgba(0,0,0,.2);
+    border: 1px solid #eee;
+}
+
+.gcToolItem {
+    height: 32px;
+    width: 32px;
+    margin: 2px;
+    float: left;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*border: 1px solid #ffffff;*/
+    border-radius: 50%;
+    cursor: pointer;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-size: 24px;
+}
+
+    .gcToolItem:hover {
+        background-color: #cbeafe;
+    }
+
+.gcIcon1 {
+    background-image: url('../../../images/gis/geoInfo/control/Identify.png');
+}
+
+.gcIcon2 {
+    background-image: url('../../../images/gis/geoInfo/control/Ruler.png');
+}
+
+.gcIcon3 {
+    background-image: url('../../../images/gis/geoInfo/control/Globe.png');
+}
+
+.gcIcon4 {
+    background-image: url('../../../images/gis/geoInfo/control/ZoomIn.png');
+}
+
+.gcIcon5 {
+    background-image: url('../../../images/gis/geoInfo/control/ZoomOut.png');
+}
+
+.gcIcon6 {
+    background-image: url('../../../images/gis/geoInfo/control/PView.png');
+}
+
+.gcIcon7 {
+    background-image: url('../../../images/gis/geoInfo/control/NView.png');
+}
+.gcIcon8{
+    background-image: url('../../../images/gis/geoInfo/control/Add.png');
+}
+
+.gcIcon9{
+    background-image: url('../../../images/gis/geoInfo/control/control.png');
+}
+
+.gcToolBtn {
+    position: absolute;
+    width: 35px;
+    height: 36px;
+    top: 15px;
+    right: 52px;
+    border-radius: 5px;
+    background-color: #354052;
+    background-repeat: no-repeat;
+    background-position: 8px 8px;
+    cursor: pointer;
+}
+
+.gcToolBtnLeft {
+    background-image: url('images/Left.png');
+}
+
+.gcToolBtnRight {
+    background-image: url('images/Right.png');
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+.gcEagleEyeBar {
+    position: absolute;
+    right: 0px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    /*border-left: 1px solid #fff;*/
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.35);
+    cursor: pointer;
+    transition: all 0.2s;
+    -moz-transition: all 0.2s; /* Firefox 4 */
+    -webkit-transition: all 0.2s; /* Safari 和 Chrome */
+    -o-transition: all 0.2s; /* Opera */
+}
+
+.gcEagleEyeBar_Hide {
+    /*background-color: #cbeafe;*/
+    background-color: #fff;
+    background-image: url('../../../images/gis/geoInfo/control/icon1.png');
+
+}
+
+.gcEagleEyeBar_Show {
+    background-color: #56bfff;
+    background-image: url('../../../images/gis/geoInfo/control/icon3.png');
+}
+
+
+.gcClearBoth {
+    clear: both;
+}
+/*修改Arcgis默认样式*/
+.esriSimpleSliderBR {
+    bottom: 25px;
+    right: 15px;
+}
+
+#LocateButton {
+    position: absolute;
+    bottom: 25px;
+    left: 15px;
+    z-index: 50;
+}
+
+.scalebar_bottom-left {
+    margin-left: 40px;
+}
+
+
+/*修改测量工具默认样式*/
+.calcite .esriMeasurement {
+    padding: 15px;
+}
+
+/*infowindow 最大化按钮*/
+.maximize {
+    display: none;
+}
+
+.calcite .esriPopup .contentPane {
+    max-height: 180px;
+}
+
+.calcite .esriPopup .sizer {
+    width: 290px;
+    padding-bottom: 4px;
+}
+
+
+
+
+.gisLoadFrm {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.55);
+    z-index: 99999;
+    text-align: center;
+    font-size: 22px;
+    padding-top: 25%;
+    color: White;
+    background-image: url("../../../images/gis/geoInfo/loading.gif");
+    background-repeat: no-repeat;
+    background-position: 49% 25%;
+    /*display: none;*/
+}

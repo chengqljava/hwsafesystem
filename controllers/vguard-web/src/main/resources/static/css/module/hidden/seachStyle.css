@@ -1,0 +1,249 @@
+.searchBox input,.datepicker{
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    outline: none;
+    text-indent: 1em;
+    width: calc( 100% - 150px );
+    min-width: 230px;
+    background-color: #fff;
+    text-align: left;
+}
+
+.searchBox select,.datepicker{
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    outline: none;
+    text-indent: 1em;
+    width: calc( 100% - 150px );
+    min-width: 230px;
+    background-color: #fff;
+    text-align: left;
+    height: 30px;
+    float: left;
+}
+
+ul,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+li{
+    cursor: pointer;
+}
+input::-webkit-input-placeholder{
+    color:rgba(0,0,0,0.2);
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color:rgba(0,0,0,0.2);
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color:rgba(0,0,0,0.2);        
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+    color:rgba(0,0,0,0.2);
+}
+.datepicker:hover,input:hover{
+    border: 1px solid #40A9FF;        
+}
+input:focus{
+    border: 1px solid #40A9FF;
+}
+html form input[disabled]{
+    color: #000;
+    background-color: #fff;
+    cursor: pointer;
+}
+.searchBox{
+    position: relative;
+    overflow: hidden;
+    height: 47px;
+    min-width: 680px;
+}
+.searchBox form>div{
+    margin: 8px 0;
+    position: relative;
+    height: 32px;
+    width: 33.3%;
+    float: left;
+}
+.searchBox form>div:last-of-type{
+    position: absolute;
+    right: 19px;
+    bottom: 0;
+    z-index: 22;
+    background-color: #fff;
+    height: 35px;
+    padding-top: 5px;
+}
+.searchBox form section{
+    margin: 8px 0;
+    height: 32px;
+    width: 100%;
+    float: left;
+}
+.searchBox form div label{
+    font-size: 14px;
+    color: #000000;
+    line-height: 32px;
+    margin: 0;
+    font-weight: normal;
+    margin-right: 12px;
+    float: left;
+}
+.searchBox form div input,.searchBox form div .datepicker{
+    height: 30px;
+    float: left;
+}
+.searchBox .checkBox .checkBoxContent{
+    float: left;
+    position: relative;
+    width: calc( 100% - 150px );
+    min-width: 230px;
+}
+.searchBox .checkBox .checkBoxContent input{
+    width:100%;
+}
+.searchBox .checkBox .checkBoxContent img{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    /* transform: rotate(0deg); */
+}
+/* .searchBox .checkBox .checkBoxContent.active img{
+    animation: rotate180 0.5s;
+    transform: rotate(180deg);
+}
+@keyframes rotate180{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(180deg);
+    }
+}
+.searchBox .checkBox .checkBoxContent.noActive input{
+    border: 1px solid #40A9FF;        
+} */
+/* .searchBox .checkBox .checkBoxContent.noActive img{
+    animation: rotate0 0.5s;
+    transform: rotate(0deg);
+}
+@keyframes rotate0{
+    from{
+        transform: rotate(180deg);
+    }
+    to{
+        transform: rotate(0deg);
+    }
+} */
+/* .searchBox .checkBox .checkBoxContent.noActive input{
+    border: 1px solid rgba(0,0,0,0.15);
+} */
+.searchBox .checkBox .checkBoxContent.active input{
+    border: 1px solid #40A9FF;
+    box-shadow: 0 0 0 2px rgba(64,169,255,0.20);
+}
+.checkBoxOption{
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.15);
+    border-radius: 4px;
+    position: absolute;
+    width: 100%;
+    top: 32px;
+    top: 30px\9;
+    left: 0;
+    display: none;
+    background:#fff;
+    z-index:99
+    
+}
+.checkBoxOption li{
+    font-size: 14px;
+    color: rgba(0,0,0,0.65);
+    line-height: 32px;
+    padding-left: 12px;
+}
+.checkBoxOption li:hover{
+    background-color: #E6F7FF;
+}
+.icon-danxian-youjiantou-copy{
+    float: right;
+    margin-right: 10px;
+}
+@media screen and ( max-width: 1024px ){
+    .searchBox form>div{
+        width: 49%;
+    }
+}
+@media screen and ( min-width: 1800px ){
+    .searchBox form>div{
+        width: 24%;
+    }
+}
+.submitGroup{
+    text-align: center;
+}
+.submitGroup button{
+    font-size: 14px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    width: 70px;
+    height: 30px;
+    border: 1px solid #1890FF;
+}
+.submitGroup .submitBtn{
+    color: #FFFFFF;
+    background-color: #1890FF;
+}
+.submitGroup .submitBtn:hover{
+    background: rgba(24,144,255,0.65);
+    border: 1px solid rgba(24,144,255,0.65);
+}
+.submitGroup .submitBtn:focus{
+    background-color: #0773BB;
+    box-shadow: 0 0 0 2px rgba(64,169,255,0.20);
+}
+.submitGroup .resetBtn{
+    background-color: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    color: rgba(0,0,0,0.65);
+}
+.submitGroup .resetBtn:hover{
+    border: 1px solid #1890FF;
+    color: #1890ff;
+}
+.submitGroup .resetBtn:focus{
+    border: 1px solid #0773BB;
+    color: #0773BB;
+    box-shadow: 0 0 0 2px rgba(64,169,255,0.20);
+}
+.allKinds,.allKinds li,section label{
+    float: left;
+}
+.allKinds li{
+    line-height: 22px;
+    height: 22px;
+    padding: 0 8px;
+    color: rgba(0,0,0,0.65);
+    margin-left: 24px;
+}
+.allKinds li:hover{
+    color: #1890ff;
+}
+.allKinds li.active{
+    background: #1890FF;
+    border-radius: 4px;
+    color: #fff;
+}
+#flexBtn{
+    color: #1890FF;
+    font-size: 12px;
+    float: right;
+    margin-right: 5px;
+    line-height: 32px;
+    cursor: pointer;
+}

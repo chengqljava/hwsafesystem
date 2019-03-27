@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<title>监测监控情况</title>
+	<%include("/include/loader_css.html",{cssPart:[ "bootstrap", "font", "date", "validate",
+			"main" ]}){}%>
+	<link rel="stylesheet" type="text/css"
+	href="${ctxPath}/static/css/module/welcome/welcome.css" />
+</head>
+<body>
+	<div class="section">
+		<div class="a">
+			<div class="block a1">
+				<div class="block-top hg1">
+					<div class="block-title">
+						<span>临邑县高端化工产业园区企业信息</span>
+					</div>
+				</div>
+				<div class="content">
+					<div class="s1 c1">
+						<span class="cl1"> <em>监管企业</em> <strong><a
+								id="totalEntCount" style="color: white"
+								href="javascript:void(0)">0</a></strong>
+						</span> <span class="cl2"> <em>危化品企业</em> <strong><a
+								id="chemicalEntCount" style="color: white"
+								href="javascript:void(0)">0</a></strong>
+						</span> <span class="cl3"> <em>重大危险源企业</em> <strong><a
+								id="dangerEntCount" style="color: white"
+								href="javascript:void(0)">0</a></strong>
+						</span> <span class="cl4"> <em>重大危险源数量</em> <strong><a
+								id="dangerSourceCount" style="color: white"
+								href="javascript:void(0)">0</a></strong>
+						</span>
+					</div>
+					<div class="s2">
+						<div id="entBarChart" style="min-height: 230px"></div>
+					</div>
+					<div class="s3">
+						<div id="entCircleChart" style="min-height: 230px; width: 100%"></div>
+					</div>
+				</div>
+			</div>
+			<div class="block a2">
+				<div class="block-top hg1" style="height: 100%; min-width: 270px;">
+					<div class="block-title" style="border-bottom: 1px solid #f4f4f4;">
+						<span>风险管控</span>
+					</div>
+					<div class="content">
+						<div class="s1 l4">
+							<dl>
+								<dt>重大风险</dt>
+								<dd class="f1">
+									<a id="zdfxcount" href="javascript:void(0);"
+										onclick="showDssInfo('1')" style="color: #ED5851;cursor: pointer;">0</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt>较大风险</dt>
+								<dd class="f2">
+									<a id="jdfxcount" href="javascript:void(0);"
+										onclick="showDssInfo('2')" style="color: #F5A623;cursor: pointer;">0</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt>一般风险</dt>
+								<dd class="f3">
+									<a id="ybfxcount" href="javascript:void(0);"
+										onclick="showDssInfo('3')" style="color: #F8E71C;cursor: pointer;">0</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt>低风险</dt>
+								<dd class="f4">
+									<a id="dfxcount" href="javascript:void(0);"
+										onclick="showDssInfo('4')" style="color: #4AA3E2;cursor: pointer;">0</a>
+								</dd>
+							</dl>
+						</div>
+						<div class="s5">
+							<div id="dssCountChart" style="height: 100%;width:calc( 100% - 30px );min-width: 270px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="a" style="margin-top: 10px;">
+			<div class="block a3">
+				<div class="block-top hg2">
+					<div class="block-title">
+						<span>监测监控</span>
+					</div>
+				</div>
+				<div class="content">
+					<div class="s1 l4">
+						<dl>
+							<dt>未接入企业</dt>
+							<dd class="f1">
+								<a id="notInEntCount" class="f1">0</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>今日报警数目</dt>
+							<dd class="f2">
+								<a id="todayWarningCount" class="f2">0</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>已接入企业</dt>
+							<dd class="f3">
+								<a id="inEntCount" class="f3">0</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>今日未处理</dt>
+							<dd class="f4">
+								<a id="noHandleCount" class="f4">0</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="s5">
+						<div id="monitorBarChart" style="min-height: 220px"></div>
+					</div>
+				</div>
+			</div>
+			<div class="block a3">
+				<div class="block-top hg2">
+					<div class="block-title">
+						<span>隐患排查</span>
+					</div>
+				</div>
+				<div class="content">
+					<div class="s1 l3">
+						<dl>
+							<dt>自查自报隐患数</dt>
+							<dd class="f1" id="zczb">0</dd>
+						</dl>
+						<dl>
+							<dt>网格巡查隐患数</dt>
+							<dd class="f2" id="wgxc">0</dd>
+						</dl>
+						<dl>
+							<dt>隐患整改率</dt>
+							<dd class="f4" id="yhzg">0</dd>
+						</dl>
+					</div>
+					<div class="s5">
+						<div id="dangerchart" style="width: 100%; height: 220px;"></div>
+					</div>
+				</div>
+			</div>
+			<div class="block a3">
+				<div class="block-top hg2">
+					<div class="block-title">
+						<span>应急值守</span>
+					</div>
+				</div>
+				<div class="content">
+					<div class="s1 l4">
+						<dl>
+							<dt>咨询</dt>
+							<dd class="f1">
+								<a id="zxcount" href="javascript:void(0);"
+									onclick="showDutyInfo('1')" class="zx">0</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>投诉</dt>
+							<dd class="f2">
+								<a id="tscount" href="javascript:void(0);"
+									onclick="showDutyInfo('2')" class="ts">0</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>故障</dt>
+							<dd class="f3">
+								<a id="gzcount" href="javascript:void(0);"
+									onclick="showDutyInfo('3')" class="gz">0</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>报警</dt>
+							<dd class="f4">
+								<a id="bjcount" href="javascript:void(0);"
+									onclick="showDutyInfo('4')" class="bj">0</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="s5">
+						<div id="dutyInfoChart" style="min-height: 220px"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="a" style="margin-top: 10px">
+			<div class="block">
+				<div class="block-top hg2">
+					<div class="block-title">
+						<span>应急救援</span>
+					</div>
+				</div>
+				<div class="content">
+					<div class="s1 l3 ll">
+						<dl>
+							<dt>应急事故</dt>
+							<dd class="f1" id="eventCount">0</dd>
+						</dl>
+						<dl>
+							<dt>政府预案</dt>
+							<dd class="f1" id="govPlanCount">0</dd>
+						</dl>
+						<dl>
+							<dt>企业预案</dt>
+							<dd class="f1" id="entPlanCount">0</dd>
+						</dl>
+					</div>
+
+					<div class="s4" id="emsPlanInfo" style="height: 300px;">
+						<div id="emsPlanInfo" style="width: 100%; height: 300px;"></div>
+					</div>
+					<div class="s4" id="emsEventInfo" style="height: 300px;">
+						<div id="emsEventInfo" style="width: 100%; height: 300px;"></div>
+					</div>
+					<div class="s4" id="emsResourceInfo" style="height: 300px;">
+						<div id="emsResourceInfo" style="width: 100%; height: 300px;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+   <%include("/include/loader_jslib.html",{jsPart:["html5", "jquery", "bootstrap", "shrink", "dateutil",
+				"underscore", "select_option", "date", "echarts" ]}){}%>
+	
+		<%include("/include/loader_jsmod.html",{jsmodPart:[
+		"js/module/welcome/emsInfo.js",
+		"js/module/welcome/entInfo.js", 
+		"js/module/welcome/hiddendangerInfo.js",
+		"js/module/welcome/lawInfo.js",
+		"js/module/welcome/monitorInfo.js",
+		"js/module/welcome/todoInfo.js",
+		"js/module/welcome/dutyInfo.js",
+		"js/module/welcome/welcome.js",
+		"js/module/welcome/dssinfo.js"
+		]}){}%>
+</body>
+</html>

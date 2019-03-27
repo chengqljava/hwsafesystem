@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "syhtfont";
+    src: url("syhtfont.eot"); /* IE9 */
+    src: url("syhtfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("syhtfont.woff") format("woff"), /* chrome, firefox */
+    url("syhtfont.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("syhtfont.svg#syhtfont") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+html, body {
+	font-family: "syhtfont" !important;
+}

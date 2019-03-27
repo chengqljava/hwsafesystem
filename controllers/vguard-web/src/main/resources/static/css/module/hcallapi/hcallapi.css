@@ -1,0 +1,88 @@
+/*��ҳ��(main.jsp)ȫ��CSS*/
+body{color:#3f3f3f;	padding:0px; margin:0px; font-size:12px; font-family:"Microsoft YaHei"; line-height:22px; }
+*{margin:0px; padding:0px;}
+a{line-height:22px;color:#3f3f3f; text-decoration:none; font-size:12px;}
+a:hover{ font-size:12px; color:#ff4e00; text-decoration:none;}
+ur,li{ margin:0px; padding:0px; list-style-type:none;}
+img{ border:0px;}
+.clear{ clear:both;}
+html,body{height:100%;width:100%}
+
+a.cur{ color:red;}
+a.btn2{ padding:1px 8px; background:#FF7200; color:#fff;}
+a.btn2:hover{ color:#3d1b00;}
+a.blue{ color:#50ABF2; font-size:15px;}
+a.blue:hover{ color:#ff4e00;}
+
+.bluebold{ font-size:14px; color:#025a82; font-weight:bold;}
+
+.yellowcolor{ color:#ff6e0d;}
+.gray12{ color:#999999; font-size:12px; font-weight:normal;}
+.font12{ font-size:12px;}
+.color_gray{ color:#999999;}
+.redcolor{ color:#ff0000;}
+.fontbold{ font-weight:bold;}
+.font14{ font-size:14px;}
+.font16{ font-size:16px; font-weight:bold;}
+
+.border_line{ border:1px solid #ccc;}
+.border_line table td{ padding:4px 5px;}
+
+/*TOP����*/
+#top{ background:#428fb9; height:88px; border-bottom:1px solid #fff;}
+.top_tel{ 
+	position: absolute;
+    left: 724px;
+    width: 209px;
+    height: 54px;
+    margin-top: 4px;
+    padding: 2px 25px 3px 10px;
+    border: 1px solid #82c5ea;
+}
+
+.top_tel_con{ color:#9ad4f4;}
+.top_tel_con span{ color:#FFFF00; font-size:16px; font-weight:bold;}
+.top_agent {
+	position: absolute;
+    left: 938px;
+    width: 145px;
+    height: 54px;
+    margin-top: 3px;
+    padding: 0px 10px 3px 10px;
+    border: 1px solid #82c5ea;	
+}
+.top_agent_con{ color:#9ad4f4;}
+.top_agent_con span{ color:#FFFF00; font-size:16px; font-weight:bold;}
+.icon{ position:absolute; left:205px; height:88px; padding-right:30px;}
+.icon ul{ padding-top:20px;}
+.icon ul li{ float:left; text-align:center; margin-left:22px;}
+.icon ul li img{ display:block;cursor:pointer;}
+.icon ul li h3{ font-size:14px; font-weight:normal; color:#fff;cursor:pointer;}
+
+/*bohao*/
+#bohao{ border:1px solid #c3cfd5; width:284px; height:304px; background:#e8f7fe;}
+.bohao_top{ height:52px; background:url(../../../images/module/hcallapi/top_bg.png) repeat-x; border-bottom:1px solid #c3cfd5;}
+.bohao_top_search{ float:left; width:168px; margin:11px 0 0 13px;}
+.search_style{ width:166px; height:28px; border:1px solid #c3cfd5;}
+.bohao_top_btn{ float:left; margin:11px 0 0 6px; width:80px; height:28px; border:1px solid #c3cfd5; background:#0a77c7 url(../../../images/module/hcallapi/btn_tel.png) no-repeat 14px 4px;}
+.bohao_callout_btn{ float:left; margin:11px 0 0 6px; width:80px; height:28px; border:1px solid #c3cfd5; background:#0a77c7 url(../../../images/module/hcallapi/btn_tel.png) no-repeat 14px 4px;}
+.bohao_tran_btn{ float:left; margin:11px 0 0 6px; width:80px; height:28px; border:1px solid #c3cfd5; background:#0a77c7;}
+.bohao_conf_btn{ float:left; margin:11px 0 0 6px; width:80px; height:28px; border:1px solid #c3cfd5; background:#0a77c7;}
+.bohao_top_btn a{ display:block; padding-left:36px; font-weight:bold; color:#fff; line-height:28px;}
+.bohao_top_btn a:hover{ color:#FFFF00;}
+.bohao_callout_btn a{ display:block; padding-left:36px; font-weight:bold; color:#fff; line-height:28px;}
+.bohao_callout_btn a:hover{ color:#FFFF00;}
+.bohao_tran_btn a{ display:block; padding-left:16px; font-weight:bold; color:#fff; line-height:28px;}
+.bohao_tran_btn a:hover{ color:#FFFF00;}
+.bohao_conf_btn a{ display:block; padding-left:16px; font-weight:bold; color:#fff; line-height:28px;}
+.bohao_conf_btn a:hover{ color:#FFFF00;}
+.haoma{ padding:22px 0 0 6px;}
+.haoma ul{}
+.haoma ul li{ float:left; width:83px; height:48px; background:#d9f3fe; margin:3px 0 0 6px;}
+
+/*С�ݵ���ʱ*/
+.S_Rest{ width:310px; height:170px; background:#fff;}
+.S_Rest_L{ float:left; width:170px; height:170px; background:url(../../../images/module/hcallapi/icon_rest.png) no-repeat 10px 35px;}
+.S_Rest_R{ float:right; width:140px; height:145px; padding-top:25px;}
+.S_Rest p{ color:#428fb9; font-size:14px; line-height:35px;}
+.S_Rest p span{ font-size:35px; font-weight:bold; color:#ff9000; line-height:40px;}

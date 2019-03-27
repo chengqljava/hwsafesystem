@@ -15,6 +15,9 @@
 	<modules>
 		<module>service-demo</module>
 		<module>service-qurtz</module>
+       <module>service-system-user</module>
+               <module> service-enterprise</module>
+
 	</modules>
 
 	<build>

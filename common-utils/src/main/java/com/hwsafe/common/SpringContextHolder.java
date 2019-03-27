@@ -1,11 +1,16 @@
 package com.hwsafe.common;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -83,5 +88,23 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
                 "applicaitonContext未注入,请在applicationContext.xml中定义SpringContextHolder");
         }
     }
-
+ 
+    /**
+     * @return 
+     * HttpServletRequest
+     */
+    public static HttpServletRequest getHttpServletRequest(){
+    	HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+    	return request;
+    }
+    
+    /**
+     
+      * @return 
+      * HttpServletResponse
+      */
+     public static HttpServletResponse getHttpServletResponse(){
+     	HttpServletResponse response = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getResponse();
+     	return response;
+     }
 }

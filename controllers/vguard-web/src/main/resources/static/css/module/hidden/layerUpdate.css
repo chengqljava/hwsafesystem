@@ -1,0 +1,60 @@
+body{
+   	/* background: #002E6E;
+   	color: #fff; */
+   	overflow: hidden;
+}
+table.zwTable > tbody > tr > td{
+	/* border: 1px solid #2C5275; 
+	color: #fff;*/
+}
+table.zwTable > tbody > tr > td:nth-child(odd){
+	/* background: #0F4181; */
+	width: 20%;
+}
+table.zwTable > tbody > tr > td:nth-child(even){
+	/* background: #002e6e; */
+	width: 30%;
+}
+select.form-control{
+	border-color: rgba(0,0,0,0);
+	/* background: #002e6e;
+	color: #fff; */
+}
+.zypgSinTab{
+    border-radius: 3px;
+    padding: 5px 10px;
+	border: none;
+	box-shadow: 0;
+	cursor: pointer;
+}
+.nextBtn{
+	background: #1979FF !important;
+	color: #fff;
+	border-radius: 3px;
+    padding: 5px 10px;
+	border: none;
+	box-shadow: 0;
+	cursor: pointer;
+}
+.nextBtn:hover,.nextBtn:focus{
+	opacity: 0.8;
+	color: #fff;
+    text-decoration: none;
+}
+.nextDiv{
+	padding-bottom: 10px;
+}
+
+div.pcheck{
+    /* background: #002e6e;
+    background-color: #002e6e;
+    color: #fff; */
+    border: none;
+    padding: 0;
+}
+/*div.layui-layer-title{
+	background: #004D95 !important;
+    text-align: center;
+    padding: 0;
+    border: none;
+}*/

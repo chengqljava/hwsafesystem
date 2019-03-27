@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.enterprise.mapper.EntAddressMapper" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.enterprise.domain.EntAddress" >
+	<result column="addressid" property="addressid" jdbcType="VARCHAR" />
+	<result column="addressname" property="addressname" jdbcType="VARCHAR" />
+	<result column="businessinfoid" property="businessinfoid" jdbcType="VARCHAR" />
+	<result column="addresstype" property="addresstype" jdbcType="CHAR" />
+</resultMap>
+       
+<!-- ent_address table all fields -->
+<sql id="Base_Column_List" >
+	 addressid,addressname,businessinfoid,addresstype
+</sql>
+   
+ <!-- 分页查询 -->
+<select id ="loadByPage" resultType="map">
+  	select 
+	<include refid="Base_Column_List"/>
+	from ent_address 
+  </select>
+
+<!-- 查询公司地址列表 -->
+<select id="loadByList" resultMap="BaseResultMap"  parameterType="map">
+	select 
+	<include refid="Base_Column_List"/>
+	from ent_address 
+</select>
+
+<!-- 插入记录 -->
+<insert id="save" parameterType="com.hwsafe.enterprise.domain.EntAddress"  useGeneratedKeys="true" keyProperty="addressid" >
+	<selectKey  resultType="java.lang.String" keyProperty="addressid" order="BEFORE">    
+         select sys_guid() as addressid from dual 
+    </selectKey>  
+  insert into ent_address(addressid,addressname,businessinfoid,addresstype)
+ values(#{addressid},#{addressname},#{businessinfoid},#{addresstype})
+</insert>
+
+<!-- 根据id修改记录-->  
+ <update id="update" parameterType="com.hwsafe.enterprise.domain.EntAddress" >
+  update ent_address set addressname=#{addressname},businessinfoid=#{businessinfoid},addresstype=#{addresstype} where addressid=#{addressid}
+ </update>
+ 
+<!-- 删除记录 -->
+<delete id="delete" parameterType="string">
+	delete 	 from ent_address where addressid = #{addressid}
+</delete>
+
+<!-- 根据id查询 公司地址 -->
+<select id="loadById"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from ent_address where addressid = #{addressid}
+</select>
+
+<select id="loadByBusinessinfoId"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from ent_address where businessinfoid = #{businessinfoid}
+</select>
+ 
+<!-- 删除记录 -->
+<delete id="deleteByBusinessinfoid" parameterType="string">
+	delete from ent_address where businessinfoid = #{businessinfoid}
+</delete>  	
+</mapper>   

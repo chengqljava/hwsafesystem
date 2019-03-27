@@ -1,0 +1,107 @@
+<%for(var value in cssPart!){%>
+<% switch(value){
+                   case "orgcharts":
+                        println("<link href='/static/js/lib/orgcharts/css/font-awesome.min.css' rel='stylesheet' type='text/css' />");
+                        println("<link href='/static/js/lib/orgcharts/css/jquery.orgchart.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "orgchartscol":
+                        println("<link href='/static/js/lib/orgcharts/css/font-awesome.min.css' rel='stylesheet' type='text/css' />");
+                        println("<link href='/static/js/lib/orgcharts/css/jquery.orgchart-col.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "daterangepicker":
+                        println("<link href='/static/css/lib/daterangepicker/daterangepicker.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "bootstrap":
+                        println("<link href='/static/css/lib/bootstrap.min.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "jqgrid":
+                        println("<link href='/static/css/lib/jqGrid/ui.jqgrid-bootstrap-ui.css' rel='stylesheet' type='text/css' />");
+                        println("<link href='/static/css/lib/jqGrid/ui.jqgrid.css' rel='stylesheet' type='text/css' />");
+                        println("<link href='/static/css/lib/jqGrid/ui.jqgrid-bootstrap.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "jqueryui":
+                        println("<link href='/static/css/lib/jqueryUI/jquery-ui.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "date":
+                        println("<link href='/static/css/lib/datetimepicker/bootstrap-datetimepicker.min.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "calendar":
+                        println("<link href='/static/css/lib/calendar/bootstrap-year-calendar.min.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "ztree":
+                        println("<link href='/static/css/lib/zTreeStyle/zTreeStyle.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "layer":
+                        println("<link href='/static/css/theme/blue/layer/layer.min.css' rel='stylesheet' type='text/css' />");
+                        println("<link href='/static/css/theme/blue/layer/layer.ext.min.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "fileinput":
+                        println("<link href='/static/css/lib/fileinput/fileinput.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "login":
+                        println("<link href='/static/css/common/login.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "register":
+                        println("<link href='/static/css/common/register.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "font":
+                        println("<link href='/static/css/fonts/font-awesome.min.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "main":
+                        println("<link href='/static/css/common/main.css' rel='stylesheet' type='text/css' />");
+                        println("<link href='/static/css/theme/" + skin
+                            + "/main.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "wtqmain":
+                        println("<link href='/static/css/common/wtqmain.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "input_select":
+                        println("<link href='/static/css/lib/inputSelect/bootstrap-select.min.css' rel='stylesheet' type='text/css' />");
+                        break;
+
+                        println("<link href='/static/css/lib/multiselect/bootstrap-multiselect.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "timeline":
+                        println("<link href='/static/css/lib/timeline/component.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "accordMenu":
+                        //垂直导航条样式
+                        println("<link href='/static/css/lib/accordMenu/jquery-accordion-menu.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "bidIndex":
+                        //垂直导航条样式
+                        println("<link href='/static/css/module/bid/bidIndex.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "chosen":
+                        //下拉框复选插件
+                        println("<link href='/static/js/lib/chosen/chosen.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "select2":
+                        //输入选择框
+                        println("<link href='/static/css/lib/select2/select2.min.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "gisMap":
+                        //输入选择框
+                        println("<link href='/static/css/gis/DrawingManager_min.css' rel='stylesheet' type='text/css' />");
+                        break;
+                    case "jPlayer":
+                    	//输入选择框
+                    	println("<link href='/static/js/lib/jPlayer-master/dist/skin/blue.monday/css/jplayer.blue.monday.min.css' rel='stylesheet' type='text/css' />");
+                    	break;
+                    case "gisPortal":
+                    	//gis首页样式
+                    	println("<link href='/static/css/portal/simple-line-icons/simple-line-icons.css' rel='stylesheet' type='text/css' />");
+                    	println("<link href='/static/css/portal/fontawesome-free-5.0.2/web-fonts-with-css/css/fontawesome-all.min.css' rel='stylesheet' type='text/css' />");
+                    	println("<link href='/static/css/portal/style.css' rel='stylesheet' type='text/css' />");
+                    	break;
+                    case "syhtfont":
+                    	//思源黑体字体
+                    	println("<link href='/static/css/fonts/syhtfont.css' rel='stylesheet' type='text/css' />");
+                    	break;
+                    default:
+                        break;
+
+}%>
+
+
+<%}%>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="符号" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dropdown/Default" transform="translate(-32.000000, -3.000000)">
+            <g id="Group" transform="translate(32.000000, 3.000000)">
+                <g id="Group-2_export">
+                    <g id="Group-2">
+                        <rect id="Rectangle" x="0" y="0" width="12" height="12"></rect>
+                        <path d="M6.00568919,7.85037842 L10.2333377,3.15509903 C10.4065646,2.96271111 10.7029539,2.947178 10.8953419,3.12040486 C11.0877298,3.29363172 11.1032629,3.59002105 10.930036,3.78240897 L6.37179063,8.84485334 C6.27499954,8.95235074 6.13975646,9.00463312 6.00568919,8.99962368 C5.87162192,9.00463312 5.73637884,8.95235074 5.63958775,8.84485334 L1.08134236,3.78240897 C0.908115503,3.59002105 0.92364861,3.29363172 1.11603653,3.12040486 C1.30842444,2.947178 1.60481378,2.96271111 1.77804063,3.15509903 L6.00568919,7.85037842 Z" id="down" fill="#1890FF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,86 @@
+@charset "utf-8";
+ html {
+ 	height: 100%;
+ }
+ body {
+ 	height: 100%;
+ 	background: url("../../images/theme/blue/main/bg.jpg");
+	background-size: 100% 100%;
+ 	font-size: 13px;
+ }
+
+.login-box {
+	display: block;
+	width: 300px;
+	height: 340px;
+	position: relative;
+	top: 30%;
+}
+.login-box .logo {
+	width: 272px;
+	height: 100px;
+	display: block;
+	margin: 0 auto;
+	/* background: url("../../images/theme/blue/main/logo1.png") no-repeat; */
+	background: url("../../images/theme/blue/main/VGuardlogo.png") no-repeat;
+	background-size: 100%;
+}
+.login-box .pocket {
+	display: none;
+	width: 278px;
+	height: 23px;
+	position: absolute;
+	top: 78px;
+	left: 11px;
+	background: url("../../images/theme/blue/main/pocket.png") no-repeat;
+}
+.login-box .login-form {
+	width: 278px;
+	height: 162px;
+	display: block;
+	margin: 0 auto;
+	background: url("../../images/theme/blue/main/form-bg.png") no-repeat;
+}
+.login-box .login-form input {
+	padding-left: 5px;
+	width: 180px;
+	height: 34px;
+	float: left;
+	margin-left: 80px;
+	margin-top: 14px;
+	border:none;
+	background: none;
+	font-size: 15px;
+	color: #333;
+}
+.login-box .login-form button.btn {
+	width: 270px;
+	height: 42px;
+	border: none;
+	background: url("../../images/theme/blue/main/btn-login.png") no-repeat;
+	margin:20px 0 0 4px;
+}
+.login-box .login-form button.btn:hover {
+	background: url("../../images/theme/blue/main/btn-login-hover.png") no-repeat; 
+}
+button.yes,
+button.no {
+	width: 80px;
+	height: 30px;
+	position: absolute;
+	border: 1px solid #fff;
+	background: none;
+	color: #fff;
+}
+button.yes {
+	top: 0px;
+	left: 0px;
+}
+button.no {
+	top: 0px;
+	left: 100px;
+}
+
+.login-box .pocket {
+	display: none;
+}

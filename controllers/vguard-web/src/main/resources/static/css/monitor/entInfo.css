@@ -1,0 +1,1377 @@
+/*实时监测菜单*/
+.menu {
+    font: 12px verdana, arial, sans-serif; /* 设置文字大小和字体样式 */
+}
+
+.menu, .menu li {
+    list-style: none; /* 将默认的列表符号去掉 */
+    padding: 0; /* 将默认的内边距去掉 */
+    float: left;
+    margin-left: 10px;
+}
+
+.menu li a {
+    display: block; /* 将链接设为块级元素 */
+    padding: 5px 15px; /* 设置内边距 */
+    color: #478de4; /* 设置文字颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    border-radius: 15px;
+}
+
+.menu li a:hover {
+    background: #478de4; /* 变换背景色 */
+    color: #fff; /* 变换文字颜色 */
+}
+
+.menu li.active a {
+    background: #478de4; /* 变换背景色 */
+    color: #fff; /* 变换文字颜色 */
+}
+
+/*实时监测菜单结束*/
+
+.switch {
+    cursor: pointer;
+    position: relative;
+}
+
+.switch input {
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.switch input:checked + span {
+    background-color: #1ab667;
+}
+
+.switch input:checked + span:after {
+    left: 31px;
+}
+
+.switch span {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-color: rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.switch span:after {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    width: 26px;
+    top: 1px;
+    bottom: 1px;
+    border-radius: 30px;
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+    -webkit-transition: left 0.2s;
+    transition: left 0.2s;
+}
+
+.workShopPtDet2Row .lg-3-1 {
+    position: relative;
+    float: left;
+    margin: 10px 3px;
+}
+
+.workShopPtDet3Row .dateSel {
+    position: relative;
+    float: left;
+    margin: 15px 5px;
+}
+
+.workShopPtDet3Row .dateSel li.dateType-select {
+    list-style: none; /* 将默认的列表符号去掉 */
+    position: relative;
+    float: left;
+    margin: 0 auto;
+}
+
+.workShopPtDet3Row .dateSel li.dateType-select a {
+    display: block;
+    padding: 5px 20px;
+    color: #2177e6;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.workShopPtDet3Row .dateSel li.dateType-select a:hover,
+.workShopPtDet3Row .dateSel li.dateType-select a.current {
+    background: #2177e6;
+    color: #fff;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003264
+    }
+}
+
+.info-item {
+    padding: 0px 0 0 0;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003267
+    }
+}
+
+.info-item h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 30px;
+    padding-left: 15px;
+    border-left: 4px solid #478DE4;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003278
+    }
+}
+
+.company-item .info-details {
+    border-top: 1px solid #CDCECF;
+    padding: 12px 40px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003282
+    }
+}
+
+.company-item .table {
+    border: none;
+    background-color: #fff;
+    margin: 0;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003291
+    }
+}
+
+.alarm-item .left-part {
+    float: left;
+    width: 17%;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003295
+    }
+}
+
+.alarm-item .left-part .cur-alarm {
+    background-image: url("../../images/monitor/gis/alarm-cur.png");
+    background-repeat: no-repeat;
+    background-position: center 30px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003300
+    }
+}
+
+.alarm-item .left-part .his-alarm {
+    background-image: url("../../images/monitor/gis/alarm-his.png");
+    background-repeat: no-repeat;
+    background-position: center 30px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003306
+    }
+}
+
+.alarm-item .left-part a {
+    display: block;
+    width: 100%;
+    height: 145px;
+    padding-top: 100px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    background-color: #F3F3F5;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003319
+    }
+}
+
+.alarm-item .right-part {
+    width: 100%;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003323
+    }
+}
+
+.alarm-item .right-part .right-row {
+    border-top: 1px solid #CDCECF;
+    border-bottom: 1px solid #CDCECF;
+    margin-bottom: 10px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003329
+    }
+}
+
+.alarm-item .right-part .right-row .item {
+    float: left;
+    width: 41.5%;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003333
+    }
+}
+
+.alarm-item .right-part .right-row .item p {
+    padding-left: 35px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003337
+    }
+}
+
+.alarm-item .right-part .right-row .item p.st, .alarm-item .right-part .right-row .item p.nd {
+    padding-left: 35px;
+    margin-top: 10px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003341
+    }
+}
+
+.alarm-item .right-part .right-row .item p.st {
+    background: url("../../images/monitor/gis/gz.png") no-repeat 10px top;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003345
+    }
+}
+
+.alarm-item .right-part .right-row .item p.nd {
+    background: url("../../images/monitor/gis/jcjk.png") no-repeat 10px top;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003349
+    }
+}
+
+.alarm-item .right-part .right-row .item span.red-dis {
+    color: #EB4848;
+    font-size: 12px;
+}
+
+/*视频监控页面开始*/
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003359
+    }
+}
+
+.show {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 40px;
+    width: 100%;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003366
+    }
+}
+
+.show .left {
+    float: left;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003368
+    }
+}
+
+.show .left .start {
+    background: url("../../images/monitor/gis/start.png") no-repeat center;
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003373
+    }
+}
+
+.show .left .start:hover, .show .left .start.active {
+    background-color: #0377dc;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003378
+    }
+}
+
+.show .right {
+    float: right;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003380
+    }
+}
+
+.show .right .shot {
+    background: url("../../images/monitor/gis/shot.png") no-repeat center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin-right: 10px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003386
+    }
+}
+
+.show .right .shot:hover, .show .right .shot.active {
+    background-color: #0377dc;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003390
+    }
+}
+
+.show .right .record {
+    background: url("../../images/monitor/gis/record.png") no-repeat center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin-right: 10px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003396
+    }
+}
+
+.show .right .record:hover, .show .right .record.active {
+    background-color: #0377dc;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003400
+    }
+}
+
+.show .right .kz {
+    background: url("../../images/monitor/gis/kz.png") no-repeat center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin-right: 10px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003406
+    }
+}
+
+.show .right .kz:hover, .show .right .kz.active {
+    background-color: #0377dc;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003413
+    }
+}
+
+.vidCenter {
+    position: relative;
+    overflow: hidden;
+    height:100% !important;
+}
+.tab{
+	height: calc( 100% - 40px );
+}
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003417
+    }
+}
+
+.videoFrm {
+    background-color: #151515;
+    min-width: 200px;
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 181px;
+    /*! 视频右侧按钮 */
+    /*! 圆形按钮 */
+    /*! 结束圆形按钮 */
+    /*! 调焦按钮 */
+    /*! 结束调焦按钮 */
+    /*! 聚焦按钮 */
+    /*! 结束聚焦按钮  */
+    /*! 光圈按钮  */
+    /* @-webkit-keyframes changePosition{
+        0%{
+            -webkit-transform: translate(-150px);
+        }
+        50%{
+            -webkit-transform: translate(0);
+        }
+        100%{
+            -webkit-transform: translate(150px);
+        }
+    } */
+    /*! 结束光圈按钮  */
+    /*! 结束视频右侧按钮 */
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003433
+    }
+}
+
+.videoFrm .btnArea {
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-top:-150px;
+    margin-left:-80px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003438
+    }
+}
+
+.videoFrm .btnContent {
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003443
+    }
+}
+
+.videoFrm .btnContent .controlBg {
+    position: relative;
+    background-image: url(../../images/monitor/gis/video/ind_bg.png);
+    width: 152px;
+    height: 152px;
+    padding-left: 152px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003450
+    }
+}
+
+.videoFrm .controlMiddle {
+    position: absolute;
+    left: 32px;
+    top: 32px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003455
+    }
+}
+
+.videoFrm .btn_closer, .videoFrm .btn_out {
+    width: 88px;
+    height: 44px;
+    cursor: pointer;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003460
+    }
+}
+
+.videoFrm .btn_closer {
+    background-image: url(../../images/monitor/gis/video/btn_closer.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003463
+    }
+}
+
+.videoFrm .btn_closer:hover {
+    background-image: url(../../images/monitor/gis/video/btn_closerHover.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003466
+    }
+}
+
+.videoFrm .btn_out {
+    background-image: url(../../images/monitor/gis/video/btn_out.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003469
+    }
+}
+
+.videoFrm .btn_out:hover {
+    background-image: url(../../images/monitor/gis/video/btn_outHover.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003472
+    }
+}
+
+.videoFrm .left, .videoFrm .right {
+    height: 14px;
+    position: absolute;
+    top: 70px;
+    cursor: pointer;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003478
+    }
+}
+
+.videoFrm .left {
+    background-image: url(../../images/monitor/gis/video/ind_left.png);
+    width: 8px;
+    left: 12px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003483
+    }
+}
+
+.videoFrm .left:hover {
+    background-image: url(../../images/monitor/gis/video/ind_leftCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003486
+    }
+}
+
+.videoFrm .right {
+    background-image: url(../../images/monitor/gis/video/ind_right.png);
+    width: 11px;
+    right: 12px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003491
+    }
+}
+
+.videoFrm .right:hover {
+    background-image: url(../../images/monitor/gis/video/ind_rightCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003494
+    }
+}
+
+.videoFrm .leftUp, .videoFrm .rightUp, .videoFrm .leftDown, .videoFrm .rightDown {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    cursor: pointer;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003500
+    }
+}
+
+.videoFrm .leftUp {
+    background-image: url(../../images/monitor/gis/video/ind_leftUp.png);
+    left: 26px;
+    top: 34px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003505
+    }
+}
+
+.videoFrm .leftUp:hover {
+    background-image: url(../../images/monitor/gis/video/ind_leftUpCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003508
+    }
+}
+
+.videoFrm .rightUp {
+    background-image: url(../../images/monitor/gis/video/ind_rightUp.png);
+    right: 24px;
+    top: 32px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003513
+    }
+}
+
+.videoFrm .rightUp:hover {
+    background-image: url(../../images/monitor/gis/video/ind_rightUpCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003516
+    }
+}
+
+.videoFrm .indUp, .videoFrm .indDown {
+    position: absolute;
+    width: 14px;
+    height: 8px;
+    cursor: pointer;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003522
+    }
+}
+
+.videoFrm .indUp {
+    background-image: url(../../images/monitor/gis/video/ind_up.png);
+    left: 68px;
+    top: 14px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003527
+    }
+}
+
+.videoFrm .indUp:hover {
+    background-image: url(../../images/monitor/gis/video/ind_upCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003530
+    }
+}
+
+.videoFrm .leftDown {
+    background-image: url(../../images/monitor/gis/video/ind_leftDown.png);
+    left: 26px;
+    bottom: 34px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003535
+    }
+}
+
+.videoFrm .leftDown:hover {
+    background-image: url(../../images/monitor/gis/video/ind_leftDownCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003538
+    }
+}
+
+.videoFrm .rightDown {
+    background-image: url(../../images/monitor/gis/video/ind_rightDown.png);
+    right: 24px;
+    bottom: 32px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003543
+    }
+}
+
+.videoFrm .rightDown:hover {
+    background-image: url(../../images/monitor/gis/video/ind_rightDownCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003546
+    }
+}
+
+.videoFrm .indDown {
+    background-image: url(../../images/monitor/gis/video/ind_down.png);
+    left: 68px;
+    bottom: 14px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003551
+    }
+}
+
+.videoFrm .indDown:hover {
+    background-image: url(../../images/monitor/gis/video/ind_downCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003557
+    }
+}
+
+.videoFrm .btn_focus {
+    background-image: url(../../images/monitor/gis/video/btn_focus.png);
+    width: 72px;
+    height: 27px;
+    float: left;
+    cursor: pointer;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003564
+    }
+}
+
+.videoFrm .btn_focus:hover {
+    background-image: url(../../images/monitor/gis/video/btn_focusHover.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003567
+    }
+}
+
+.videoFrm .btn_focus.cur {
+    background-image: url(../../images/monitor/gis/video/btn_focusCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003570
+    }
+}
+
+.videoFrm .btn_focusAdd {
+    background-image: url(../../images/monitor/gis/video/btn_focusAdd.png);
+    width: 71px;
+    height: 27px;
+    float: right;
+    cursor: pointer;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003577
+    }
+}
+
+.videoFrm .btn_focusAdd:hover {
+    background-image: url(../../images/monitor/gis/video/btn_focusAddHover.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003580
+    }
+}
+
+.videoFrm .btn_focusAdd.cur {
+    background-image: url(../../images/monitor/gis/video/btn_focusAddCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003586
+    }
+}
+
+.videoFrm .btn_dodge {
+    background-image: url(../../images/monitor/gis/video/btn_dodge.png);
+    width: 72px;
+    height: 27px;
+    float: left;
+    cursor: pointer;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003593
+    }
+}
+
+.videoFrm .btn_dodge:hover {
+    background-image: url(../../images/monitor/gis/video/btn_dodgeHover.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003596
+    }
+}
+
+.videoFrm .btn_dodge.cur {
+    background-image: url(../../images/monitor/gis/video/btn_dodgeCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003599
+    }
+}
+
+.videoFrm .btn_burn {
+    background-image: url(../../images/monitor/gis/video/btn_burn.png);
+    width: 71px;
+    height: 27px;
+    float: right;
+    cursor: pointer;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003606
+    }
+}
+
+.videoFrm .btn_burn:hover {
+    background-image: url(../../images/monitor/gis/video/btn_burnHover.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003609
+    }
+}
+
+.videoFrm .btn_burn.cur {
+    background-image: url(../../images/monitor/gis/video/btn_burnCur.png);
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003615
+    }
+}
+
+.videoFrm .sliderBg {
+    position: relative;
+    background-image: url(../../images/monitor/gis/video/ind_processbarBg.png);
+    width: 163px;
+    height: 27px;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003621
+    }
+}
+
+.videoFrm .btn_minus, .videoFrm .btn_add {
+    width: 27px;
+    height: 27px;
+    cursor: pointer;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003626
+    }
+}
+
+.videoFrm .btn_minus {
+    background-image: url(../../images/monitor/gis/video/btn_minus.png);
+    float: left;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003630
+    }
+}
+
+.videoFrm .btn_minus:hover {
+    background-position: -54px 0;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003633
+    }
+}
+
+.videoFrm .btn_add {
+    background-image: url(../../images/monitor/gis/video/btn_add.png);
+    float: right;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003637
+    }
+}
+
+.videoFrm .btn_add:hover {
+    background-position: -54px 0;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003640
+    }
+}
+
+.videoFrm .ind_processbar {
+    position: absolute;
+    top: 12px;
+    left: 30px;
+    background-image: url(../../images/monitor/gis/video/ind_processbar.png);
+    width: 101px;
+    height: 5px;
+    overflow: hidden;
+}
+
+@media -sass-debug-info {
+    filename {
+        font-family: file\:\/\/E\:\/svn\/\%CE\%E5\%CD\%A8\%C7\%C5\/html\/app\/styles\/gis20161110\.scss
+    }
+
+    line {
+        font-family: \00003649
+    }
+}
+
+.videoFrm .ind_processbar span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: 3px;
+    background: #3a9acd;
+    -webkit-animation: changePosition 4s linear infinite;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    /* Disable selection so it doesn't get annoying */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: moz-none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#container #left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 100px;
+    background: red;
+}
+
+#container #right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    background: blue;
+}
+
+#container #handle {
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    cursor: w-resize;
+}
+

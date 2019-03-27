@@ -1,0 +1,131 @@
+html,body{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+h3,p,span{
+  margin: 0;
+  padding: 0;
+}
+tr>td{
+  box-sizing: border-box;
+}
+ul,li{
+  list-style: none;
+}
+table{
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+table tr td{
+  font-size: 14px;
+  color: rgba(0,0,0,0.65);
+  padding: 4px 6px 4px 12px;
+  line-height: 22px;
+}
+input{
+  outline: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+textarea{
+  outline: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.main{
+  width: 556px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #fff;
+  padding-top: 32px;
+}
+h3{
+  font-size: 32px;
+  color: rgba(0,0,0,0.65);
+  letter-spacing: 0;
+  text-align: center;
+  margin-bottom: 45px;
+  line-height: 35px;
+}
+.red{
+  color: red;
+  margin-left: 5px;
+}
+.dangerState{
+  position: absolute;
+  top: 29px;
+  right: 55px;
+  width: 126px;
+  height: 96px;
+  background-size: 100%;
+}
+.dfc{
+  background-image: url(../../../../images/module/hidden/yinhuan_icon_dfc.png);
+}
+.dhx{
+  background-image: url(../../../../images/module/hidden/yinhuan_icon_dhx.png);
+}
+.dqr{
+  background-image: url(../../../../images/module/hidden/yinhuan_icon_dqr.png);
+}
+.dzg{
+  background-image: url(../../../../images/module/hidden/yinhuan_icon_dzg.png);
+}
+.ycl{
+  background-image: url(../../../../images/module/hidden/yinhuan_icon_ycl.png);
+}
+.yhx{
+  background-image: url(../../../../images/module/hidden/yinhuan_icon_yhx.png);
+}
+.tableHeader tr>td{
+  padding: 4px 0;
+}
+.tableHeader tr>td:nth-of-type(2n){
+  color: rgba(0,0,0,0.85);
+  width: 205px;
+}
+.dangerInfo,.dangerInfo tr{
+  width: 100%;
+}
+.dangerInfo tr>td{
+  border: 1px solid #BFBFBF;
+}
+.yhhx{
+  font-size: 14px;
+  color: rgba(0,0,0,0.65);
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 30px;
+}
+.dangerInfo tr>td:nth-of-type(1){
+  width: 40px;
+}
+.dangerInfo tr>td:nth-of-type(2),.dangerInfo tr>td:nth-of-type(4){
+  width: 100px;
+}
+.areaSelect{
+  padding: 0;
+}
+.up{
+  margin-left: 65px;
+}
+.select-base-noBorder{
+  color: rgba(0,0,0,0.85);
+}
+button.small{
+  text-indent: 12px;
+}
+table tr td img{
+  height: 100px;
+  width: 133px;
+}
+.editBtn{
+  width: 130px;
+  margin: 16px auto 40px;
+}

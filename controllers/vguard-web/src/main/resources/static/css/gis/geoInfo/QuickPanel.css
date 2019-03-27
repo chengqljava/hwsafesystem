@@ -1,0 +1,342 @@
+html, body, #map {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Microsoft YaHei';
+    font-size: 12px;
+}
+
+.qkpRootContainer1 {
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin: 10px 15px;
+}
+
+.qkpItem {
+    float: left;
+    background-color: #35414f;
+    height: 32px;
+    width: 32px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: 50%; /*border:1px solid #fff;*/ /*禁用文字选择 ie 之前版本请用 unselectable='on' 标签属性 */
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Likely future */
+}
+
+    .qkpItem:hover {
+        box-shadow: 1px 1px 5px rgba(128,128,128,0.8);
+        background-color: #35b3fd;
+    }
+
+.qkpRootContainer2 {
+    position: fixed;
+    right: 0;
+    top: 75px;
+    margin: 0px 15px;
+}
+
+.qkpBGXiangPi{
+    background-image: url("../../../images/gis/geoInfo/xp.png");
+}
+.qkpBGKong{
+    background-image: url("../../../images/gis/geoInfo/kong.png");
+}
+.qkpBG1 {
+    background-image: url("../../../images/gis/geoInfo/celiang01.png");
+}
+
+.qkpBG2 {
+    background-image: url("../../../images/gis/geoInfo/fangda01.png");
+}
+
+.qkpBG3 {
+    background-image: url("../../../images/gis/geoInfo/hyst01.png");
+}
+
+.qkpBG4 {
+    background-image: url("../../../images/gis/geoInfo/move01.png");
+}
+
+.qkpBG5 {
+    background-image: url("../../../images/gis/geoInfo/pan01.png");
+}
+
+.qkpBG6 {
+    background-image: url("../../../images/gis/geoInfo/qyst01.png");
+}
+
+.qkpBG7 {
+    background-image: url("../../../images/gis/geoInfo/qp01.png");
+}
+
+.qkpBG8 {
+    background-image: url("../../../images/gis/geoInfo/sx01.png");
+}
+
+.qkpBG9 {
+    background-image: url("../../../images/gis/geoInfo/quanqiu.png");
+}
+
+.qkpBGfuwu {
+    background-image: url("../../../images/gis/geoInfo/fwkz01.png");
+}
+
+.qkpBGtuceng {
+    background-image: url("../../../images/gis/geoInfo/tckz01.png");
+}
+
+.qkpBG10 {
+    background-image: url("../../../images/gis/geoInfo/iden.png");
+}
+
+.qkpBG11 {
+    background-image: url("../../../images/gis/geoInfo/dbx.png");
+}
+
+.qkpPopBar7 {
+    padding: 0px 5px 5px 5px;
+    transition: height 0.5s;
+    -moz-transition: height 0.5s; /* Firefox 4 */
+    -webkit-transition: height 0.5s; /* Safari and Chrome */
+    -o-transition: height 0.5s; /* Opera */
+    background-color: #fff;
+    height: 250px;
+    overflow-y: auto;
+}
+
+.qkpPopBar6 {
+    padding: 0px 5px 5px 5px;
+    transition: height 0.5s;
+    -moz-transition: height 0.5s; /* Firefox 4 */
+    -webkit-transition: height 0.5s; /* Safari and Chrome */
+    -o-transition: height 0.5s; /* Opera */
+    background-color: #fff;
+    height: 150px;
+    overflow-y: auto;
+}
+
+
+
+.qkpCon3ItemsBar1 {
+    position: relative;
+}
+
+.qkpCon3Title img {
+    float: left;
+}
+
+.kzTitle {
+    padding-left: 3px;
+    line-height: 24px;
+    float: left;
+}
+
+.qkpRootContainer3 {
+    border-top: 3px solid #354052;
+    display: none;
+    box-shadow: 1px 1px 10px rgba(128,128,128,0.8);
+    border-radius: 3px 3px 0px 0px; /*禁用文字选择 ie 之前版本请用 unselectable='on' 标签属性 */
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Likely future */
+}
+
+.qkpCon3TitleBar {
+    background-color: #c3c4c8;
+    padding: 3px 3px;
+    cursor: pointer;
+    border-bottom: 1px solid #dddddd;
+}
+
+.qkpCon3Title {
+    font-size: 12px;
+    float: left;
+}
+
+.qkpPopBar {
+    padding: 0px 5px 5px 5px;
+    transition: height 0.5s;
+    -moz-transition: height 0.5s; /* Firefox 4 */
+    -webkit-transition: height 0.5s; /* Safari and Chrome */
+    -o-transition: height 0.5s; /* Opera */
+    background-color: #fff;
+    height: 175px;
+    overflow-y: auto;
+}
+
+.qkpPopTitle {
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #c6c6c6;
+    cursor: pointer;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+.qkpCon3ItemsBar {
+    border-bottom: 1px solid #c6c6c6;
+    overflow-y: auto;
+}
+
+.qkpCon3Item {
+    float: left;
+    width: 33%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.qkpCon3ItemIcon {
+    border: 1px solid #c6c6c6;
+    cursor: pointer;
+    width: 78px;
+    height: 78px;
+    margin: auto;
+    position: relative;
+}
+
+
+
+.qkpCon3ItemTitle {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.qkpIcon1 {
+    background-image: url("images/img1.png");
+}
+
+.qkpIcon2 {
+    background-image: url("images/img2.png");
+}
+
+.qkpIcon3 {
+    background-image: url("images/img3.png");
+}
+
+.qkpIcon4 {
+    /*background-image: url("images/dxt.png");*/
+}
+
+.qkpIcon5 {
+    background-image: url("images/img5.png");
+}
+
+.qkpClearBoth {
+    clear: both;
+}
+
+.qkpRightIcon {
+    background-image: url("../../../images/gis/geoInfo/xz.png");
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    width: 24px;
+    height: 24px;
+}
+
+    .qkpRightIcon:hover {
+        background-image: url("../../../images/gis/geoInfo/sc.png");
+    }
+
+.closeBtn{
+        float:right;
+        margin-right:10px;
+    }
+
+/*手机端*/
+@media screen and (max-width:414px) {
+    .qkpRootContainer1 {
+        display: none;
+    }
+
+    .qkpRootContainer2 {
+        top: 15px;
+    }
+
+    .qkp2Item {
+        /*height: 48px;         width: 48px;*/
+        background-color: #35414f;
+        border-radius: 3px;
+        cursor: pointer; /*padding: 3px;*/
+        margin-bottom: 15px;
+    }
+
+    .qkp2ItemIcon {
+        width: 32px;
+        height: 32px;
+        background-size: 24px;
+        background-repeat: no-repeat;
+        margin: auto;
+        background-position: 50%;
+        padding: 4px;
+    }
+
+    .qkp2ItemTitle {
+        display: none;
+    }
+
+    .qkpRootContainer3 {
+        position: fixed;
+        top: 15px;
+        right: 60px;
+        max-width: 260px;
+    }
+}
+
+/*pc端*/
+@media screen and (min-width:415px) {
+    .qkp2Item {
+        height: 60px;
+        width: 60px;
+        background-color: #35414f;
+        border-radius: 3px;
+        cursor: pointer;
+        padding: 5px;
+        margin-bottom: 15px; /*禁用文字选择 ie 之前版本请用 unselectable='on' 标签属性 */
+        -webkit-user-select: none; /* Chrome all / Safari all */
+        -moz-user-select: none; /* Firefox all */
+        -ms-user-select: none; /* IE 10+ */
+        user-select: none; /* Likely future */
+    }
+
+        .qkp2Item:hover {
+            box-shadow: 1px 1px 5px rgba(128,128,128,0.8);
+            background-color: #35b3fd;
+        }
+
+    .qkp2ItemIcon {
+        width: 32px;
+        height: 32px;
+        background-repeat: no-repeat;
+        margin: auto;
+        background-position: 50%;
+        padding: 5px;
+    }
+
+    .qkp2ItemTitle {
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .qkpRootContainer3 {
+        position: fixed;
+        top: 65px;
+        right: 100px;
+        width: 281px;
+    }
+
+    .qkpCon3ItemIcon:hover {
+        box-shadow: 1px 1px 5px rgba(128,128,128,0.8);
+    }
+}

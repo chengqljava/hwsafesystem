@@ -1,0 +1,199 @@
+
+/* 濞戝牊浼呴幓鎰板晪瀹革缚绗傜憴鎶癮b妞ゅ灚鐗卞锟�*/
+
+/* .xxtxRightTop{
+    width: 160px;
+    height: 147px;
+    background: #262E37;
+    box-shadow: 0 5px 4px 0 rgba(0,0,0,0.50);
+}
+.xxtxRightTop>ul{
+    background: #3E4B58;
+    height: 37px;
+    padding-left: 22px;
+}
+.xxtxRightTop ul li{
+    float: left;
+    line-height: 35px;
+    color: #fff;
+    font-size: 12px;
+    width: 68px;
+}
+.xxtxRightTop ul li.active span{
+    display: block;
+    height: 35px;
+    width: 50px;
+    border-bottom: 2px solid #00C5FF;
+}
+div.warningInfoListDiv{
+    display: none;
+}
+ul.warningInfoList{
+    width: 100%;
+    height: 105px;
+    box-sizing: border-box;
+}
+ul.warningInfoList li{
+    width: 100%;
+    padding-left: 37px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+ul.warningInfoList li span{
+    color: #ff0000;
+}
+ul.warningInfoList li:hover, ul.warningInfoList li.active11{
+    border: 2px solid #00BFFF;
+    border-radius: 3px;
+    color: #00bfff;
+}
+ul.warningInfoList li:hover span, ul.warningInfoList li.active11 span {
+    color: #00BFFF;
+} */
+
+/******/
+.xxtxRightTop{
+    width: 160px;
+    height: 150px;
+    background: #FFF;
+    box-shadow: 0 0 3px rgba(86, 96, 117, 0.3);
+}
+.xxtxRightTop>ul{
+    background: #FFF;
+    height: 37px;
+    padding-left: 22px;
+    border-bottom: 1px solid #d9d9d9;
+}
+.xxtxRightTop ul li{
+    float: left;
+    line-height: 35px;
+    color: #333;
+    font-size: 12px;
+    width: 68px;
+    padding-top: 0;
+}
+.xxtxRightTop ul li.active11 span{
+    display: block;
+    height: 37px;
+    width: 50px;
+    border-bottom: 2px solid #0075c7;
+}
+div.warningInfoListDiv{
+    display: none;
+}
+ul.warningInfoList{
+    width: 100%;
+    height: 75px;
+    box-sizing: border-box;
+}
+ul.warningInfoList li{
+    width: 100%;
+    padding-left: 37px;
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 38px;
+    padding-top: 0;
+}
+
+ul.waringMonitor li{
+	padding-left: 40px;
+}
+
+ul.warningInfoList li span{
+    color: #ff0000;
+}
+ul.warningInfoList li:hover, ul.warningInfoList li.active11,ul.warningInfoList li.active12{
+    background-color: #0075c7;
+    color: #fff;
+}
+ul.warningInfoList li:hover span, ul.warningInfoList li.active11 span,ul.warningInfoList li.active12 span {
+    color: #fff;
+}
+
+/**********/
+/*娑撳娼伴惃鍕壉瀵繐鍙曢崗鍗炲隘閸╃喍鑵戦張澶涚礉娑撳秹娓剁憰浣虹煒鐠愶拷*/
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.ggqyLeft{
+    display: inline-block;
+    width: 340px;
+    height: 240px;
+    vertical-align: top;
+}
+.ggqyTitle{
+    background: rgba(216,216,216,0.00);
+    border: 1px solid #336DAF;
+    box-sizing: border-box;
+    line-height: 28px;
+    color: #A7BDDE;
+    padding-left: 12px;
+    font-size: 12px;
+}
+.videoArea{
+    width: 100%;
+    height: 210px;
+    border: 1px solid #336DAF;
+    box-sizing: border-box;
+    border-top: 0;
+
+}
+.ggqyRight{
+    display: inline-block;
+    width: 132px;
+    height: 240px;
+}
+.ggqyRight ul li{
+    border: 1px solid #336DAF;
+    font-size: 12px;
+    line-height: 28px;
+    box-sizing: border-box;
+    margin-bottom: -1px;
+    padding-left: 12px;
+    color: #A7BDDE;
+}
+.ggqyContentTitle{
+    background: rgba(51,109,175,0.30);
+}
+.ggqyContentkind:hover{
+    background: rgba(0,197,255,0.30);
+    color: #25CDFF;
+}
+.ggqyContentkind.active11{
+    background: rgba(0,197,255,0.30);
+    color: #25CDFF;
+}
+.block{
+    display: block !important;
+}
+
+
+
+/* 娑撳娼伴惃鍕壉瀵繐甯玞ss娑擃厼鍑＄�涙ê婀敍灞界穿閸忋儳娈戦弮璺猴拷娆忓箵閹猴拷*/
+.triangle{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(0, 50, 120, 0.9);
+    position: absolute;
+    bottom: -10px;
+    left: calc( 50% - 10px);
+}
+.popupTitle{
+    position: relative;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 16px;
+    color: #6DF5FE;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    margin-bottom: 20px;
+}
+
+.page-tabs-content a{
+	line-height: 30px;
+}

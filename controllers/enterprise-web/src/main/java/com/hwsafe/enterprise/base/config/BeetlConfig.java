@@ -1,6 +1,5 @@
 package com.hwsafe.enterprise.base.config;
 
-import org.beetl.core.GroupTemplate;
 import org.beetl.core.resource.ClasspathResourceLoader;
 import org.beetl.ext.spring.BeetlGroupUtilConfiguration;
 import org.beetl.ext.spring.BeetlSpringViewResolver;
@@ -14,10 +13,6 @@ import org.springframework.core.io.support.ResourcePatternUtils;
 
 @Configuration
 public class BeetlConfig {
-	
-	//配置文件位置
-		@Value("${beetl.propertiesPath}") 
-		private String propertiesPath;
 
 		
 		//MVC视图模板配置路径
@@ -43,7 +38,7 @@ public class BeetlConfig {
 		            if(loader==null){
 		                loader = BeetlConfig.class.getClassLoader();
 		            }
-		            beetlGroupUtilConfiguration.setConfigFileResource(patternResolver.getResource(propertiesPath));
+		           // beetlGroupUtilConfiguration.setConfigFileResource(patternResolver.getResource(propertiesPath));
 		            ClasspathResourceLoader cploder = new ClasspathResourceLoader(loader,templatesViewPath);
 		            beetlGroupUtilConfiguration.setResourceLoader(cploder);
 		            

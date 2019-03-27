@@ -1,0 +1,165 @@
+﻿.sqSearchBtn
+{
+    float: right;
+    cursor: pointer;
+    padding: 6px 15px;
+    color: #fff;
+    background: #354052;
+    margin-top: 5px;
+    margin-right: 4px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-family: 'Microsoft YaHei';
+}
+.sqSearchNoBtn
+{
+    float: right;
+    cursor: not-allowed;
+    padding: 6px 15px;
+    color: #fff;
+    background: #354052;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-family: 'Microsoft YaHei';
+}
+.sqSearchBtn:hover
+{
+    background: #44536b;
+}
+
+.sqMainContainer
+{
+    float: right;
+}
+
+.sqPenBtnBar
+{
+    cursor: pointer;
+    float: left;
+    border: 1px solid rgba(0, 0, 0, 0.00);
+    border-radius: 3px;
+    padding: 2px;
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+.sqPenBtnBar:hover
+{
+    border: 1px solid #354052;
+    background-color: #91D2FD;
+}
+
+.sqPenBtnBarSelected
+{
+    cursor: pointer;
+    float: left;
+    border: 1px solid #354052;
+    background-color: #91D2FD;
+    border-radius: 3px;
+    padding: 2px;
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+.sqPenBtn
+{
+    height: 24px;
+    width: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.sqPenA
+{
+    background-image: url("images/pen-A.png");
+}
+
+.sqPenB
+{
+    background-image: url("images/pen-B.png");
+}
+
+.sqPenC
+{
+    background-image: url("images/pen-C.png");
+}
+
+.sqPenD
+{
+    background-image: url("images/pen-D.png");
+}
+/*iphone6*/
+@media (max-width: 375px)
+{
+    .sqSearchBtn
+    {
+        float: right;
+        cursor: pointer;
+        padding: 3px 6px;
+        color: #fff;
+        background: #354052;
+        margin-top: 5px;
+        margin-right: 2px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-family: 'Microsoft YaHei';
+    }
+    .sqPenBtnBar
+    {
+        cursor: pointer;
+        float: left;
+        border: 1px solid rgba(0, 0, 0, 0.00);
+        border-radius: 3px;
+        padding: 0px;
+        margin-top: 4px;
+        margin-right: 5px;
+    }
+    .funTitle
+    {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 8px;
+        color: #333333;
+        padding-left: 3px;
+        font-size: 15px;
+    }
+}
+/*Iphone6s Plus 适应*/
+@media (max-width: 414px) {
+    .sqSearchBtn
+    {
+        float: right;
+        cursor: pointer;
+        padding: 3px 6px;
+        color: #fff;
+        background: #354052;
+        margin-top: 5px;
+        margin-right: 4px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-family: 'Microsoft YaHei';
+    }
+    .sqPenBtnBar
+    {
+        cursor: pointer;
+        float: left;
+        border: 1px solid rgba(0, 0, 0, 0.00);
+        border-radius: 3px;
+        padding: 0px;
+        margin-top: 4px;
+        margin-right: 5px;
+    }
+    .funTitle
+    {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 8px;
+        color: #333333;
+        padding-left: 3px;
+        
+    }
+}

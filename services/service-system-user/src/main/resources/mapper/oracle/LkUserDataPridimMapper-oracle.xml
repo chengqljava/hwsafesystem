@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.sys.mapper.LkUserDataPridimMapper" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.sys.domain.LkUserDataPridim" >
+	<result column="id" property="id" jdbcType="VARCHAR" />
+	<result column="userid" property="userid" jdbcType="VARCHAR" />
+	<result column="datapriid" property="datapriid" jdbcType="VARCHAR" />
+	<result column="datapritype" property="datapritype" jdbcType="INTEGER" />
+	<result column="createtime" property="createtime" jdbcType="DATE" />
+	<result column="createrid" property="createrid" jdbcType="VARCHAR" />
+</resultMap>
+       
+<!-- LK_USER_DATAPRIDIM table all fields -->
+<sql id="Base_Column_List" >
+	 id,userid,datapriid,datapritype,createtime,createrid
+</sql>
+
+<insert id="saveDataPridim"  parameterType="com.hwsafe.sys.domain.LkUserDataPridim" >
+   insert into LK_USER_DATAPRIDIM(id,userid,datapriid,datapritype,createtime,createrid)
+   values(#{id,jdbcType=VARCHAR},#{userid,jdbcType=VARCHAR},#{datapriid,jdbcType=VARCHAR},#{datapritype,jdbcType=INTEGER},#{createtime,jdbcType=DATE},#{createrid,jdbcType=VARCHAR})
+</insert>
+<select id="loadByUseridOrType" resultMap="BaseResultMap"  parameterType="map">
+   select <include refid="Base_Column_List"/>
+	from LK_USER_DATAPRIDIM
+	WHERE 1=1
+	 <if test="userId!=null and userId!='' and userId!='null'">
+			and userid = #{userId}
+	 </if> 
+	 <if test="datapritype!=null and datapritype!='' and datapritype!='null'">
+			and datapritype = #{datapritype}
+	 </if> 
+</select>
+
+<delete id="deleteById"  parameterType="string">
+  DELETE FROM LK_USER_DATAPRIDIM WHERE id=#{id}
+</delete>
+
+
+
+<insert id="saveBatch" parameterType="java.util.List" useGeneratedKeys="false">
+insert all
+	
+		<foreach collection="list" item="item" index="index"   > 
+			into  LK_USER_DATAPRIDIM(id,userid,datapriid,datapritype,createtime,createrid)
+	values 
+			(#{item.id,jdbcType=VARCHAR}, 
+			#{item.userid,jdbcType=VARCHAR}, 
+			#{item.datapriid,jdbcType=VARCHAR}, 
+			#{item.datapritype,jdbcType=INTEGER}, 
+			#{item.createtime,jdbcType=DATE}, 
+			#{item.createrid,jdbcType=VARCHAR})
+			
+		</foreach>
+		 select 1 from dual
+</insert>
+
+<delete id="deleteByUserId">
+  DELETE FROM LK_USER_DATAPRIDIM WHERE userid=#{userId}
+</delete>
+</mapper> 
+  

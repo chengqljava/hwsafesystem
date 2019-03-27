@@ -1,0 +1,63 @@
+﻿#titlePane {
+    width: 240px;
+}
+
+.claro .dijitTitlePaneTitle {
+    background-color: #eeeeee;
+    font-weight: 600;
+    border: none;
+    border-top: 3px solid #354052;
+    border-radius: 3px 3px 0px 0px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.claro .dijitTitlePaneTitleHover {
+    background: #eee;
+}
+
+.claro .dijitTitlePaneTitleActive {
+    background: #808775;
+}
+
+.claro .dijitTitlePaneContentOuter {
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+}
+
+.claro .dijitContentPane {
+    padding: 0;
+}
+
+.esriMeasurement .locationIcon {
+    width: 32px;
+    height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.esriMeasurement .distanceIcon {
+    width: 32px;
+    height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.esriMeasurement .areaIcon {
+    width: 32px;
+    height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.MeasurementPopBar {
+    display: none;
+    position: fixed;
+    right: 105px;
+    top: 76px;
+    box-shadow: 1px 1px 5px rgba(128,128,128,0.8);
+}
+
+.claro .dijitArrowButtonInner {
+    background-image: url("../../images/buttonArrows.png");
+}

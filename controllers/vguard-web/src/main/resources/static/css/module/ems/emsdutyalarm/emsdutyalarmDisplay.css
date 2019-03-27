@@ -1,0 +1,43 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.main{
+    width: 100%;
+    box-sizing: border-box;
+    padding:5px 10px;
+}
+.main table{
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-size: 14px;
+    width: 100%;
+}
+.main table tr td{
+    line-height: 35px;
+    border: 1px solid #D8D8D8;
+    padding-left: 10px;
+    color: #3E4B5C;
+}
+.main table tr td:nth-of-type(1){
+    width: 15%;
+    background: #EEFAFF;
+}
+.main table tr td:nth-of-type(2){
+    width: 35%;
+}
+.main table tr td:nth-of-type(3){
+    width: 50%;
+    padding: 0;
+}
+audio{
+    width: calc( 100% - 25px );
+}
+audio+a{
+    color: #5a5a5a;
+    font-size: 18px !important;
+    position: relative;
+    top: -9px;
+}

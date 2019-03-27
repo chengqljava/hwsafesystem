@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.sys.mapper.SysPrivMapper"> 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.sys.domain.SysPriv" >
+	<result column="privid" property="privid" jdbcType="VARCHAR" />
+	<result column="privname" property="privname" jdbcType="VARCHAR" />
+	<result column="privcode" property="privcode" jdbcType="VARCHAR" />
+	<result column="usertype" property="usertype" jdbcType="CHAR" />
+	<result column="privurl" property="privurl" jdbcType="VARCHAR" />
+	<result column="privtype" property="privtype" jdbcType="VARCHAR" />
+	<result column="privimg" property="privimg" jdbcType="VARCHAR" />
+	<result column="privlevel" property="privlevel" jdbcType="CHAR" />
+	<result column="parentid" property="parentid" jdbcType="VARCHAR" />
+	<result column="ordernum" property="ordernum" jdbcType="INTEGER" />
+	<result column="updateper" property="updateper" jdbcType="VARCHAR" />
+	<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+	<result column="note" property="note" jdbcType="VARCHAR" />
+	<collection property="sysOpers"  ofType="com.hwsafe.sys.domain.SysOper">
+	    <id property="operid" column="operid" jdbcType="VARCHAR" />
+        <result property="opername" column="opername" jdbcType="VARCHAR" />
+        <result column="opercode" property="opercode" jdbcType="VARCHAR" />
+        <result column="operstyle" property="operstyle" jdbcType="VARCHAR" />
+        <result column="ordernum" property="ordernum" jdbcType="INTEGER" />
+	</collection>
+</resultMap>
+
+<!-- sys_priv table all fields -->
+<sql id="Base_Column_List" >
+	 privid,privname,privcode,usertype,privurl,privtype,privimg,privlevel,parentid,ordernum,updateper,updatetime,note
+</sql>
+   
+ <!-- 分页查询 -->
+<select id ="loadByPage" resultType="map">
+  	select 
+	<include refid="Base_Column_List"/>
+	from sys_priv priv
+   <where>
+	   <if test="privid!=null and privid!='' and privid!='null'"> and priv.parentid=#{privid}</if>
+	   <if test="privname!=null and privname!='' and privname!='null'"> and priv.privname like '%${privname}%' </if>
+   </where>
+</select>
+
+<!-- 查询权限列表 -->
+<select id="loadByList" resultMap="BaseResultMap"  parameterType="map">
+	select 
+	<include refid="Base_Column_List"/>
+	from sys_priv 
+   <where>
+	   <if test="usertype!=null and usertype!='' and usertype!='null'"> and usertype=#{usertype}</if>
+	   <if test="privcode!=null and privcode!='' and privcode!='null'"> and privcode=#{privcode}</if>
+   </where>
+</select>
+
+<!-- 插入记录 -->
+<insert id="save" parameterType="com.hwsafe.sys.domain.SysPriv"  useGeneratedKeys="true" keyProperty="privid" >
+	<selectKey  resultType="java.lang.String" keyProperty="privid" order="BEFORE">
+	    select sys_guid() as privid from dual    
+    </selectKey>  
+  insert into sys_priv(privid,privname,privcode,usertype,privurl,privtype,privimg,privlevel,parentid,ordernum,updateper,updatetime,note)
+  values(
+  		#{privid,jdbcType=VARCHAR},
+  		#{privname,jdbcType=VARCHAR},
+  		#{privcode,jdbcType=VARCHAR},
+  		#{usertype,jdbcType=VARCHAR},
+  		#{privurl,jdbcType=VARCHAR},
+  		#{privtype,jdbcType=VARCHAR},
+  		#{privimg,jdbcType=VARCHAR},
+  		#{privlevel,jdbcType=CHAR},
+  		#{parentid,jdbcType=VARCHAR},
+  		#{ordernum,jdbcType=INTEGER},
+  		#{updateper,jdbcType=VARCHAR},
+  		#{updatetime,jdbcType=TIMESTAMP},
+  		#{note,jdbcType=VARCHAR}
+  )
+</insert>
+
+<!-- 根据id修改记录-->  
+ <update id="update" parameterType="com.hwsafe.sys.domain.SysPriv" >
+  update 
+      sys_priv 
+  set 
+      privname=#{privname,jdbcType=VARCHAR},
+      privcode=#{privcode,jdbcType=VARCHAR},
+      usertype=#{usertype,jdbcType=VARCHAR},
+      privurl=#{privurl,jdbcType=VARCHAR},
+      privtype=#{privtype,jdbcType=VARCHAR},
+      privimg=#{privimg,jdbcType=VARCHAR},
+      privlevel=#{privlevel,jdbcType=CHAR},
+      parentid=#{parentid,jdbcType=VARCHAR},
+      ordernum=#{ordernum,jdbcType=INTEGER},
+      updateper=#{updateper,jdbcType=VARCHAR},
+      updatetime=#{updatetime,jdbcType=TIMESTAMP},
+      note=#{note,jdbcType=VARCHAR} 
+  where 
+      privid=#{privid,jdbcType=VARCHAR}
+ </update>
+ 
+<!-- 删除记录 -->
+<delete id="delete" parameterType="string">
+	delete from sys_priv where privid = #{privid,jdbcType=VARCHAR}
+</delete>
+
+<!-- 根据id查询 权限 -->
+<select id="loadById"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from sys_priv where privid = #{privid}
+</select>
+  	
+ <!-- 根据id查询权限菜单及对应的操作项 -->
+<select id="loadPrivById"  resultMap="BaseResultMap" parameterType="string" >
+	select 
+		priv.privid,priv.privcode,priv.privname,priv.privurl,priv.privtype,
+		priv.parentid,priv.ordernum,priv.privimg,priv.privlevel,priv.usertype,
+		priv.updateper,priv.updatetime,priv.note,
+		oper.operid,oper.opername,oper.opercode,oper.operstyle,oper.ordernum
+	from sys_priv priv
+	left join lk_role_priv lkrp on priv.privid = lkrp.privid
+	left join sys_oper oper on oper.operid = lkrp.operid
+	left join sys_role role on role.roleid = lkrp.roleid
+	left join lk_user_role lkur on lkur.roleid = role.roleid
+	left join sys_user suser on suser.userid = lkur.userid
+	<where>
+	 	 <if test="organid!=null and organid!='' and organid!='null'"> and suser.organid=#{organid}</if>
+		 <if test="userid!=null and userid!='' and userid!='null'"> and suser.userid=#{userid}</if>
+	</where>
+	order by priv.ordernum asc,oper.ordernum asc
+</select>  
+
+ <!-- 查询左侧权限树 -->
+<select id="loadPrivTree"  resultType="map">
+     select 
+         priv.privid as "id",priv.parentid as "pId",priv.privname as "name",priv.privurl as "privurl",priv.usertype as "usertype",
+         priv.ordernum as "ordernum",priv.privimg as "privimg",priv.note as "note",priv.privcode as "privcode",
+         priv.privlevel as "privlevel",priv.updateper as "updateper",priv.updatetime as "updatetime"
+	 from sys_priv priv
+	<where>
+		 priv.privlevel != '3'
+		 <if test="usertype!=null and usertype!='' and usertype!='null'"> and priv.usertype=#{usertype}</if>
+	</where>
+	 order by priv.ordernum asc
+</select>  	
+
+ <!-- 查询权限子节点数量 -->
+<select id="loadCountLkParentById" resultType="Integer"  parameterType="map">
+	select count(*)
+	from sys_priv priv
+	<where> 
+  		<if test="ids != null">
+ 			 priv.parentid  in 
+			<foreach collection="ids" index="index" item="item" open="(" separator="," close=")">  
+   		 	   #{item,jdbcType=VARCHAR}  
+   			</foreach> 
+		</if>
+	</where>
+</select> 
+
+
+ <!-- 根据用户ID查询权限 -->
+<select id="loadPrivByUserId"  resultMap="BaseResultMap">
+     select distinct priv.privid,priv.privname,priv.privcode,priv.usertype,priv.privurl,priv.privtype,
+     priv.privimg,priv.privlevel,priv.parentid,priv.ordernum,priv.updateper,priv.updatetime,priv.note
+	 from sys_priv priv 
+	 left join lk_role_priv lrp on lrp.privid=priv.privid 
+	 left join lk_user_role lur on lur.roleid=lrp.roleid
+	 where lur.userid=#{userid} 
+</select>  
+
+</mapper>   

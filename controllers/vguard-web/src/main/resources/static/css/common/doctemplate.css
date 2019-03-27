@@ -1,0 +1,207 @@
+.title {
+    color: #000000;
+    font-size: 15pt;
+    font-weight: bold;
+}
+.numberShow {
+    display: none;
+}
+.iinput_number {
+    border: medium none;
+    color: #ff0000;
+    font-size: 16pt;
+}
+.btn_save {
+    background: rgba(0, 0, 0, 0) url("../images/textinput_bg.jpg") repeat scroll 0 0;
+    border: 1px solid #83b1f2;
+    display: none;
+    font-size: 12px;
+    height: 22px;
+    line-height: 20px;
+    margin-right: 4px;
+}
+.btn_saves {
+    background: rgba(0, 0, 0, 0) url("../images/textinput_bg.jpg") repeat scroll 0 0;
+    border: 1px solid #83b1f2;
+    font-size: 12px;
+    height: 22px;
+    line-height: 20px;
+    margin-right: 4px;
+}
+.btn_reportTo {
+    background: rgba(0, 0, 0, 0) url("../images/textinput_bg.jpg") repeat scroll 0 0;
+    border: 1px solid #83b1f2;
+    display: none;
+    font-size: 12px;
+    height: 22px;
+    line-height: 20px;
+    margin-right: 4px;
+}
+.btn_printZ {
+    background: rgba(0, 0, 0, 0) url("../images/imagesLogin/a_bg.gif") repeat scroll 0 0;
+    border: 1px solid #409ccf;
+    display: none;
+    height: 18px;
+    padding-top: 1px;
+    width: 60px;
+}
+.btn_printZs {
+    background: rgba(0, 0, 0, 0) url("../images/textinput_bg.jpg") repeat scroll 0 0;
+    border: 1px solid #83b1f2;
+    font-size: 12px;
+    height: 22px;
+    line-height: 20px;
+    margin-right: 4px;
+    width: 60px;
+}
+.btn_printT {
+    background: rgba(0, 0, 0, 0) url("../images/imagesLogin/a_bg.gif") repeat scroll 0 0;
+    border: 1px solid #409ccf;
+    display: none;
+    height: 18px;
+    padding-top: 1px;
+    width: 60px;
+}
+/* .text {
+    color: #000000;
+    font-size: 12pt;
+} */
+.text1 {
+    border: 1px solid #000000;
+    color: #000000;
+    font-size: 12pt;
+}
+.text2 {
+    border: 1px solid #000000;
+    color: #000000;
+    font-size: 8pt;
+}
+.iinput {
+    border: 0 none;
+    font-size: 12pt;
+}
+.iinput_middle {
+    border: 0 none;
+    font-size: 12pt;
+    /*text-align: center;*/
+}
+.iinput1 {
+    border: medium none;
+    font-size: 12pt;
+}
+.iinput2 {
+    border: medium none;
+    font-size: 10pt;
+}
+.iinput1_middle {
+    border: medium none;
+    font-size: 12pt;
+    /*text-align: center;*/
+}
+.iinput2_middle {
+    border: medium none;
+    font-size: 10pt;
+    /*text-align: center;*/
+}
+.textarea1 {
+    border: medium none;
+    font-size: 12pt;
+    font-weight: normal;
+    line-height: 33px;
+    overflow: auto;
+    white-space: normal;
+}
+.textarea1:disabled {
+	background-color: #fff;
+}
+.textarea2 {
+    background: rgba(0, 0, 0, 0) url("../images/line.jpg") repeat scroll 0 0;
+    border: medium none;
+    font-size: 12pt;
+    font-weight: normal;
+    line-height: 33px;
+    overflow: visible;
+    white-space: normal;
+}
+.textarea3 {
+    border: medium none;
+    font-size: 10pt;
+    font-weight: normal;
+    line-height: 16px;
+    overflow: visible;
+    white-space: normal;
+}
+.selectCss {
+}
+
+
+
+
+
+
+.underline {
+	border-bottom: 1px solid #000;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	/*text-align: center;*/
+}
+body {
+	font-size: 12pt;
+	padding-bottom: 100px;
+}
+/* ���水ť */
+.divRight {
+	opacity:2;
+	background: #fff;
+	height: 80px;
+	text-align: right;
+	padding-top:20px;
+	padding-right:20px;
+	right: 0;
+}
+.width30 {
+	width: 30px;
+}
+.width40 {
+	width: 40px;
+}
+.width45 {
+	width: 45px;
+}
+.title {
+    color: #000000;
+    font-size: 15pt;
+    font-weight: bold;
+}
+.zw tr td {
+	height: 40px;
+	white-space: nowrap;
+}
+button[disabled], html input[disabled] {
+    background-color: #fff;
+    cursor: default;
+}
+.textarea {
+    background: rgba(0, 0, 0, 0) url("../../images/main/law/doctemplate/line.jpg") repeat scroll 0 0;
+    border: medium none;
+    font-size: 12pt;
+    font-weight: normal;
+    line-height: 33px;
+    overflow: auto;
+    width: 100%;
+    white-space: normal;
+}
+.unborder {
+	border: none;
+	/*text-align: center;*/
+}
+.borderTop {
+	border-top: 2px solid;
+}
+.indent{
+	text-indent:2em;
+}
+.colLine{
+	height:5px !important;
+}

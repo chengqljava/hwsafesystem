@@ -1,0 +1,1296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.enterprise.mapper.EntBusinessinfoMapper">
+	<!-- Result Map -->
+	<resultMap id="BaseResultMap"
+		type="com.hwsafe.enterprise.domain.EntBusinessinfo">
+		<result column="businessinfoid" property="businessinfoid"
+			jdbcType="VARCHAR" />
+		<result column="entname" property="entname" jdbcType="VARCHAR" />
+		<result column="entcode" property="entcode" jdbcType="VARCHAR" />
+		<result column="city" property="city" jdbcType="VARCHAR" />
+		<result column="area" property="area" jdbcType="VARCHAR" />
+		<result column="street" property="street" jdbcType="VARCHAR" />
+		<result column="community" property="community" jdbcType="VARCHAR" />
+		<result column="postcode" property="postcode" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="enttype" property="enttype" jdbcType="VARCHAR" />
+		<result column="legalperson" property="legalperson" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="registeruser" property="registeruser" jdbcType="VARCHAR" />
+		<result column="registernum" property="registernum" jdbcType="VARCHAR" />
+		<result column="registermoney" property="registermoney"
+			jdbcType="DECIMAL" />
+		<result column="naissancedate" property="naissancedate"
+			jdbcType="TIMESTAMP" />
+		<result column="validstartdate" property="validstartdate"
+			jdbcType="TIMESTAMP" />
+		<result column="validenddate" property="validenddate" jdbcType="TIMESTAMP" />
+		<result column="mainproduct" property="mainproduct" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="islittle" property="islittle" jdbcType="CHAR" />
+		<result column="isscale" property="isscale" jdbcType="CHAR" />
+		<result column="subjection" property="subjection" jdbcType="CHAR" />
+		<result column="registerdate" property="registerdate" jdbcType="TIMESTAMP" />
+		<result column="directortypeid" property="directortypeid"
+			jdbcType="TIMESTAMP" />
+		<result column="longitude" property="longitude" jdbcType="DECIMAL" />
+		<result column="latitude" property="latitude" jdbcType="DECIMAL" />
+		<result column="updateper" property="updateper" jdbcType="VARCHAR" />
+		<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+		<result column="notes" property="notes" jdbcType="VARCHAR" />
+		<result column="datastatus" property="datastatus" jdbcType="CHAR" />
+		<result column="gisid" property="gisid" jdbcType="VARCHAR" />
+		<result column="isvalid" property="isvalid" jdbcType="CHAR" />
+		<result column="industryorg" property="industryorg" jdbcType="VARCHAR" />
+		<result column="industryorgname" property="industryorgname"
+			jdbcType="VARCHAR" />
+	</resultMap>
+
+	<!-- ent_businessinfo table all fields -->
+	<sql id="Base_Column_List">
+		businessinfoid, entname, status, entcode, city, area, street, community, postcode,
+		address, enttype, legalperson,
+		phone, registeruser, registernum, registermoney, naissancedate,
+		validstartdate, validenddate, mainproduct,
+		directortypeid, islittle, isscale, subjection, registerdate, longitude, latitude,
+		updateper, updatetime, notes, datastatus, gisid, isvalid, industryorg,
+		industryorgname
+	</sql>
+
+	<!-- 分页查询工商信息 -->
+	<select id="loadByPage" resultType="map">
+		select
+		distinct entb.businessinfoid as businessinfoid,
+		entb.updatetime as updatetime,
+		entb.entname as entname,
+		entb.registerdate as registerdate,
+		entb.address as address,
+		<!--euser.userid as userid, -->
+		suer.nickname as nickname,
+		org.orgname as orgname,
+		dire.directortypename as directortypename,
+		entb.industryorgname as industryorgname,
+		euser.checkstates as checkstates,
+		entb.entcode,
+		entb.enttype,
+		entb.legalperson,
+		entb.phone
+		from ent_businessinfo entb
+		left join sys_directortype dire on dire.directortypeid =
+		entb.directortypeid
+		left join lk_industry_org lkog on lkog.directortypeid =
+		dire.directortypeid
+		left join sys_user suer on suer.userid = entb.registeruser
+		left join sys_org org on org.orgid = suer.organid
+		left join sys_user euser on euser.organid = entb.businessinfoid
+		<where>
+			<if
+				test=" businessinfoid!=null and  businessinfoid!='' and  businessinfoid!='null' ">and
+				entb.businessinfoid = #{businessinfoid}
+			</if>
+
+			<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+			<if
+				test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+				<if test=" districtlevel==0 ">and entb.city=#{districtcode}</if>
+				<if test=" districtlevel==1 ">and entb.area=#{districtcode}</if>
+				<if test=" districtlevel==2 ">and entb.street=#{districtcode}</if>
+				<if test=" districtlevel==3 ">and entb.community= #{districtcode}</if>
+			</if>
+			<!-- <if test=" stime!=null and stime!='' and stime!='null' "> and entb.registerdate 
+				&gt;= to_date(#{stime},'yyyy-mm-dd') </if> -->
+			<if test=" etime!=null and  etime!='' and  etime!='null' ">and entb.registerdate &lt;=
+				to_date(#{etime},'yyyy-mm-dd')
+			</if>
+			<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">and (entb.city = #{districtid} or
+				entb.area = #{districtid} or entb.street = #{districtid} or entb.community =
+				#{districtid})
+			</if>
+			<if test=" entname!=null and  entname!='' and  entname!='null' ">and entb.entname like '%${entname}%'</if>
+			<if
+				test=" registernum!=null and  registernum!='' and  registernum!='null' ">and entb.registernum like
+				'%${registernum}%'
+			</if>
+			<if test=" subjection!=null and  subjection!='' and  subjection!='null' ">and entb.subjection =
+				#{subjection}
+			</if>
+			<if test=" entcode!=null and  entcode!='' and  entcode!='null' ">and entb.entcode like '%${entcode}%'</if>
+
+			<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">and entb.datastatus =
+				#{datastatus}
+			</if>
+
+		</where>
+		group by
+		entb.businessinfoid,entb.updatetime,entb.entname,entb.address,entb.registerdate,
+		<!-- euser.userid, -->
+		suer.nickname,org.orgname,dire.directortypename,entb.industryorgname,euser.checkstates,entb.entcode,entb.enttype,entb.legalperson,entb.phone
+		order by entb.updatetime desc
+	</select>
+
+	<!-- 根据采集状态统计 -->
+	<select id="loadEntStatusCountByParam" resultType="map"
+		parameterType="map">
+		select ebif.status as status,count(*) as gathernum
+		from ent_businessinfo ebif
+		left join sys_directortype dit on dit.directortypeid = ebif.directortypeid
+
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">
+			left join lk_industry_org lkog on dit.directortypeid =
+			lkog.directortypeid
+			<if test=" districtlevel==0 ">and lkog.districtcode = ebif.city</if>
+			<if test=" districtlevel==1 ">and lkog.districtcode = ebif.area</if>
+			<if test=" districtlevel==2 ">and lkog.districtcode = ebif.street</if>
+			<if test=" districtlevel==3 ">and lkog.districtcode = ebif.community</if>
+		</if>
+
+		<where>
+			<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+			<if
+				test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+				<if test=" districtlevel==0 ">and ebif.city=#{districtcode}</if>
+				<if test=" districtlevel==1 ">and ebif.area=#{districtcode}</if>
+				<if test=" districtlevel==2 ">and ebif.street=#{districtcode}</if>
+				<if test=" districtlevel==3 ">and ebif.community= #{districtcode}</if>
+			</if>
+
+			<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">and (ebif.city = #{districtid} or
+				ebif.area = #{districtid} or ebif.street = #{districtid} or ebif.community =
+				#{districtid})
+			</if>
+			<!-- <if test=" stime!=null and stime!='' and stime!='null' "> and ebif.registerdate 
+				&gt;= to_date(#{stime},'yyyy-mm-dd') </if> -->
+			<if test=" etime!=null and  etime!='' and  etime!='null' ">and ebif.registerdate &lt;=
+				to_date(#{etime},'yyyy-mm-dd')
+			</if>
+			<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">and ebif.datastatus =
+				#{datastatus}
+			</if>
+		</where>
+		group by ebif.status
+	</select>
+
+	<!-- 根据企业分类统计 -->
+	<select id="loadEntClassCountByParam" resultType="map"
+		parameterType="map">
+		select dit.industrytype as industrytype,count(*) as classnum
+		from ent_businessinfo ebif
+		left join sys_directortype dit on dit.directortypeid = ebif.directortypeid
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">
+			left join lk_industry_org lkog on dit.directortypeid =
+			lkog.directortypeid
+			<if test=" districtlevel==0 ">and lkog.districtcode = ebif.city</if>
+			<if test=" districtlevel==1 ">and lkog.districtcode = ebif.area</if>
+			<if test=" districtlevel==2 ">and lkog.districtcode = ebif.street</if>
+			<if test=" districtlevel==3 ">and lkog.districtcode = ebif.community</if>
+		</if>
+		<where>
+			<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+			<if
+				test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+				<if test=" districtlevel==0 ">and ebif.city=#{districtcode}</if>
+				<if test=" districtlevel==1 ">and ebif.area=#{districtcode}</if>
+				<if test=" districtlevel==2 ">and ebif.street=#{districtcode}</if>
+				<if test=" districtlevel==3 ">and ebif.community= #{districtcode}</if>
+			</if>
+
+			<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">and (ebif.city = #{districtid} or
+				ebif.area = #{districtid} or ebif.street = #{districtid} or ebif.community =
+				#{districtid})
+			</if>
+			<!-- <if test=" stime!=null and stime!='' and stime!='null' "> and ebif.registerdate 
+				&gt;= to_date(#{stime},'yyyy-mm-dd') </if> -->
+			<if test=" etime!=null and  etime!='' and  etime!='null' ">and ebif.registerdate &lt;=
+				to_date(#{etime},'yyyy-mm-dd')
+			</if>
+			<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">and ebif.datastatus =
+				#{datastatus}
+			</if>
+		</where>
+		group by dit.industrytype
+	</select>
+
+	<!-- 根据企业分级统计 -->
+	<select id="loadEntGradeCountByParam" resultType="map"
+		parameterType="map">
+		select ecg.altergrade as altergrade,count(*) as gradenum
+		from ent_businessinfo ebif
+		left join ent_classgrade ecg on ecg.businessinfoid = ebif.businessinfoid
+		left join sys_directortype dit on dit.directortypeid =
+		ebif.directortypeid
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">
+			left join lk_industry_org lkog on dit.directortypeid =
+			lkog.directortypeid
+			<if test=" districtlevel==0 ">and lkog.districtcode = ebif.city</if>
+			<if test=" districtlevel==1 ">and lkog.districtcode = ebif.area</if>
+			<if test=" districtlevel==2 ">and lkog.districtcode = ebif.street</if>
+			<if test=" districtlevel==3 ">and lkog.districtcode = ebif.community</if>
+		</if>
+		<where>
+			<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+			<if
+				test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+				<if test=" districtlevel==0 ">and ebif.city=#{districtcode}</if>
+				<if test=" districtlevel==1 ">and ebif.area=#{districtcode}</if>
+				<if test=" districtlevel==2 ">and ebif.street=#{districtcode}</if>
+				<if test=" districtlevel==3 ">and ebif.community= #{districtcode}</if>
+			</if>
+
+			<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">and (ebif.city = #{districtid} or
+				ebif.area = #{districtid} or ebif.street = #{districtid} or ebif.community =
+				#{districtid})
+			</if>
+			<!-- <if test=" stime!=null and stime!='' and stime!='null' "> and ebif.registerdate 
+				&gt;= to_date(#{stime},'yyyy-mm-dd') </if> -->
+			<if test=" etime!=null and  etime!='' and  etime!='null' ">and ebif.registerdate &lt;=
+				to_date(#{etime},'yyyy-mm-dd')
+			</if>
+			<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">and ebif.datastatus =
+				#{datastatus}
+			</if>
+			and ebif.status != '0'
+		</where>
+		group by ecg.altergrade
+	</select>
+
+	<!-- 根据企业分布统计 -->
+	<select id="loadEntDistrictCountByParam" resultType="map"
+		parameterType="map">
+		select dst.shortname as areaname,count(ebif.businessinfoid) as areanum
+		from sys_district dst
+		left join ent_businessinfo ebif on dst.districtcode = ebif.area
+		<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">and ebif.datastatus = #{datastatus}
+		</if>
+		<!-- <if test=" stime!=null and stime!='' and stime!='null' "> and ebif.registerdate 
+			&gt;= to_date(#{stime},'yyyy-mm-dd') </if> -->
+		<if test=" etime!=null and  etime!='' and  etime!='null' ">and ebif.registerdate &lt;=
+			to_date(#{etime},'yyyy-mm-dd')
+		</if>
+		left join sys_directortype dit on dit.directortypeid =
+		ebif.directortypeid
+		left join lk_industry_org lkog on dit.directortypeid = lkog.directortypeid
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+		<where>
+			<if
+				test=" districtlevel!=null and  districtlevel!='' and  districtlevel!='null' ">and dst.districtlevel =
+				#{districtlevel}
+			</if>
+		</where>
+		group by dst.shortname
+	</select>
+
+	<!-- 区县区域填报情况统计 -->
+	<select id="loadEntAreaStatusCountByParam" resultType="map"
+		parameterType="map">
+		select dst.shortname as areaname,
+		nvl(sum(s.a0),0) as noreportnum,
+		nvl(sum(s.a1),0) as ongoingnum,
+		nvl(sum(s.a2),0) as updatingnum,
+		nvl(sum(s.a3),0) as yesreportnum
+		from sys_district dst
+		left join
+		(select area,case when ebif.status='0' then count(ebif.businessinfoid) end as
+		a0,
+		case when ebif.status='1' then count(ebif.businessinfoid) end as a1,
+		case when ebif.status='2' then count(ebif.businessinfoid) end as a2,
+		case when ebif.status='3' then count(ebif.businessinfoid) end as a3
+		from
+		ent_businessinfo ebif
+		left join sys_directortype dit on dit.directortypeid = ebif.directortypeid
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">
+			left join lk_industry_org lkog on dit.directortypeid =
+			lkog.directortypeid
+		</if>
+		<where>
+			<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">and ebif.datastatus =
+				#{datastatus}
+			</if>
+			<!-- <if test=" stime!=null and stime!='' and stime!='null' "> and ebif.registerdate 
+				&gt;= to_date(#{stime},'yyyy-mm-dd') </if> -->
+			<if test=" etime!=null and  etime!='' and  etime!='null' ">and ebif.registerdate &lt;=
+				to_date(#{etime},'yyyy-mm-dd')
+			</if>
+			<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+			<if
+				test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+				and ebif.city=#{districtcode}
+			</if>
+		</where>
+		group by area,ebif.status
+		) s on s.area =dst.districtcode
+		<where>
+			<if
+				test=" districtlevel!=null and  districtlevel!='' and  districtlevel!='null' ">and dst.districtlevel =
+				#{districtlevel}
+			</if>
+		</where>
+		group by dst.shortname
+	</select>
+
+	<!-- 企业分类情况统计表统计 -->
+	<select id="loadEntDistrictClassCountByParam" resultType="map">
+		select dst.districtcode as districtcode,
+		dst.districtlevel as districtlevel,
+		dst.shortname as shortname,
+		nvl(sum(s.a1),0) as industrynum,nvl(sum(s.a2),0) as businessnum,
+		nvl(sum(s.a3),0) as trafficnum,nvl(sum(s.a4),0) as engineeringnum,
+		(nvl(sum(s.a1),0) + nvl(sum(s.a2),0) + nvl(sum(s.a3),0) +nvl(sum(s.a4),0)) as classsum
+		from sys_district dst
+		left join (
+		select
+		ebif.city,ebif.area,ebif.community,ebif.street,
+		case when dit.industrytype='1' then count(ebif.businessinfoid) end as a1,
+		case when dit.industrytype='2' then count(ebif.businessinfoid) end as
+		a2,
+		case when dit.industrytype='3' then count(ebif.businessinfoid) end as a3,
+		case when dit.industrytype='4' then count(ebif.businessinfoid) end as
+		a4
+		from ent_businessinfo ebif
+		left join sys_directortype dit on dit.directortypeid = ebif.directortypeid
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">
+			left join lk_industry_org lkog on dit.directortypeid =
+			lkog.directortypeid
+		</if>
+		<where>
+			<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">and ebif.datastatus =
+				#{datastatus}
+			</if>
+			<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+			<!-- <if test=" stime!=null and stime!='' and stime!='null' "> and ebif.registerdate 
+				&gt;= to_date(#{stime},'yyyy-mm-dd') </if> -->
+			<if test=" etime!=null and  etime!='' and  etime!='null' ">and ebif.registerdate &lt;=
+				to_date(#{etime},'yyyy-mm-dd')
+			</if>
+		</where>
+		group by
+		city,area,street,community,ebif.dit.industrytype
+		) s on dst.districtcode =
+		<if test=" districtlevel==1 ">s.area</if>
+		<if test=" districtlevel==2 ">s.street</if>
+		<if test=" districtlevel==3 ">s.community</if>
+		<where>
+			<if
+				test=" districtlevel!=null and  districtlevel!='' and  districtlevel!='null' ">and dst.districtlevel =
+				#{districtlevel}
+			</if>
+			<if test=" parentid!=null and  parentid!='' and  parentid!='null' ">and dst.parentid = #{parentid}</if>
+
+			<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">
+				and (s.city = #{districtid} or s.area = #{districtid} or s.street =
+				#{districtid} or s.community =
+				#{districtid})
+			</if>
+		</where>
+		group by dst.shortname,dst.districtcode,dst.districtlevel
+		order by dst.districtcode
+	</select>
+
+	<!-- 企业分级情况统计表统计 -->
+	<select id="loadEntDistrictGradeCountByParam" resultType="map">
+		select dst.districtcode as districtcode, dst.districtlevel as
+		districtlevel,dst.shortname as shortname,
+		nvl(sum(s.a0),0) as agradenum,nvl(sum(s.a1),0) as bgradenum,
+		nvl(sum(s.a2),0) as cgradenum,nvl(sum(s.a3),0) as dgradenum,nvl(sum(s.a4),0) as
+		nogradenum,
+		(nvl(sum(s.a0),0) + nvl(sum(s.a1),0) + nvl(sum(s.a2),0) + nvl(sum(s.a3),0)
+		+nvl(sum(s.a4),0)) as gradesum
+		from sys_district dst
+		left join (
+		select ebif.city,ebif.area,ebif.community,ebif.street,
+		case when ecg.altergrade='1' then count(ebif.businessinfoid) end as a0,
+		case when ecg.altergrade='2' then count(ebif.businessinfoid) end as
+		a1,
+		case when ecg.altergrade='3' then count(ebif.businessinfoid) end as a2,
+		case when ecg.altergrade='4' then count(ebif.businessinfoid) end as
+		a3,
+		case when ecg.altergrade='0' then count(ebif.businessinfoid) end as a4
+		from ent_businessinfo ebif
+		left join sys_directortype dit on dit.directortypeid = ebif.directortypeid
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">
+			left join lk_industry_org lkog on dit.directortypeid =
+			lkog.directortypeid
+		</if>
+		left join ent_classgrade ecg on ecg.businessinfoid =
+		ebif.businessinfoid
+		<where>
+			<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">and ebif.datastatus =
+				#{datastatus}
+			</if>
+			<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+			<!-- <if test=" stime!=null and stime!='' and stime!='null' "> and ebif.registerdate 
+				&gt;= to_date(#{stime},'yyyy-mm-dd') </if> -->
+			<if test=" etime!=null and  etime!='' and  etime!='null' ">and ebif.registerdate &lt;=
+				to_date(#{etime},'yyyy-mm-dd')
+			</if>
+			and ebif.status != '0'
+		</where>
+		group by city,area,street,community,ecg.altergrade
+		) s on dst.districtcode =
+		<if test=" districtlevel==1 ">s.area</if>
+		<if test=" districtlevel==2 ">s.street</if>
+		<if test=" districtlevel==3 ">s.community</if>
+		<where>
+			<if
+				test=" districtlevel!=null and  districtlevel!='' and  districtlevel!='null' ">and dst.districtlevel =
+				#{districtlevel}
+			</if>
+			<if test=" parentid!=null and  parentid!='' and  parentid!='null' ">and dst.parentid = #{parentid}</if>
+			<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">
+				and (s.city = #{districtid} or s.area = #{districtid} or s.street =
+				#{districtid} or s.community =
+				#{districtid})
+			</if>
+		</where>
+		group by dst.shortname,dst.districtcode,dst.districtlevel
+		order by dst.districtcode
+	</select>
+
+	<!-- 分页查询危化品企业 -->
+	<select id="loadDangerEntByPage" resultType="map" parameterType="map">
+		select distinct
+		eb.businessinfoid,eb.entname,eb.address,eb.legalperson,eb.phone,eb.updatetime,eb.status,
+		--max(vdo.allorgname) as "ALLORGNAME",
+		eb.industryorgname as "ALLORGNAME",
+		case when eb.status=0 then '未填报' when eb.status=1 then '填报中' when
+		eb.status=2 then '更新中' else '已上报' end as
+		"ENTSTATUS",
+		case when max(ecc.licenceid) is not null then 'true' else 'false' end as
+		"CHECKED" ,
+		(
+		select replace(TO_CHAR(wm_concat(ec.chemicaltype)),',','/') chemicaltype
+		from ent_dangerchara dan
+		left join lk_dan_cheltype che on (dan.charid = che.charid)
+		left join ent_chemicaltype ec on (che.chemicaltypeid=ec.chemicaltypeid)
+		where dan.businessinfoid = eb.businessinfoid
+		and (ec.parentid=1 or ec.chemicaltypeid=2)
+		--危化品类型只显示：无需许可的使用危化品企业、生产许可、经营许可、运输许可、使用许可、废弃物处置许可
+		group by dan.charid
+		) CHEMICALTYPE
+		from lk_dan_cheltype ldc --危险化学品类型中间表
+		left join ent_dangerchara ed on (ed.charid=ldc.charid) --危险特性
+		left join ent_chemicaltype ec on (ldc.chemicaltypeid=ec.chemicaltypeid)
+		--危险化学品类型
+		left join ent_businessinfo eb on (ed.businessinfoid=eb.businessinfoid)
+		--企业工商信息
+
+		--left join sys_directortype dire on dire.directortypeid = eb.directortypeid
+		left join lk_industry_org lkog on lkog.directortypeid =
+		eb.directortypeid
+		<if test=" districtlevel==0 ">and lkog.districtcode = eb.city</if>
+		<if test=" districtlevel==1 ">and lkog.districtcode = eb.area</if>
+		<if test=" districtlevel==2 ">and lkog.districtcode = eb.street</if>
+		<if test=" districtlevel==3 ">and lkog.districtcode = eb.community</if>
+
+
+
+		left join ent_danexclusive edc on
+		(eb.businessinfoid=edc.businessinfoid) --危险化学品专属基本信息
+		left join ent_chelicence ecc on (edc.danexclusiveid=ecc.danexclusiveid)
+		--危险化学品许可信息
+		left join ent_licadjunct el on (ecc.licenceid=el.licenceid) --危险化学品许可附件
+		where ed.chemical=1 and eb.datastatus=1
+		<if
+			test=" businessinfoid!=null and  businessinfoid!='' and  businessinfoid!='null' ">and eb.businessinfoid =
+			#{businessinfoid}
+		</if>
+
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+		<if
+			test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+			<if test=" districtlevel==0 ">and eb.city=#{districtcode}</if>
+			<if test=" districtlevel==1 ">and eb.area=#{districtcode}</if>
+			<if test=" districtlevel==2 ">and eb.street=#{districtcode}</if>
+			<if test=" districtlevel==3 ">and eb.community= #{districtcode}</if>
+		</if>
+
+		<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">
+			and (eb.city = #{districtid} or eb.area = #{districtid} or eb.street =
+			#{districtid} or eb.community =
+			#{districtid})
+		</if>
+
+
+		<if test=" entname!=null and  entname!='' and  entname!='null' ">and eb.entname like '%${entname}%'</if>
+		<if test=" date!=null and  date!='' and  date!='null' ">and
+			eb.registerdate <![CDATA[ <= ]]>
+			#{date}
+		</if>
+		<if test="chemicaltypeid!=null and chemicaltypeid.length > 0 ">
+			and ec.chemicaltypeid in
+			<foreach collection="chemicaltypeid" index="index" item="item"
+				open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+		group by
+		eb.businessinfoid,eb.entname,eb.address,eb.legalperson,eb.phone,eb.updatetime,eb.status,eb.industryorgname
+		order by eb.updatetime desc
+	</select>
+
+	<!-- 危化品企业报告 -->
+	<select id="loadDangerEntReport" resultType="map">
+		select ec.chemicaltypeid,count(distinct(eb.businessinfoid)) as "COUNT"
+		from ent_businessinfo eb
+
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">
+			left join lk_industry_org lkog on lkog.directortypeid =
+			eb.directortypeid
+			<if test=" districtlevel==0 ">and lkog.districtcode = eb.city</if>
+			<if test=" districtlevel==1 ">and lkog.districtcode = eb.area</if>
+			<if test=" districtlevel==2 ">and lkog.districtcode = eb.street</if>
+			<if test=" districtlevel==3 ">and lkog.districtcode = eb.community</if>
+		</if>
+
+		left join ent_dangerchara ed on (eb.businessinfoid=ed.businessinfoid)
+		left join lk_dan_cheltype ldc on (ed.charid=ldc.charid)
+		left join ent_chemicaltype ec on (ldc.chemicaltypeid=ec.chemicaltypeid)
+		where ed.chemical=1 and eb.datastatus=1
+		<if
+			test=" businessinfoid!=null and  businessinfoid!='' and  businessinfoid!='null' ">and eb.businessinfoid =
+			#{businessinfoid}
+		</if>
+
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+		<if
+			test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+			<if test=" districtlevel==0 ">and eb.city=#{districtcode}</if>
+			<if test=" districtlevel==1 ">and eb.area=#{districtcode}</if>
+			<if test=" districtlevel==2 ">and eb.street=#{districtcode}</if>
+			<if test=" districtlevel==3 ">and eb.community= #{districtcode}</if>
+		</if>
+
+		<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">
+			and (eb.city = #{districtid} or eb.area = #{districtid} or eb.street =
+			#{districtid} or eb.community =
+			#{districtid})
+		</if>
+
+
+		<if test=" date!=null and  date!='' and  date!='null' ">and
+			eb.registerdate <![CDATA[ <= ]]>
+			#{date}
+		</if>
+		<if test=" city!=null and  city!='' and  city!='null' ">and eb.city=#{city}</if>
+		<if test=" area!=null and  area!='' and  area!='null' ">and eb.area=#{area}</if>
+		<if test=" street!=null and  street!='' and  street!='null' ">and eb.street=#{street}</if>
+		<if test=" community!=null and  community!='' and  community!='null' ">and eb.community=#{community}</if>
+		group by ec.chemicaltypeid
+	</select>
+
+
+	<!-- 查询工商信息列表 -->
+	<select id="loadByList" resultMap="BaseResultMap" parameterType="map">
+		select
+		<include refid="Base_Column_List" />
+		from ent_businessinfo eb
+		<where>
+			<if
+				test=" registernum!=null and  registernum!='' and  registernum!='null' ">and
+				eb.registernum=#{registernum}
+			</if>
+			<if test=" entname!=null and  entname!='' and  entname!='null' ">and eb.entname=#{entname}</if>
+		</where>
+	</select>
+
+
+	<!-- 查询工商信息列表 -->
+	<select id="loadByPageList" resultMap="BaseResultMap"
+		parameterType="map">
+		select
+		<include refid="Base_Column_List" />
+		from ent_businessinfo entb where 1=1
+		<if
+			test=" registernum!=null and  registernum!='' and  registernum!='null' ">
+			and entb.registernum=#{registernum}
+		</if>
+		<if test=" entname!=null and  entname!='' and  entname!='null' ">
+			and entb.entname like '%${entname}%'
+		</if>
+		<if test="searchname!=null and searchname!='' and searchname!='null'">
+			and (entb.entname like '%'||#{searchname}||'%' OR entb.REGISTERNUM LIKE
+			'%'||#{searchname}||'%' OR
+			entb.ENTCODE LIKE '%'||#{searchname}||'%')
+		</if>
+		<if test=" subjection!=null and  subjection!='' and  subjection!='null' ">and entb.subjection =
+			#{subjection}
+		</if>
+		<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">and entb.DATASTATUS =
+			#{datastatus}
+		</if>
+		<if test=" datastatus==null">and entb.DATASTATUS = 1
+
+		</if>
+
+	</select>
+
+	<!-- 插入记录 -->
+	<insert id="save"
+		parameterType="com.hwsafe.enterprise.domain.EntBusinessinfo"
+		useGeneratedKeys="true" keyProperty="businessinfoid">
+		<selectKey resultType="java.lang.String" keyProperty="businessinfoid"
+			order="BEFORE">
+			select sys_guid() as businessinfoid from dual
+		</selectKey>
+		insert into
+		ent_businessinfo(businessinfoid,status,longitude,latitude,updateper,updatetime,notes,entname,entcode,city,area,street,community,postcode,address,enttype,legalperson,phone,registeruser,registernum,registermoney,naissancedate,validstartdate,validenddate,mainproduct,directortypeid,islittle,isscale,subjection,registerdate,datastatus,gisid,isvalid,industryorg,industryorgname)
+		values(#{businessinfoid},#{status},#{longitude},#{latitude},#{updateper},#{updatetime},#{notes},#{entname},#{entcode},#{city},#{area},#{street},#{community},#{postcode},#{address},#{enttype},#{legalperson},#{phone},#{registeruser},#{registernum},#{registermoney},#{naissancedate},#{validstartdate},#{validenddate},#{mainproduct},#{directortypeid},#{islittle},#{isscale},#{subjection},#{registerdate},#{datastatus},#{gisid},#{isvalid},#{industryorg},#{industryorgname})
+	</insert>
+
+	<!-- 根据id修改记录 -->
+	<update id="update"
+		parameterType="com.hwsafe.enterprise.domain.EntBusinessinfo">
+		update ent_businessinfo
+		set
+		latitude=#{latitude},updateper=#{updateper},updatetime=#{updatetime},notes=#{notes},longitude=#{longitude},
+		entname=#{entname},entcode=#{entcode},postcode=#{postcode},address=#{address},enttype=#{enttype},
+		legalperson=#{legalperson},phone=#{phone},registernum=#{registernum},registermoney=#{registermoney},
+		<if
+			test=" registeruser!=null and  registeruser!='' and  registeruser!='null' ">registeruser=#{registeruser},
+		</if>
+		<if
+			test=" registerdate!=null and  registerdate!='' and  registerdate!='null' ">registerdate=#{registerdate},
+		</if>
+		<if test=" islittle!=null and  islittle!='' and  islittle!='null' ">islittle=#{islittle},</if>
+		<if test=" isscale!=null and  isscale!='' and  isscale!='null' ">isscale=#{isscale},</if>
+		<if test=" status!=null and  status!='' and  status!='null' ">status=#{status},</if>
+		<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">datastatus=#{datastatus},</if>
+		naissancedate=#{naissancedate},validstartdate=#{validstartdate},
+		validenddate=#{validenddate},mainproduct=#{mainproduct},
+		directortypeid=#{directortypeid},
+		subjection=#{subjection},
+		city=#{city},area=#{area},street=#{street},community=#{community},
+		gisid=#{gisid},isvalid=#{isvalid},industryorg=#{industryorg},industryorgname=#{industryorgname}
+		where businessinfoid=#{businessinfoid}
+	</update>
+	<update id="updateStatusById" parameterType="map">
+		UPDATE ent_businessinfo
+		SET datastatus = #{datastatus}
+		WHERE businessinfoid = #{businessinfoid}
+	</update>
+
+	<!-- 删除记录 -->
+	<delete id="delete" parameterType="string">
+		DELETE FROM ent_businessinfo
+		WHERE businessinfoid = #{businessinfoid}
+	</delete>
+
+	<!-- 根据id查询 工商信息 -->
+	<select id="loadById" resultMap="BaseResultMap" parameterType="string">
+		select
+		<include refid="Base_Column_List" />
+		from ent_businessinfo where businessinfoid = #{businessinfoid}
+	</select>
+
+	<!-- 手机端企业详细信息 -->
+	<select id="loadEntAllById" resultType="map" parameterType="string">
+		select
+		eb.entname,sd.districtname,ads.addressname,eb.longitude,eb.latitude,eb.registernum,
+		eb.entcode,eb.legalperson,eb.phone,eb.naissancedate,eb.validstartdate,eb.validenddate,
+		eb.enttype,eb.registermoney,eb.mainproduct,scd.code || '.' || scd.type
+		as "ECONINDUSTRYNAME",
+		sdt.directortypename,eb.industryorgname,sem.economictypename,ebi.placearea,ebi.empqty,
+		ebi.insurenumber,ebi.managenumber,ebi.holdernumber,ebi.fixedmoney,ebi.yearincome,
+		case when ebi.isstandard=0 then '否' when ebi.isstandard=1 then '是'
+		else '无' end as "ISSTANDARD",
+		case when ebi.rate=1 then '一级' when ebi.rate=2 then '二级' when ebi.rate=3
+		then '三级' else '无' end as "RATE",
+		ebi.mainmaterial
+		from ent_businessinfo eb
+		left join ent_baseinfo ebi on ebi.businessinfoid = eb.businessinfoid
+		left join sys_district sd on eb.community = sd.districtcode
+		left join sys_econindustry scd on scd.econindustryid = ebi.econindustryid
+		left join sys_directortype sdt on sdt.directortypeid =
+		eb.directortypeid
+		left join sys_economictype sem on sem.economictypeid = ebi.economictypeid
+		left join ent_address ads on ads.businessinfoid = eb.businessinfoid
+		and ads.addresstype = '1'
+		<where>
+			<if
+				test=" businessinfoid!=null and  businessinfoid!='' and  businessinfoid!='null' ">eb.businessinfoid =
+				#{businessinfoid}
+			</if>
+		</where>
+	</select>
+
+	<!-- 根据id查询所关联的主管分类、主管部门 -->
+	<select id="loadByBusinessinfoid"
+		resultType="com.hwsafe.enterprise.domain.EntBusinessinfo"
+		parameterType="string">
+		select distinct ebs.businessinfoid,
+		ebs.entname,ebs.address,ebs.legalperson,ebs.phone,
+		ebs.industryorgname as allorgname,
+		dir.directortypename
+		from ent_businessinfo ebs
+		left join sys_directortype dir on dir.directortypeid = ebs.directortypeid
+		left join lk_industry_org lkog on lkog.directortypeid =
+		dir.directortypeid
+		<where>
+			<if
+				test=" businessinfoid!=null and  businessinfoid!='' and  businessinfoid!='null' ">and ebs.businessinfoid
+				= #{businessinfoid}
+			</if>
+		</where>
+	</select>
+
+	<!-- excel导出工商信息 -->
+	<select id="findExportEntBusinfo" resultType="map">
+		select
+		distinct entb.entname as entname,
+		entb.entcode as entcode,
+		dst.districtname districtname,
+		entb.industryorgname as allorgname,
+		dire.directortypename as directortypename,
+		entb.postcode as postcode,
+		entb.naissancedate as naissancedate,
+		entb.validstartdate as validstartdate,
+		case when entb.isvalid = 0 then '是' when entb.isvalid = 1 then '否' end as
+		isvalid,
+		entb.validenddate as validenddate,
+		entb.address as address,
+		entb.enttype as enttype,
+		entb.legalperson as legalperson,
+		entb.phone as phone,
+		entb.registernum as registernum,
+		entb.registermoney as registermoney,
+		entb.registerdate as registerdate,
+		entb.mainproduct as mainproduct,
+		entb.longitude as longitude,
+		entb.latitude as latitude,
+		case when entb.islittle ='0' then '否' when entb.islittle ='1' then '小档口'
+		when entb.islittle ='2' then '小作坊' when
+		entb.islittle ='3' then '小娱乐场所' end as islittle,
+		case when entb.isscale='0' then '否' when entb.isscale='1' then '是' end as
+		isscale,
+		case when entb.subjection='1' then '市属行业部门管理单位' when entb.subjection='2'
+		then '区属行业部门管理单位' when
+		entb.subjection='3' then '街镇行业部门管理单位' end as subjection,
+		entb.updatetime as updatetime,
+		suer.nickname as nickname,
+		org.orgname as orgname
+		from ent_businessinfo entb
+		left join sys_directortype dire on dire.directortypeid =
+		entb.directortypeid
+		left join lk_industry_org lkog on lkog.directortypeid =
+		dire.directortypeid
+		left join sys_district dst on dst.districtcode = entb.community
+		left join sys_user suer on suer.userid = entb.registeruser
+		left join sys_org org on org.orgid = suer.organid
+		<where>
+			<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+			<if
+				test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+				and (entb.city=#{districtcode} or entb.area=#{districtcode} or
+				entb.street=#{districtcode} or
+				entb.community= #{districtcode})
+			</if>
+			<if test=" entname!=null and  entname!='' and  entname!='null' ">and entb.entname like '%${entname}%'</if>
+			<if
+				test=" registernum!=null and  registernum!='' and  registernum!='null' ">and entb.registernum like
+				'%${registernum}%'
+			</if>
+			<if test=" subjection!=null and  subjection!='' and  subjection!='null' ">and entb.subjection =
+				#{subjection}
+			</if>
+			<if test=" entcode!=null and  entcode!='' and  entcode!='null' ">and entb.entcode like '%${entcode}%'</if>
+			<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">and entb.datastatus =
+				#{datastatus}
+			</if>
+		</where>
+		order by entb.updatetime desc
+	</select>
+
+	<!-- 分页查询巡查对象 -->
+	<select id="loadPatrolObjectByPage" resultType="map"
+		parameterType="map">
+
+		select distinct
+		eb.businessinfoid,eb.entname,eb.address,eb.legalperson,eb.phone,
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.city)||'/'||
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.area)||'/'||
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.street)||'/'||
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.community) as DISTRICT,
+		--vdo.directortypename,
+		sdt.directortypename,
+		(select count(thgi.inspectionid) from hdi_gov_inspection thgi where
+		thgi.businessinfoid=eb.businessinfoid ) as
+		XCCS,
+		(select count(thei.inspectionid) from hdi_ent_inspection thei where
+		thei.businessinfoid=eb.businessinfoid ) as
+		ZCCS
+		from ent_businessinfo eb
+		left join lk_industry_org lkog on lkog.directortypeid = eb.directortypeid
+		<if test=" districtlevel==0 ">and lkog.districtcode = eb.city</if>
+		<if test=" districtlevel==1 ">and lkog.districtcode = eb.area</if>
+		<if test=" districtlevel==2 ">and lkog.districtcode = eb.street</if>
+		<if test=" districtlevel==3 ">and lkog.districtcode = eb.community</if>
+
+		--left join v_directortype_org vdo on vdo.directortypeid =
+		lkog.directortypeid and (vdo.districtcode= eb.area or
+		--vdo.districtcode= eb.street or vdo.districtcode= eb.city)
+
+		left join hdi_gov_inspection hgi on (eb.businessinfoid=hgi.businessinfoid)
+		left join hdi_ent_inspection hei on
+		(eb.businessinfoid=hei.businessinfoid)
+		left join sys_directortype sdt on (eb.directortypeid=sdt.directortypeid)
+		where eb.datastatus=1
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+		<if
+			test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+			<if test=" districtlevel==0 ">and eb.city=#{districtcode}</if>
+			<if test=" districtlevel==1 ">and eb.area=#{districtcode}</if>
+			<if test=" districtlevel==2 ">and eb.street=#{districtcode}</if>
+			<if test=" districtlevel==3 ">and eb.community= #{districtcode}</if>
+		</if>
+		<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">
+			and (eb.city = #{districtid} or eb.area = #{districtid} or eb.street =
+			#{districtid} or eb.community =
+			#{districtid})
+		</if>
+
+		<if test=" entname!=null and  entname!='' and  entname!='null' ">and eb.entname like '%${entname}%'</if>
+		<if test=" islittle!=null and  islittle!='' and  islittle!='null' ">
+			<if test=" islittle=='0'.toString() ">and eb.islittle=#{islittle}</if>
+			<if test=" islittle=='1'.toString() ">and
+				eb.islittle<![CDATA[ <> ]]>0
+			</if>
+		</if>
+		<if test=" isscale!=null and  isscale!='' and  isscale!='null' ">and eb.isscale = #{isscale}</if>
+		<if test=" subjection!=null and  subjection!='' and  subjection!='null' ">and eb.subjection = #{subjection}</if>
+		<if
+			test=" directortypeid!=null and  directortypeid!='' and  directortypeid!='null' ">and sdt.industrytype =
+			#{directortypeid}
+		</if>
+
+		<if
+			test=" patrolstate!=null and  patrolstate!='' and  patrolstate!='null' ">
+			<if test=" islittle=='0'.toString() ">and hgi.inspectionid is null</if>
+			<if test=" islittle=='1'.toString() ">and hgi.inspectionid is not null</if>
+		</if>
+
+	</select>
+
+	<!-- excel导出巡查对象信息 -->
+	<select id="findExportPatrolObject" resultType="map"
+		parameterType="map">
+
+		select distinct
+		eb.businessinfoid,eb.entname,eb.address,eb.legalperson,eb.phone,
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.city)||'/'||
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.area)||'/'||
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.street)||'/'||
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.community) as DISTRICT,
+		--vdo.directortypename,
+		sdt.directortypename,
+		(select count(thgi.inspectionid) from hdi_gov_inspection thgi where
+		thgi.businessinfoid=eb.businessinfoid ) as
+		XCCS,
+		(select count(thei.inspectionid) from hdi_ent_inspection thei where
+		thei.businessinfoid=eb.businessinfoid ) as
+		ZCCS
+		from ent_businessinfo eb
+		left join lk_industry_org lkog on lkog.directortypeid = eb.directortypeid
+		<if test=" districtlevel==0 ">and lkog.districtcode = eb.city</if>
+		<if test=" districtlevel==1 ">and lkog.districtcode = eb.area</if>
+		<if test=" districtlevel==2 ">and lkog.districtcode = eb.street</if>
+		<if test=" districtlevel==3 ">and lkog.districtcode = eb.community</if>
+
+		--left join v_directortype_org vdo on vdo.directortypeid =
+		lkog.directortypeid and (vdo.districtcode= eb.area or
+		--vdo.districtcode= eb.street or vdo.districtcode= eb.city)
+
+		left join hdi_gov_inspection hgi on (eb.businessinfoid=hgi.businessinfoid)
+		left join hdi_ent_inspection hei on
+		(eb.businessinfoid=hei.businessinfoid)
+		left join sys_directortype sdt on (eb.directortypeid=sdt.directortypeid)
+		where eb.datastatus=1
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+		<if
+			test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+			<if test=" districtlevel==0 ">and eb.city=#{districtcode}</if>
+			<if test=" districtlevel==1 ">and eb.area=#{districtcode}</if>
+			<if test=" districtlevel==2 ">and eb.street=#{districtcode}</if>
+			<if test=" districtlevel==3 ">and eb.community= #{districtcode}</if>
+		</if>
+		<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">
+			and (eb.city = #{districtid} or eb.area = #{districtid} or eb.street =
+			#{districtid} or eb.community =
+			#{districtid})
+		</if>
+
+		<if test=" entname!=null and  entname!='' and  entname!='null' ">and eb.entname like '%${entname}%'</if>
+		<if test=" islittle!=null and  islittle!='' and  islittle!='null' ">
+			<if test=" islittle=='0'.toString() ">and eb.islittle=#{islittle}</if>
+			<if test=" islittle=='1'.toString() ">and
+				eb.islittle<![CDATA[ <> ]]>0
+			</if>
+		</if>
+		<if test=" isscale!=null and  isscale!='' and  isscale!='null' ">and eb.isscale = #{isscale}</if>
+		<if test=" subjection!=null and  subjection!='' and  subjection!='null' ">and eb.subjection = #{subjection}</if>
+		<if
+			test=" directortypeid!=null and  directortypeid!='' and  directortypeid!='null' ">and sdt.industrytype =
+			#{directortypeid}
+		</if>
+
+	</select>
+
+	<!-- 分页查询工商信息 -->
+	<select id="loadByInfo" resultType="map">
+		<if test=" planid!=null and  planid!='' and  planid!='null' ">
+			select eb.*
+			from ent_businessinfo eb left join law_checkent che on che.businessinfoid
+			= eb.businessinfoid
+		</if>
+		<if test=" planid==null or  planid=='' or  planid=='null' ">
+			select
+			<include refid="Base_Column_List" />
+			from ent_businessinfo eb
+		</if>
+		<where>
+			<if test=" entname!=null and  entname!='' and  entname!='null' ">and eb.entname like '%${entname}%'</if>
+			<if test=" entcode!=null and  entcode!='' and  entcode!='null' ">and eb.entcode like '%${entcode}%'</if>
+			<if test=" planid!=null and  planid!='' and  planid!='null' ">and che.planid = #{planid} and che.state =
+				'0'
+			</if>
+			<if test=" datastatus!=null and  datastatus!='' and  datastatus!='null' ">and eb.datastatus =
+				#{datastatus}
+			</if>
+		</where>
+	</select>
+
+	<!-- 查询企业数量 -->
+	<select id="loadEntCount" resultType="Integer">
+		select count(distinct(eb.businessinfoid))
+		from ent_businessinfo eb
+		left join lk_industry_org lkog on lkog.directortypeid = eb.directortypeid
+		<if test=" districtlevel==0 ">and lkog.districtcode = eb.city</if>
+		<if test=" districtlevel==1 ">and lkog.districtcode = eb.area</if>
+		<if test=" districtlevel==2 ">and lkog.districtcode = eb.street</if>
+		<if test=" districtlevel==3 ">and lkog.districtcode = eb.community</if>
+		where eb.datastatus=1
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+		<if
+			test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+			<if test=" districtlevel==0 ">and eb.city=#{districtcode}</if>
+			<if test=" districtlevel==1 ">and eb.area=#{districtcode}</if>
+			<if test=" districtlevel==2 ">and eb.street=#{districtcode}</if>
+			<if test=" districtlevel==3 ">and eb.community= #{districtcode}</if>
+		</if>
+		<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">
+			and (eb.city = #{districtid} or eb.area = #{districtid} or eb.street =
+			#{districtid} or eb.community =
+			#{districtid})
+		</if>
+		<!-- <if test=" etime!=null and etime!='' and etime!='null' ">and eb.registerdate 
+			&lt;= to_date(#{etime},'yyyy-mm-dd') </if> -->
+		<if test=" date!=null and  date!='' and  date!='null' ">and
+			eb.registerdate <![CDATA[ <= ]]>
+			#{date}
+		</if>
+	</select>
+
+	<!-- 按年份季度展示巡查对象 -->
+	<select id="loadPatrolEntListByPage" resultType="map"
+		parameterType="map">
+
+		select distinct
+		eb.businessinfoid,eb.entname,eb.address,eb.legalperson,eb.phone,
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.city)||'/'||
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.area)||'/'||
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.street)||'/'||
+		(select tsd.shortname from sys_district tsd where
+		tsd.districtcode=eb.community) as DISTRICT,
+		--vdo.directortypename,
+		sdt.directortypename,
+		(select count(thgi.inspectionid) from hdi_gov_inspection thgi where
+		thgi.businessinfoid=eb.businessinfoid
+		<if test=" begindate!=null and  begindate!='' and  begindate!='null' ">and
+			thgi.checkdate <![CDATA[ >= ]]>
+			#{begindate}
+		</if>
+		<if test=" enddate!=null and  enddate!='' and  enddate!='null' ">and
+			thgi.checkdate <![CDATA[ <= ]]>#{enddate}
+		</if>
+		) as XCCS,
+		(select count(thei.inspectionid) from hdi_ent_inspection thei where
+		thei.businessinfoid=eb.businessinfoid
+		<if test=" year!=null and  year!='' and  year!='null' ">and thei.nowyear = #{year}</if>
+		<if test=" quarter!=null and  quarter!='' and  quarter!='null' ">and thei.quarter = #{quarter}</if>
+		) as ZCCS
+		from ent_businessinfo eb
+		left join lk_industry_org lkog on lkog.directortypeid = eb.directortypeid
+		<if test=" districtlevel==0 ">and lkog.districtcode = eb.city</if>
+		<if test=" districtlevel==1 ">and lkog.districtcode = eb.area</if>
+		<if test=" districtlevel==2 ">and lkog.districtcode = eb.street</if>
+		<if test=" districtlevel==3 ">and lkog.districtcode = eb.community</if>
+		-- left join v_directortype_org vdo on vdo.directortypeid =
+		lkog.directortypeid and (vdo.districtcode= eb.area or
+		-- vdo.districtcode= eb.street or vdo.districtcode= eb.city)
+		left join hdi_gov_inspection hgi on (eb.businessinfoid=hgi.businessinfoid)
+		left join hdi_gov_registra hgr on (hgi.inspectionid=hgr.inspectionid)
+		left join sys_directortype sdt on
+		(eb.directortypeid=sdt.directortypeid)
+		where eb.datastatus=1
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+		<if
+			test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+			<if test=" districtlevel==0 ">and eb.city=#{districtcode}</if>
+			<if test=" districtlevel==1 ">and eb.area=#{districtcode}</if>
+			<if test=" districtlevel==2 ">and eb.street=#{districtcode}</if>
+			<if test=" districtlevel==3 ">and eb.community= #{districtcode}</if>
+		</if>
+		<if test=" districtid!=null and  districtid!='' and  districtid!='null' ">
+			and (eb.city = #{districtid} or eb.area = #{districtid} or eb.street =
+			#{districtid} or eb.community =
+			#{districtid})
+		</if>
+
+		<if test=" date!=null and  date!='' and  date!='null' ">and
+			eb.registerdate <![CDATA[ <= ]]>
+			#{date}
+		</if>
+		<if test=" restate!=null and  restate!='' and  restate!='null' ">
+			and hgr.restate=1
+			<if test=" begindate!=null and  begindate!='' and  begindate!='null' ">and
+				hgi.checkdate <![CDATA[ >= ]]>
+				#{begindate}
+			</if>
+			<if test=" enddate!=null and  enddate!='' and  enddate!='null' ">and
+				hgi.checkdate <![CDATA[ <= ]]>
+				#{enddate}
+			</if>
+		</if>
+
+		<if
+			test=" patrolstate!=null and  patrolstate!='' and  patrolstate!='null' ">
+			<if test=" patrolstate==0 ">
+				and eb.businessinfoid not in
+				(
+				select distinct thgi.businessinfoid
+				from hdi_gov_inspection thgi
+				where 1=1
+				<if test=" begindate!=null and  begindate!='' and  begindate!='null' ">and
+					thgi.checkdate
+                    <![CDATA[ >= ]]>
+					#{begindate}
+				</if>
+				<if test=" enddate!=null and  enddate!='' and  enddate!='null' ">and
+					thgi.checkdate <![CDATA[ <= ]]>
+					#{enddate}
+				</if>
+				)
+			</if>
+			<if test=" patrolstate==1 ">
+				and hgi.inspectionid is not null
+				<if test=" begindate!=null and  begindate!='' and  begindate!='null' ">and
+					hgi.checkdate<![CDATA[ >= ]]>
+					#{begindate}
+				</if>
+				<if test=" enddate!=null and  enddate!='' and  enddate!='null' ">and
+					hgi.checkdate <![CDATA[ <= ]]>
+					#{enddate}
+				</if>
+			</if>
+		</if>
+	</select>
+
+	<!-- 监测监测中GIS地图搜索企业 值搜索企业中有探头或摄像头的 -->
+	<select id="loadPageByMac" resultType="map" parameterType="map">
+		with alarm_temp as (
+		SELECT b.businessinfoid,'0' as iserasure
+		FROM mac_realtime r
+		LEFT JOIN mac_probe p ON p.probeid = r.probeid
+		LEFT JOIN mac_probehost h ON p.probehostid = h.probehostid
+		LEFT JOIN ent_businessinfo b ON b.businessinfoid = h.businessinfoid
+		WHERE r.state IN ('3','7','99','100','101','12') and p.isDel = '0'
+		AND b.DATASTATUS = '1'
+		GROUP BY b.businessinfoid
+		)
+		SELECT
+		b.businessinfoid,b.entname,b.longitude,b.latitude,b.address,b.legalperson,b.phone,t.iserasure
+		FROM ent_businessinfo b
+		left join alarm_temp t on b.businessinfoid = t.businessinfoid
+		WHERE (
+		EXISTS (SELECT businessinfoid FROM mac_videohost h WHERE h.businessinfoid =
+		b.businessinfoid and h.isDel='0')
+		OR
+		EXISTS (SELECT businessinfoid FROM mac_probehost p WHERE p.businessinfoid =
+		b.businessinfoid and p.isDel='0')
+		)
+		<if test=" entname!=null and  entname!='' and  entname!='null' ">
+			AND b.entname LIKE '%${entname}%'
+		</if>
+		<if
+			test=" businessinfoid!=null and  businessinfoid!='' and  businessinfoid!='null' ">
+			AND b.businessinfoid = #{businessinfoid}
+		</if>
+		<!-- 行政机构代码 -->
+		<if
+			test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+			and (b.city = #{districtcode} or b.area = #{districtcode} or b.street =
+			#{districtcode} or b.community =
+			#{districtcode})
+		</if>
+		and DATASTATUS = '1'
+	</select>
+
+	<!-- 查询企业信息 -->
+	<select id="loadEntSimpleInfo" parameterType="map" resultType="hashmap">
+		select EBS.BUSINESSINFOID as id,EBS.ENTNAME as text ,
+		ebs.LONGITUDE,ebs.LATITUDE
+		from ENT_BUSINESSINFO ebs
+		where 1=1
+		<if test="entname!=null and entname!=''">
+			and ebs.ENTNAME LIKE '%${entname}%'
+		</if>
+		and DATASTATUS = '1'
+	</select>
+
+
+	<!--监测监控企业信息统计查询 -->
+	<select id="loadEntCountByDangerType" parameterType="map"
+		resultType="map">
+		select distinct ldt.DANGERTYPE,count(1) as entcount
+		from ent_businessinfo t
+		left join ent_dangerchara dan on t.businessinfoid = dan.businessinfoid
+		left join lk_dangertype ldt on dan.charid = ldt.charid
+		left join lk_industry_org lkog on lkog.directortypeid = t.directortypeid
+		where t.datastatus = '1'
+		<if test=" orgid!=null and  orgid!='' and  orgid!='null' ">and lkog.orgid = #{orgid}</if>
+		<if
+			test=" districtcode!=null and  districtcode!='' and  districtcode!='null' ">
+			and (t.city=#{districtcode}
+			or t.area=#{districtcode}
+			or t.street=#{districtcode}
+			or t.community= #{districtcode})
+		</if>
+		<if test=" etime!=null and  etime!='' and  etime!='null' ">and t.registerdate &lt;=
+			to_date(#{etime},'yyyy-mm-dd hh24:mi:ss')
+		</if>
+		group by ldt.dangertype
+	</select>
+
+	<!-- -->
+	<insert id="insertEntDssRsktype" parameterType="map">
+		INSERT INTO
+		DSS_RSK_TYPE(TYPEID, PARENTID, TYPENAME, TYPECODE, ORDERNUM, NOTES,
+		BELONGCATE, BELONGENT,
+		CREATER, CEATETIME, TYPELVL)
+		VALUES(#{typeid, jdbcType=VARCHAR}, #{parentid, jdbcType=VARCHAR}, #{typename,
+		jdbcType=VARCHAR},
+		#{typecode, jdbcType=VARCHAR}, to_number(#{ordernum, jdbcType=VARCHAR}), #{notes,
+		jdbcType=VARCHAR},
+		#{belongcate, jdbcType=VARCHAR}, #{belongent, jdbcType=VARCHAR}, #{creater,
+		jdbcType=VARCHAR},
+		to_date(#{ceatetime, jdbcType=VARCHAR}, 'yyyy-mm-dd hh24:mi:ss'), #{typelvl,
+		jdbcType=VARCHAR})
+	</insert>
+
+
+	<!-- 隐患排查模块获取企业信息 1：已巡查企业 2:自查中 -->
+	<select id="loadEntForHid" parameterType="map" resultType="hashmap">
+		SELECT
+		<!--<include refid="Base_Column_List"/>
+		 CASE #{status}
+		WHEN '1' THEN
+			'已巡查'
+		WHEN '2' THEN
+			'已自查'
+		WHEN '3' THEN
+			'自查中'
+		ELSE
+			'' END as checkstate -->
+		eb.businessinfoid,
+		eb.entname,
+		eb.status,
+		eb.entcode,
+		eb.city,
+		eb.area,
+		eb.street,
+		eb.community,
+		eb.postcode,
+		eb.address,
+		eb.enttype,
+		eb.legalperson,
+		eb.phone,
+		eb.registeruser,
+		eb.registernum,
+		eb.registermoney,
+		eb.naissancedate,
+		eb.validstartdate,
+		eb.validenddate,
+		eb.mainproduct,
+		eb.directortypeid,
+		eb.islittle,
+		eb.isscale,
+	  	eb.subjection,
+		eb.registerdate,
+		eb.longitude,
+		eb.latitude,
+		eb.updateper,
+		eb.updatetime,
+		eb.notes,
+		eb.datastatus,
+		eb.gisid,
+		eb.isvalid,
+		eb.industryorg,
+		eb.industryorgname
+		FROM
+		ENT_BUSINESSINFO eb 
+		left join sys_directortype dit on dit.directortypeid = eb.directortypeid
+		WHERE
+		eb.DATASTATUS = '1'
+		<if test="industrytype != null and industrytype != 'null' and industrytype != ''">
+			and dit.industrytype = #{industrytype}
+		</if>
+		<if test="(status!=null and status !='' and status != 'null') or (isgov != null and isgov!='' and isgov!='null')">
+		and eb.BUSINESSINFOID IN (SELECT
+			DISTINCT hc.entid from HID_CHECKRECORD hc
+			LEFT JOIN ENT_BUSINESSINFO ebt ON
+			ebt.BUSINESSINFOID = hc.entid
+			WHERE 1=1
+			<if test="status!=null and status !='' and status != 'null' ">
+				<if test="status == '1'.toString()">
+					AND  hc.ISGOV='1'<!-- 已巡查企业 hc.CHECKSTATE = '3'  and -->
+				</if>
+				<if test="status == '2'.toString()">
+					AND hc.CHECKSTATE = '3'  and hc.ISGOV='0'<!-- 已自查企业 -->
+				</if>
+				<if test="status == '3'.toString()">
+					AND hc.CHECKSTATE = '2' and hc.ISGOV='0' <!--自查中企业 -->
+				</if>
+			</if>
+			<if test="isgov != null and isgov!='' and isgov!='null'">
+				<if test="isgov == '0'.toString()">
+					and hc.ISGOV=#{isgov} and  hc.REPORTSTATUS = '1'<!-- 已上报隐患 -->
+				</if>
+				<if test="isgov == '1'.toString()">
+					and hc.ISGOV=#{isgov} and  (hc.REPORTSTATUS = '1' or hc.REPORTSTATUS is null)
+				</if>
+			</if> 
+			)
+		</if>
+		<if test="entname!=null and entname!='null' and entname!=''">
+				and eb.entname like '%'||#{entname}||'%'
+		</if>
+	</select>
+
+	<update id="updateBase">
+		UPDATE ENT_BUSINESSINFO set ENTNAME =#{entname},
+			entcode=#{entcode},LEGALPERSON = #{legalperson},
+			PHONE =#{phone},updatetime=#{updatetime},notes=#{notes}
+		where businessinfoid=#{businessinfoid}
+	</update>
+
+</mapper>

@@ -2,8 +2,10 @@ package com.hwsafe.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 import org.apache.commons.lang3.Validate;
@@ -118,4 +120,66 @@ public class Digests {
         }
         return null;
     }
+    
+    /**
+     * 加密
+     * 
+     * @param source
+     *            待加密的字符串
+     *            MD5
+     * @return 加密后的字符串
+     */
+    public static String encryptMD5(String source) {
+        StringBuffer sb = new StringBuffer();
+        try {
+            MessageDigest alga = MessageDigest.getInstance(MD5);
+            alga.update(source.getBytes("UTF-8"));
+            byte[] digesta = alga.digest();
+            for (byte b : digesta) {
+                String hex = Integer.toHexString(b & 0xFF);
+                if (hex.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hex);
+            }
+        } catch (NoSuchAlgorithmException e) {
+        	//使用了不支持的加密算法
+           e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+        	//使用了不支持的字符集
+			e.printStackTrace();
+		} 
+        return sb.toString();
+    }
+    /**
+     * 加密
+     * 
+     * @param source
+     *            待加密的字符串
+     *            SHA-1
+     * @return 加密后的字符串
+     */
+    public static String encryptSHA1(String source) {
+        StringBuffer sb = new StringBuffer();
+        try {
+            MessageDigest alga = MessageDigest.getInstance(SHA1);
+            alga.update(source.getBytes("UTF-8"));
+            byte[] digesta = alga.digest();
+            for (byte b : digesta) {
+                String hex = Integer.toHexString(b & 0xFF);
+                if (hex.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hex);
+            }
+        } catch (NoSuchAlgorithmException e) {
+        	//使用了不支持的加密算法
+           e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+        	//使用了不支持的字符集
+			e.printStackTrace();
+		} 
+        return sb.toString();
+    }
+    
 }

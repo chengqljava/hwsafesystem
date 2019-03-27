@@ -1,0 +1,135 @@
+.cancelHid{
+	width:calc( 100% - 60px );
+	margin: 0 auto;
+}
+.yhpcInfo{
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.yhpcInfo img{
+    width: 160px;
+    height: 120px;
+    margin: 5px;
+    margin-left: 0;
+}
+.yhpcInfo tbody tr td{
+    border: 1px solid #D8D8D8;
+    line-height: 15px;
+    padding: 10px 0 10px 10px;
+}
+.yhpcInfo tbody tr td:nth-of-type(2n+1){
+    background: #EEFAFF;
+    width: 14%;
+}
+.yhpcInfo tbody tr td:nth-of-type(2n){
+    background: #FFF;
+    width: 36%;
+}
+
+#becomeBig li {
+	list-style:none;
+	float:left;
+}
+
+.yhzg{
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.yhzgHeader{
+    line-height: 30px;
+}
+.yhzgHeader i{
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background: #0099FF;
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
+}
+.yhzgInfo{
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+}
+.yhzgInfo thead tr th,.yhzgInfo tbody tr td{
+    border: 1px solid #D8D8D8;
+    line-height: 35px;
+    text-align: left;
+    padding-left: 10px;
+    color: #333333;
+}
+.yhzgInfo thead tr th{
+    background: #EEFAFF;
+    color: #3E4B5C;
+}
+.yhzgInfo tbody tr:nth-of-type(2n+1){
+    background: #FFFFFF;
+}
+.yhzgInfo tbody tr:nth-of-type(2n){
+    background: #F9FCFD;
+}
+.yhzgInfo thead tr th:nth-of-type(1){
+    width: 14%;
+}
+.yhzgInfo thead tr th:nth-of-type(2){
+    width: 20%;
+}
+.yhzgInfo thead tr th:nth-of-type(3){
+    width: 40%;
+}
+.yhzgInfo thead tr th:nth-of-type(4){
+    width: 10%;
+}
+.yhzgInfo thead tr th:nth-of-type(5){
+    width: 8%;
+}
+.yhzgInfo thead tr th:nth-of-type(6){
+    width: 8%;
+}
+/* .yhzgInfo tbody tr td:nth-of-type(5){
+    color: #0075C7;
+    cursor: pointer;
+} */
+.addbtn{
+    float: right;
+    margin-right: 20px;
+    line-height: 27px;
+    padding: 0 10px;
+    background: #0089E9;
+    border-radius: 3px;
+    color: #fff;
+    display: none;
+    cursor: pointer;
+}
+.yhhxInfo{
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+}
+.yhhxInfo tbody tr td{
+    border: 1px solid #D8D8D8;
+    line-height: 15px;
+    padding: 10px 0 10px 10px;
+}
+.yhhxInfo tbody tr td:nth-of-type(2n+1){
+    background: #EEFAFF;
+    width: 14%;
+}
+.yhhxInfo tbody tr td:nth-of-type(2n){
+    background: #FFF;
+    width: 36%;
+}
+u{
+	text-decoration: none;
+    font-size: 12px;
+    margin-right: 6px;
+    position: relative;
+    top: -1px;
+}

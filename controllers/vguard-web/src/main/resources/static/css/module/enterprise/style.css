@@ -1,0 +1,243 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+ul,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main {
+    float: right;
+    box-sizing: border-box;
+    font-size: 12px;
+    height:100%;
+    overflow:hidden;
+}
+
+.container {
+    width: 720px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 25px auto;
+    font-size: 20px;
+    text-align: center;
+    line-height: 28px;
+    color: #131313;
+}
+
+h2 {
+    margin-left: 15px;
+    font-size: 18px;
+    line-height: 35px;
+}
+
+p {
+    margin: 0;
+    text-indent: 45px;
+    font-size: 14px;
+}
+
+.navbar {
+    width: 100%;
+    height: 40px;
+    font-size: 0;
+    box-sizing: border-box;
+}
+
+.navbar span {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 10%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 12px;
+    background: #F0F3F6;
+    border: 1px solid #DFE6ED;
+}
+.navbar span:hover{
+    background-color: #7da4ea;
+    border: 1px solid #7da4ea;
+    color: white;    
+}
+.navbarContent {
+    border: 20px solid #f0f3f6;
+}
+
+.active {
+    background-color: #7da4ea !important;
+    border: 1px solid #7da4ea !important;
+    color: white !important;
+}
+
+.companyImg {
+    width: 226px;
+    height: 233px;
+    float: left;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    cursor:pointer;
+}
+
+.companyImg:hover {
+    background-color: rgba(0, 0, 0, 0.50);
+}
+
+/* .companyImg img {
+    text-align: center;
+    margin-top: 95px;
+    margin-left: 85px;
+} */
+/* 左侧导航 */
+
+nav {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.navTitle {
+    background: #F0F3F6;
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    padding-left: 14px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #999;
+    color: #4F5659;
+}
+
+.navContent {
+    width: 200px;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 14px;
+    font-size: 12px;
+    background-color: #F0F3F6;
+    box-sizing: border-box;
+    color: #4F5659;
+}
+
+.navContent:hover {
+    background-color: #DFE6ED;
+}
+
+.navContent img {
+    float: right;
+    margin-top: 13px;
+    margin-right: 25px;
+}
+
+.navGroup {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navGroup div {
+    width: 200px;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 24px;
+    font-size: 12px;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+    color: #4F5659;
+    background-color: #f8fbfe;
+}
+
+.navGroup div:hover {
+    background-color: #fff !important;
+    border-left: 2px solid #00B1D4;
+}
+
+.navActive {
+    background-color: #fff !important;
+    border-left: 2px solid #00B1D4 !important;
+}
+
+.visited {
+    background-color: #DFE6ED !important;
+}
+
+#back{
+    position: fixed;
+    left: 180px;
+}
+
+/* 表格样式 */
+.content{
+    width: 720px;
+    box-sizing: border-box;
+    margin: 20px auto;
+    padding: 0;
+}
+.content table{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.content table tr{
+    width: 100%;
+    height: 37px;
+    box-sizing: border-box;
+}
+.content table tr:nth-of-type(2n+1){
+    background: #F7FAFF;
+}
+.content table tr td{
+    height: 37px;
+    line-height: 37px;
+    box-sizing: border-box;
+    border: 1px solid #D9D9D9;
+    padding-left: 20px;
+    color: #333;
+    /* word-break:keep-all;
+    white-space:nowrap;  
+    overflow:hidden;
+    text-overflow:ellipsis; */
+}
+.content table tr td img{
+    float: left;
+    margin-top:10px;
+}
+.content table tr td:nth-of-type(2n+1){
+    width: 30%;
+}
+.content table tr td:nth-of-type(2n){
+    width: 20%;
+}
+
+/* .content2 table tr td:nth-of-type(2n+1){
+    width: 15%;
+}
+.content2 table tr td:nth-of-type(2n){
+    width: 35%;
+} */
+
+img:hover{
+    cursor: pointer;
+}
+#leftNav div:hover{
+    cursor: pointer;    
+}
+
+.qyzgContent p{
+    text-align: left;
+    text-indent: 0;
+    font-size: 14px;
+    color: #FFFFFF;
+    line-height: 20px;
+    margin: 12px 0;
+}
+p.beizhu{
+    margin: 0;
+}

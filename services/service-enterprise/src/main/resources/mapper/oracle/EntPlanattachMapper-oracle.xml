@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.enterprise.mapper.EntPlanattachMapper" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.enterprise.domain.EntPlanattach" >
+	<result column="attachid" property="attachid" jdbcType="VARCHAR" />
+	<result column="attachurl" property="attachurl" jdbcType="VARCHAR" />
+	<result column="attachtype" property="attachtype" jdbcType="VARCHAR" />
+	<result column="uploadtime" property="uploadtime" jdbcType="TIMESTAMP" />
+	<result column="attachname" property="attachname" jdbcType="VARCHAR" />
+	<result column="planid" property="planid" jdbcType="VARCHAR" />
+</resultMap>
+       
+<!-- ent_planattach table all fields -->
+<sql id="Base_Column_List" >
+	 attachid,attachurl,attachtype,uploadtime,attachname,planid
+</sql>
+   
+ <!-- 分页查询 -->
+<select id ="loadByPage" resultType="map">
+  	select 
+	<include refid="Base_Column_List"/>
+	from ent_planattach 
+  </select>
+
+<!-- 查询企业平面图附件列表 -->
+<select id="loadByList" resultMap="BaseResultMap"  parameterType="map">
+	select 
+	<include refid="Base_Column_List"/>
+	from ent_planattach 
+</select>
+
+<!-- 插入记录 -->
+<insert id="save" parameterType="com.hwsafe.enterprise.domain.EntPlanattach"  useGeneratedKeys="true" keyProperty="attachid" >
+	<selectKey  resultType="java.lang.String" keyProperty="attachid" order="BEFORE">    
+          select sys_guid() as attachid from dual 
+    </selectKey>  
+  insert into ent_planattach(attachid,attachurl,attachtype,uploadtime,attachname,planid)
+ values(#{attachid},#{attachurl},#{attachtype},#{uploadtime},#{attachname},#{planid})
+</insert>
+
+<!-- 根据id修改记录-->  
+ <update id="update" parameterType="com.hwsafe.enterprise.domain.EntPlanattach" >
+  update ent_planattach set attachurl=#{attachurl},attachtype=#{attachtype},uploadtime=#{uploadtime},attachname=#{attachname},planid=#{planid} where attachid=#{attachid}
+ </update>
+ 
+<!-- 删除记录 -->
+<delete id="delete" parameterType="string">
+	delete 	 from ent_planattach where attachid = #{attachid}
+</delete>
+
+<!-- 根据id查询 企业平面图附件 -->
+<select id="loadById"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from ent_planattach where attachid = #{attachid}
+</select>
+
+<!-- 根据id查询 企业平面图附件 -->
+<select id="loadByPlanId"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from ent_planattach where planid = #{planid}
+</select>
+
+
+	<select id="loadByEntid" resultMap="BaseResultMap" parameterType="string">
+		select epa.ATTACHID,epa.ATTACHNAME,epa.ATTACHTYPE,epa.ATTACHURL,epa.UPLOADTIME,epa.PLANID from ENT_PLANATTACH epa
+			left join ENT_PLAN ep on EP.PLANID = epa.PLANID
+		where EP.ENTID = #{entid};
+	</select>
+  	
+</mapper>   

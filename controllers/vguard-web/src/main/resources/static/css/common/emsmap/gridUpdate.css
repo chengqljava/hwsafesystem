@@ -1,0 +1,112 @@
+    div.ui-jqgrid-view > .ui-jqgrid-titlebar{
+    	background: #002e6e;
+    	background-color: #002e6e;
+    	color: #fff;
+    	border: none;
+    }
+    div.ui-jqgrid{
+    	border: none;
+    }
+    div.ui-jqgrid .ui-jqgrid-htable th.ui-th-column,div.ui-jqgrid .ui-jqgrid-bdiv,div.ui-jqgrid .ui-jqgrid-hbox{
+    	background: #0f4181 !important;
+    	border-top: 1px solid #2C5275;
+    }
+    div.ui-jqgrid .ui-jqgrid-htable th div{
+    	padding: 4.5px 0 0 0;
+    }
+    div.ui-jqgrid .ui-jqgrid-btable tbody tr.jqgrow td{
+    	background: #002e6e;
+    	border: 1px solid #2C5275;
+    	color: #fff;
+    }
+    div.ui-jqgrid .ui-jqgrid-htable th div{
+    	background: #0f4181;
+    	color: #fff;
+    }
+    div.ui-jqgrid .ui-jqgrid-htable th span.ui-jqgrid-resize{
+    	background-image: url();
+    }
+    div.ui-jqgrid .ui-jqgrid-pager{
+    	background-color: #002e6e !important;
+    }
+    div.ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr{
+    	border: 1px solid #2C5275 !important;
+    }
+    td.ui-state-disabled{
+    	color: #ccc;
+    }
+    .ui-pg-selbox,.ui-pg-input{
+    	background: #002e6e;
+    	color: #fff;
+    }
+    div.ui-jqgrid .ui-jqgrid-pager{
+    	border-top: 1px solid rgba(255,255,255,0.2) !important;
+    	border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+    }
+    input[type="text"]{
+    	color: #fff !important;
+    }
+    td{
+    	color: #fff;
+   	    cursor: pointer;
+    }
+    td.ui-pg-button:hover{
+    	color: #00C5FF;
+    	opacity: 1;
+    }
+    #grid-pager_center{
+    	display: none;
+    }
+    td a{
+    	color: #fff;
+    }
+    .ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited { 
+    	color: #00bfff;
+  		text-decoration: none; 
+    }
+    .ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { 
+    	color: #00bfff;
+    	text-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {
+    	text-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    #grid-table tr td{
+    	overflow: hidden !important;
+    	text-overflow: ellipsis !important;
+    	white-space: nowrap !important;
+    }
+    .table-line{
+    	width: 100%;
+    	padding: 0;
+    }
+    textarea.form-control[readonly],textarea.form-control,textarea{
+		background-color: #002e6e;
+    	border: 1px solid #33588b;
+	    color: #fff;
+	}
+	.ui-jqgrid .ui-jqgrid-pager .ui-pg-button, .ui-jqgrid .ui-jqgrid-toppager .ui-pg-button{
+		color: #fff;
+	}
+	ul.ztree li a{
+		color: #fff;
+	}
+	div.dropdown-menu{
+		background-color: #001e6e;
+	}
+	#taskcontent{
+		width: 100%;
+	}
+	#msgCon{
+		width: 100%;
+	}
+    .ui-jqgrid div.ui-jqgrid-hdiv {
+		margin-top: 0px;
+	}
+	.ui-pager-control>.ui-pg-table>tbody>tr>td:nth-of-type(2){
+		display: none;
+	}
+	.ui-jqgrid-bdiv{
+		border-right: 1px solid #2C5275;
+		border-left: 1px solid #2C5275;
+	}

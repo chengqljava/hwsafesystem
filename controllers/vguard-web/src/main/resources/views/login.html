@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>威盾企业安全生产信息化综合管理平台</title>
+    <%include("include/loader_css.html",{cssPart:["bootstrap"]}){}%>
+    <link href="${ctxPath}/static/css/common/vguard-login.css"  rel="stylesheet"
+          type="text/css" />
+    <link href="${ctxPath}/static/css/common/login.css"  rel="stylesheet"
+          type="text/css" />
+</head>
+<body>
+	<div class="main">
+		<div class="main_logo">
+			<img src="${ctxPath}/static/images/VGuard_logo.svg">
+		</div>
+		<div class="main_banner">
+			<ul>
+				<li style="display: block;">
+					<img src="${ctxPath}/static/images/VGuard_xc_1.svg">
+					<p class="bannerNav">
+		                <span data-id="0" class="active"></span>
+		                <span data-id="1"></span>
+		                <span data-id="2"></span>
+	            	</p>
+	            </li>
+				<li>
+					<img src="${ctxPath}/static/images/VGuard_xc_2.svg">
+					<p class="bannerNav">
+		                <span data-id="0"></span>
+		                <span data-id="1" class="active"></span>
+		                <span data-id="2"></span>
+	            	</p>
+				</li>
+				<li>
+					<img src="${ctxPath}/static/images/VGuard_xc_3.svg">
+					<p class="bannerNav">
+		                <span data-id="0"></span>
+		                <span data-id="1"></span>
+		                <span data-id="2" class="active"></span>
+	            	</p>
+				</li>
+			</ul>
+			
+		</div>
+		<div class="loginBox">
+	        <img class="userNameIcon" src="${ctxPath}/static/images/icon_login_user.png">
+	        <img class="userPasswordIcon" src="${ctxPath}/static/images/icon_login_pasword.png">
+	        <div class="userKind">
+	            欢迎登录
+	        </div>
+	        <div class="loginContent">
+	            <input id="username" name="username" class="ipt" value="" placeholder="请输入您的用户名" type="text">
+	            <input id="password" name="password" class="ipt" value="" placeholder="请输入您的密码" type="password">
+	            <span id="msg" style="color:red;"></span>
+	        </div>
+	        <div class="login login1" id="loginContent">
+	            <span id="submitBtn">登录</span>
+	        </div>
+	    </div>
+	</div>
+	<div class="bqxx">技术支持：汉威科技集团股份有限公司<br />友情提示:建议您使用IE10.0以上版本浏览器</div>
+</body>
+ <%include("include/loader_jslib.html",{jsPart:["html5","jquery","bootstrap","layer"]}){}%>
+ 	<script src="${ctxPath}/static/js/common/mylayer.js"></script>
+   	<script src="${ctxPath}/static/js/common/auth.login.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        $('.userKind').on('click','span',function(){
+            $("#msg").hide();
+            if($(this).attr('class') == 'active'){
+
+            } else {
+                $('.userKind span').removeClass('active');
+                $(this).addClass('active');
+                $('.login').toggle();
+            }
+        })
+        window.onresize = function(){
+            var width = -$('.imgInfo img').width() / 2;
+            $('.imgInfo img').css('margin-left',width);
+        }
+        var width = -$('.imgInfo img').width() / 2;
+        $('.imgInfo img').css({
+            'margin-left':width,
+            'left':'50%'
+        });
+        // logo在这里修改
+        //var c=document.getElementById("myCanvas");
+		/*var ctx=c.getContext("2d");
+		ctx.fillStyle="#555";
+		ctx.font="24px Arial";
+		ctx.fillText("内蒙古达拉特旗经济开发区安全环保应急一体化平台",10,30);
+		ctx.font="10px Arial";
+		ctx.fillText("Inner Mongolia Dalateqi Economic Development Zone Safety and Environmental Protection Emergency Integration Platform",10,50);*/
+        
+    })
+
+    //指定光标位置
+    $("input[id='username']:first").focus();
+
+    //登录的时候回车键触发事件
+    $(document).keydown(function(event) {
+        if (event.keyCode == 13) {
+            //判断政府按钮是否可见
+            //if($(".login1").css("display")=='block'){
+              //  govlogin();
+            //}else{
+                entlogin();
+            //}
+            event.returnValue = false;
+        }
+    });
+
+    $("#govlogBtn").on("click",function(){
+        $(".login span").removeClass('visited');
+        $(this).addClass('visited');
+        govlogin();
+    });
+
+    $("#submitBtn").on("click",function(){
+        $(".login span").removeClass('visited');
+        $(this).addClass('visited');
+        entlogin();
+    });
+
+    $("#regBtn").on("click",function(){
+        $(".login span").removeClass('visited');
+        $(this).addClass('visited');
+        register();
+    });
+
+    function govlogin(){
+        //调用方法去除用户名中所有的空格
+        var username = removeAllSpace($('#username').val());
+        //var password = removeAllSpace($('#password').val())
+        // var username=$('#username').val().trim();
+        var password=$('#password').val();
+
+        if(username.length==0||password.length==0){
+            $('#msg').html('用户名或密码不能为空！').show();
+            return;
+        }
+        $.ajax( {
+            url:'${ctxPath}/login/validate',
+            data:{
+                username: username,
+                password : password,
+                usertype : 'GOV'
+            },
+            type:'post',
+            cache:false,
+            dataType:'json',
+            success:function(data) {
+                if(data.success =="true" ){
+                    window.location="${ctxPath}/last";
+                }else{
+                    $('#msg').html(data.msg).show();
+                    $('#password').val("")
+                }
+            },
+            error : function() {
+                $('#msg').html('用户名或密码不能为空！').show();
+            }
+        });
+    }
+    function entlogin(){
+        //调用方法去除用户名中所有的空格
+        var username = removeAllSpace($('#username').val());
+        //var username=$('#username').val().trim();
+        var password=$('#password').val();
+        console.log(username,password);
+        if(username.length==0||password.length==0){
+            $('#msg').html("用户名或密码不能为空！").show();
+            return;
+        }
+        $.ajax( {
+            url:'${ctxPath}/login/validate',
+            data:{
+                username: username,
+                password : password,
+                usertype : 'ENT'
+            },
+            type:'post',
+            cache:false,
+            dataType:'json',
+            success:function(data) {
+                if(data.success =="true" ){
+                    window.location="${ctxPath}/last"
+                }else{
+                    if(data.code === '403'){
+                        window.location="${ctxPath}/registsystem"
+                    }
+
+
+                    $('#msg').html(data.msg).show();
+                    $('#password').val("")
+                }
+            },
+            error : function() {
+                $('#msg').html('用户名或密码不能为空！').show();
+            }
+        });
+    }
+    // 正则表达式去掉所有空格
+    function removeAllSpace(str) {
+        return str.replace(/\s+/g, "");
+    }
+    //注册
+    function register(){
+        window.open("${ctxPath}/login/agreement");
+    }
+    /*
+    *弹出待下载文件列表
+    */
+    $("#operationManual").on("click",function(){
+        openWin("${ctxPath}/login/operationFileList",'操作文档','35%','55%');
+    });
+</script>
+</html>

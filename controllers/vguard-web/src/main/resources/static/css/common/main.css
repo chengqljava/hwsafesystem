@@ -1,0 +1,689 @@
+body {
+	/*background-color: #d6dae6;*/
+	background-color: #f5f7fa;
+	font-size: 12px;
+	font-family: Verdana,"Lantinghei SC","Hiragino Sans GB","Microsoft Yahei",Helvetica,arial,闂傚倸鍊搁崐宄懊归崶褉鏋栭柡鍥ュ灩缁愭鏌熼悧鍫熺凡闁告垹濮撮埞鎴︽偐鐎圭姴顥濈紓浣哄閸ㄥ爼寮婚敐澶婄闁挎繂鎲涢幘缁樼厸闁告侗鍠楅崐鎰版煛瀹�瀣瘈鐎规洘甯掕灒闁绘艾鐡ㄧ�氬綊姊虹拠鎻掝劉闁绘棏鍓熼獮蹇曠矚濠曟s-serif;
+}
+/**闁圭厧鐡ㄥú鐔煎磿绾撅拷iv婵炴垶鎸哥粔鐢靛垝閹绢喖绀夐柨鐕傛嫹**/
+.divRight{
+    position:fixed; 
+    bottom:0px; 
+    right:16px; 
+    width:100%; 
+    height:50px; 
+    text-align:right; 
+    z-index:2; 
+    overflow:hidden; 
+}
+
+.form-control {
+	height: 28px; 
+	border-radius:0px;
+	padding: 0;
+}
+label.error
+    {
+		color:Red;
+		font-size:12px;
+		margin-left:5px;
+		padding-left:16px
+    }
+label {
+	font-weight:100;
+	margin-bottom:0;
+	text-overflow: ellipsis;
+}
+.tableStyle,.searchTable,.styleTable {
+	 margin-bottom: 10px;
+     width: 100%;
+     position:relative;
+     display:table;
+    /*  table-layout : fixed; */
+}
+/* .zwTable3 {
+	table-layout : fixed;
+} */
+.searchTable > tbody > tr > td,.searchTable > tbody > tr > th, .searchTable > tfoot > tr > td,.tableStyle > tbody > tr > td,.tableStyle > tbody > tr > th, .tableStyle > tfoot > tr > td, .tableStyle > tfoot > tr > th, .tableStyle > thead > tr > td, .tableStyle > thead > tr > th {
+	line-height: 1.42857;
+    padding: 6px;
+} 
+.zwTable,.DivTable {
+	 margin-bottom: 10px;
+     width: 100%;
+     position:relative;
+     display:table;
+     background-color: #fff;
+    /*  table-layout : fixed; */
+}
+.DivTable > thead > tr > th,.DivTable > tbody > tr > td, .DivTable > tbody > tr > th, .DivTable > tfoot > tr > td, .DivTable > tfoot > tr > th, .DivTable > thead > tr > td,.zwTable > tbody > tr > td, .zwTable > tbody > tr > th, .zwTable > tfoot > tr > td, .zwTable > tfoot > tr > th, .zwTable > thead > tr > td,.styleTable > tbody > tr > td, .styleTable > tbody > tr > th, .styleTable > tfoot > tr > td, .styleTable > tfoot > tr > th, .styleTable > thead > tr > td {
+	border: 1px solid #ddd;
+    padding: 6px;
+}
+.safeTable > thead > tr > th {
+	text-align: center;
+	background-color: #f3f3f3;
+	white-space: nowrap;
+}
+ .zwTable > tbody > tr:nth-child(odd),.DivTable > tbody > tr:nth-child(odd) {
+ 	background-color:#fff;
+ }
+.zwTable > thead > tr > td{
+	background: #edf9fe !important;
+}
+#taskItemsTab tr td{
+	background-color: #fff;
+}
+#taskItemsTab tr:nth-of-type(2n+1){
+	background-color:#fff;
+}
+#taskItemsTab tr:nth-of-type(2n){
+	background: #F9FCFD;
+}
+#checkItemTable tr td{
+	background-color: #fff;
+}
+#checkItemTable tr:nth-of-type(2n+1){
+	background-color:#fff;
+}
+#checkItemTable tr:nth-of-type(2n){
+	background: #F9FCFD;
+}
+.zwTable > tbody > tr > td:nth-child(odd),.tableStyle > tbody > tr > td:nth-child(odd) {
+ 	width:15%;
+ 	background: #edf9fe;
+ }
+ .zwTable > tbody > tr > td:nth-child(even),.tableStyle > tbody > tr > td:nth-child(even) {
+  	width:35%
+  }
+ .zwTable3 > tbody > tr > td:nth-child(odd) {
+	width:11%;
+}
+.zwTable3 > tbody > tr > td:nth-child(even) {
+	width:22.3%;
+} 
+legend {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: -moz-use-text-color -moz-use-text-color #e5e5e5;
+        border-image: none;
+        border-style: none;
+        border-width: 0 0 1px;
+        color: #333;
+        display: block;
+        font-size: 16px;
+        line-height: inherit;
+        margin-bottom: 0px;
+        padding: 0;
+        width: auto;
+    }
+.boxContent {
+	padding: 6px 10px;
+}
+.boxContent fieldset {
+    border: 1px solid #ddd;
+    margin: 0 0 10px;
+    padding: 10px;
+}
+.btn {
+	height:25px;
+	padding:0 12px;
+}
+.treecolor {
+	position:fixed;
+	height:100%;
+	width:174px;
+	border-right:1px solid #c8c8c6;
+	overflow:auto;
+}
+.pRight {
+	float:right;
+	position: relative;
+    overflow: hidden;
+}
+.pd6 {
+	padding-top:6px;
+}
+
+.gridleft {
+	padding-left:14%;
+}
+
+.form-left {
+	position:relative;
+}
+.col-in {
+	float:left;
+	margin:0 15px;
+}
+.col-in .formWidth {
+	width:236px;
+}
+
+.table-line {
+	/*border-top:1px solid #cad9e3;
+    margin-top: 15px;
+    padding-top: 15px;
+    padding:0 10px;*/
+    position: relative;
+    overflow: hidden;
+    width: calc( 100% - 48px );
+    margin: 0 auto;
+    background: #FFFFFF;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.20);
+ }  
+	 
+.tableTitle {
+	position: absolute;
+    right: 55px;
+    top: 6px;
+    z-index: 999;
+ }
+	 
+.tableTitle h2 {
+	font-size:16px;
+	float:left;
+	padding-left:6px;
+ }
+	 
+.rgt {
+	/*position:absolute;*/
+	margin-left:5px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	text-align: right;
+ }
+.rgt button {
+	border: none;
+}
+ .num {
+ 	position:absolute;
+ 	left:88px;
+ 	top:12px;
+ }
+ 
+#div_left {
+	float:left;
+	width:53%;
+	padding:6px 6px 0 12px;
+}
+#div_right {
+	border:1px solid #ccc;
+	background-color: #fff; 
+	/* margin:6px 12px 0 0;
+	height:483px;
+	width:45.6%;
+	float:right; */
+}
+.ptop {
+	width: 100%;
+	height: 30px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	position: relative;
+	overflow: hidden;
+}
+.tab {
+	margin: 4px 0 0 15px;
+}
+.tab ul {
+	margin: 0;
+	padding:0;
+}
+.tab ul li {
+	float: left;
+	display: block;
+	padding: 2px 10px;
+	font-size: 12px;
+	cursor: pointer;
+	border-style: solid;
+	border-width: 1px;
+
+}
+.tab ul li:first-child {
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+.tab ul li:last-child {
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.pcontent {
+	width: 100%;
+	height: 95%;
+	position: absolute;
+	top: 30px;
+	left: 0;
+}
+.vi {
+	padding-left: 32px;
+	height: 24px;
+	background-repeat: no-repeat;
+	margin: 10px 30px;
+	font-size: 14px;
+
+}
+.pcontainer {
+	margin: 0 10px 10px;
+	border-radius: 6px;
+	width: 98%;
+	height: 90%;
+	overflow: auto;
+}
+.pcheck {
+	position: relative;
+	overflow: hidden;
+	/*border-top: 4px solid #e7eaec;*/
+	padding: 10px 24px;
+}
+.borderTop {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+.bl {
+	margin:6px 15px;
+	box-shadow:0 0 4px #ccc;
+	border:1px solid #efefef;
+	background-color: #fff;
+	overflow: hidden;
+	padding: 12px 0;
+}
+.timeTable {
+	margin:5px 12px;
+}
+.timeTable tr td {
+	padding:5px;
+}
+.lbl {
+	line-height: 30px;
+}
+.year,.lbl{
+	float: left;
+	margin-right: 6px;
+}
+.year,.quarter {
+	margin: 0;
+	padding: 0;
+}
+.year li,.quarter li{
+	float: left;
+	margin-right: 6px;
+	display: block;
+	cursor: pointer;
+	border:1px solid #efefef;
+}
+.year li {
+	padding: 2px 4px;
+}
+.quarter li {
+	padding: 3px 8px;
+}
+.search {
+	width: 68px;
+	height: 25px;
+	background-repeat: no-repeat;
+	margin-right: 12px;
+	border-radius: 4px;
+}
+
+.checkbtn {
+	height: 19px;
+	float: right;
+	margin-right: 36px;
+	cursor: pointer;
+	margin-top:6px;
+}
+.checkbtn span {
+	position: absolute;
+    right: 12px;
+    top: 5px;
+	height: 19px;
+    padding-left: 19px;
+    width: 19px;
+}
+.margin10 {
+	/*margin: 8px 10px;*/
+}
+.ptable {
+	margin: 1%;
+	width: 98%;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+.ptable thead th {
+	line-height: 35px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	font-size: 12px;
+	text-align: center;
+}
+.ptable thead th:nth-child(1) {
+	border-top-left-radius: 6px;
+}
+.ptable thead th:nth-child(9) {
+	border-top-right-radius: 6px;	
+}
+.ptable tbody tr td {
+	border-right-style: solid;
+	border-right-width: 1px;
+	line-height: 35px;
+	padding-left: 12px;
+}
+.ptable tbody tr td:nth-child(odd) {
+
+}
+.alginCenter {
+	text-align:center;
+	clear:both;
+}
+.backBtn {
+	background:url(../../images/main/operbutton/backBtn.png) no-repeat;
+	height:33px;
+	width:80px;
+	border:none;
+	position:relative;
+	color:#fff;
+}
+
+.disabledBtn {
+	background:url(../../images/main/operbutton/disabledBtn.png) no-repeat;
+	height:33px;
+	width:80px;
+	border:none;
+	position:relative;
+	color:#fff;
+}
+
+/********************************************闂傚倸鍊搁崐椋庣矆娓氾拷楠炲鏁嶉崟顒佹濠德板�曢幊宀勬晸閽樺鏆炵�垫澘瀚伴獮鍥敄閳瑰灝鍔﹂柡灞剧洴楠炲洭妫冨☉娆戜邯缂傚倷鑳舵慨闈涱熆濮楋拷閳ワ箓宕稿Δ浣告疂闂傚倸鐗婄粙鎴︼綖瀹ュ鐓熼煫鍥ㄦ崌閻涙粓鏌熼崙銈嗗**************************************************************/
+/**濠电姷鏁告慨鐑藉极閹间礁纾块柟瀵稿Х缁�濠囨煥閻旇櫣鎽傞柡浣割儑閹插憡鎯旈妸銉х杽闂侀潧艌閺呮粓寮查幖浣圭叆闁绘洖鍊圭�氾拷*/
+.liadd {
+	background:url(../../images/main/operbutton/add_list.svg) no-repeat;
+	/*height:16px;
+	padding-left:19px;*/
+}
+
+/**缂傚倸鍊搁崐鎼佸磹閹间礁纾归柟闂寸绾惧湱鎲搁悧鍫濈瑲闁稿顑夐弻锝夊箛椤掑倷绮靛銈嗗姃缁瑩寮婚妸鈺傚亞闁稿本绋戦锟�*/
+.liedit {
+	background:url(../../images/main/operbutton/edit_list.svg) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+	/* display: none; */
+}
+
+/**闂傚倸鍊搁崐椋庣矆娓氾拷楠炲鏁嶉崟顒佹闂佺粯鍔曢顓犵不妤ｅ啯鐓ラ柣鏃�浜堕幒妤�鍑犵�广儱顦伴悡銉╂煟閺囩偛锟藉湱锟芥熬鎷�*/
+.lidel {
+	background:url(../../images/main/operbutton/del_list.svg) no-repeat;
+	/*height:17px;
+	padding-left:23px;*/
+	/* display: none; */
+}
+
+/**闂傚倸鍊峰ù鍥敋瑜嶉湁闁绘垼妫勯弸渚�鏌熼梻瀵割槮闁稿被鍔庨幉鎼佸棘鐠恒劍娈鹃梺鎸庣箓椤︿即寮查幖浣圭叆闁绘洖鍊圭�氾拷*/
+.liimport {
+	background:url(../../images/main/operbutton/import_list.svg) no-repeat;
+	/*height:17px;
+	padding-left:23px;*/
+}
+
+/**闂傚倸鍊峰ù鍥敋瑜嶉湁闁绘垼妫勯弸渚�鏌熼梻瀵割槮闁稿被鍔庨幉鎼佸棘鐠恒劍娈鹃梺姹囧灩閹诧繝寮查幖浣圭叆闁绘洖鍊圭�氾拷*/
+.liexport {
+	background:url(../../images/main/operbutton/export_list.svg) no-repeat;
+	/*height:17px;
+	padding-left:23px;*/
+}
+
+/**婵犵數濮烽弫鎼佸磻閻愬搫鍨傞柛顐ｆ礀缁犳澘鈹戦悩宕囶暡闁搞倕鐭傞弻锝夊箛闂堟稑顫梺鍛婄懃缁绘﹢寮婚敐澶婄睄闁稿本鑹炬禒妯肩磽娴ｅ搫鞋闁稿鍔欓弫鎾寸鐎ｎ�劑鏌曟径鍫濆姶濞寸》鎷风紓鍌氬�风粈渚�顢栭幋锕�绠柨鐕傛嫹*/
+.liboper {
+	background:url(../../images/main/operbutton/boper_list.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+}
+
+/**婵犵數濮烽弫鎼佸磻閻愬搫鍨傞柛顐ｆ礀缁犳澘鈹戦悩宕囶暡闁搞倕鐭傞弻锝夊箛闂堟稑顫梺鍛婄懃缁绘﹢寮婚敐澶婄睄闁稿本鑹炬禒妯肩磽娴ｅ搫校濠电偛锕璇测槈閵忊晜鏅濋梺闈涚墕閹冲繘鎮楅崜褏纾介柛灞炬皑閳诲矂鏌熼崙銈嗗*/
+.libacdt {
+	background:url(../../images/main/operbutton/sb.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+	display:none;
+}
+
+/**婵犵數濮烽弫鎼佸磻閻愬搫鍨傞柛顐ｆ礀缁犳澘鈹戦悩宕囶暡闁搞倕鐭傞弻锝夊箛闂堟稑顫梺鍛婄懃缁绘﹢寮婚敐澶婄睄闁稿本鑹炬禒妯肩磽娴ｅ搫校濠电偛锕璇测槈閵忊晜鏅濋梺闈涚墕閹冲繘鎮楅崜褏纾介柛灞炬皑閳诲矂鏌熼崙銈嗗*/
+.liaudit {
+	background:url(../../images/main/operbutton/sh.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+}
+
+/**婵犵數濮烽弫鎼佸磿閹寸姴绶ら柦妯侯棦瑜版帒纾奸柣鎰皺閻涖儱鈹戞幊閸婃洟骞婃惔銊ュ嚑濞撴熬鎷烽柡灞诲�曢湁閻庯綆鍋呴悵銊╂⒑瑜版帩妫戦柛蹇旓耿瀵鈽夐姀鐘靛姶闂佸憡鍔︽禍婵嬪闯椤曪拷濮婃椽宕滈懠顒�甯ㄩ梺鐟板殩閹凤拷*/
+.limodifyPw {
+	background:url(../../images/main/operbutton/modifyPw_list.svg) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+}
+
+/**闂傚倸鍊搁崐鎼佸磹閻戣姤鍊块柨鏇氶檷娴滃綊鏌涢幇鍏哥敖闁活厽鎹囬弻娑㈩敃閿濆棛顦ㄩ梺绋款儛娴滎亪寮诲☉銏犵労闁告劦浜濋崵鍌炴⒑瑜版帩妫戦柛蹇旓耿瀵鈽夐姀鐘靛姶闂佸憡鍔︽禍婵嬪闯椤曪拷濮婃椽宕滈懠顒�甯ㄩ梺鐟板殩閹凤拷*/
+.liresetPw {
+	background:url(../../images/main/operbutton/resetPw_list.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;*/	
+}
+/*闂傚倸鍊搁崐宄懊归崶褉鏋栭柡鍥ュ灩缁愭鏌熼悧鍫熺凡闁哄嫨鍎甸弻娑樷槈閸楃偞鐏嶇紓鍌氱Т濞差參寮婚敐澶婄疀闂傚牊绋戦～鈺侇渻閵堝懐绠伴柣鏍с偢瀵鈽夊Ο婊勬瀹曘劑顢楁担鍛婄亾闂傚倷娴囧銊╂倿閿曞倸绠查柛銉戝苯娈ㄥ銈嗗笒鐎氼剙娲块梻浣虹《閸撴繈銆冭箛鏂款嚤闁圭偓鏋奸弨浠嬫煟濡崵鎳冮悗姘煎墯閹便劌顓兼径瀣幐婵炶揪缍�椤鐣峰畝锟介敓鑺ヮ問閸ｎ噣宕滈悢闀愮箚闁割偅娲栭獮銏′繆閵堝拑姊楃紒鎲嬬畵濮婃椽鎳￠妶鍛呫垺绻涢弶鎴濐伃妤犵儑鎷�*/
+.discern_btn {
+	background:url(../../images/main/operbutton/bs.svg) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+}
+
+/*闂傚倸鍊搁崐宄懊归崶褉鏋栭柡鍥ュ灩缁愭鏌熼悧鍫熺凡闁哄嫨鍎甸弻娑樷槈閸楃偞鐏嶇紓鍌氱Т濞差參寮婚敐澶婄疀闂傚牊绋戦～鈺侇渻閵堝懐绠伴柣鏍с偢瀵鈽夊Ο婊勬瀹曘劑顢楁担鍛婄亾闂傚倷娴囧銊╂倿閿曞倸绠查柛銉戝苯娈ㄥ銈嗗笒鐎氼剙娲块梻浣虹《閸撴繈銆冭箛鏂款嚤闁圭偓鏋奸弨浠嬫煟濡崵鎳冮悗姘煎墯閹便劌顓兼径瀣幐婵炶揪缍�椤鐣峰畝锟介敓鑺ヮ問閸ｎ噣宕滈悢闀愮箚闁割偅娲栭獮銏′繆閵堝拑姊楃紒鎲嬬畵濮婂宕掑▎鎰偘濠电偛顦板ú鐔风暦娴兼潙绠涢柡澶婄仢閸ゆ垶绻濋悽闈浶ｉ柤鐟板⒔缁顢涢悙瀵稿弳闂佺粯娲栭崐鍦拷姘炬嫹*/
+.case_btn {
+	background:url(../../images/main/operbutton/beian.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+}
+/*闂傚倸鍊烽悞锕併亹閸愵亞鐭撻柟缁㈠枛妗呴梺鎼炲労閸撴瑧娑甸敓浠嬫⒒娓氬洤澧紒澶屾暬閹敻鏁傞悾宀�鐦堥悷婊勭箞楠炲繘鎮滈懞銉у幐閻庡箍鍎卞Λ娆撳磹閹扮増鐓涢柨鐔剁矙婵拷闁靛牆鎳愰鍥ㄧ節閵忥絽鐓愰柛鏃�鐗滄禍鎼佹晸閿燂拷*/
+.discase_btn{
+	background:url(../../images/main/operbutton/hx.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+}
+.audit_btn {
+	background:url(../../images/main/operbutton/yes_btn.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+}
+
+/**婵犵數濮烽弫鍛婃叏娴兼潙鍨傞柣鎾崇岸閺嬫牗绻涢幋鐐寸殤闁活厽鎹囬弻锝夊閻樺啿鏆堥梺绋款儏閸婂潡寮婚妸鈺傚亞闁稿本绋戦锟�*/
+.lireview {
+	background:url(../../images/main/operbutton/review_list.svg) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+}
+
+/**闂傚倸鍊搁崐鎼佸磹妞嬪海鐭嗗ù锝堟〃閻掑﹪鏌涘☉娆愮稇缂佺媭鍨堕弻锝夊箣濠垫劖缍楅梺璺ㄥ枍缁瑩寮婚妸鈺傚亞闁稿本绋戦锟�*/
+.liclcase {
+	background:url(../../images/main/operbutton/clcase_list.svg) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+}
+
+.material {
+	background:url(../../images/main/operbutton/yjwz.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;	*/
+}
+/**闂佸湱顭堝ú锔句焊瀹�锟介幏顐﹀礃閵娿儺鍞洪梺鍦焾椤︾敻骞愰敓锟�**/
+.controlBtn {
+	background:url(../../images/main/operbutton/zhdd.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;*/
+}
+/**缂傚倷鐒﹂幑鍥Υ瀹ュ绠板鑸靛姈鐏忥拷**/
+.overBtn {
+	background:url(../../images/main/operbutton/jx.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;*/
+}
+/*闁告瑦顨堥幃濠勶拷鍏夊墲閻楋拷*/
+.beianBtn {
+	background:url(../../images/main/operbutton/beian.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;*/
+}
+
+/*濠㈣泛瀚幃濠囧箮閵夘煈鍔�*/
+.clbjBtn {
+	background:url(../../images/main/operbutton/beian.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;*/
+}
+
+.play {
+	background:url(../../images/main/operbutton/play.png) no-repeat;
+	/*height:16px;
+	padding-left:19px;*/
+}
+
+.clbjBtn,
+.beianBtn,
+.controlBtn,
+.overBtn,
+.liadd,
+.liedit,
+.lidel,
+.liimport,
+.liexport,
+.liboper,
+.libacdt,
+.limodifyPw,
+.discern_btn,
+.case_btn,
+.audit_btn,
+.lireview,
+.liclcase,
+.discase_btn,
+.material,
+.liresetPw,
+.play {
+	/* border:none;
+	margin-top:4px;
+	color:#333333;
+	margin-right:12px; */
+	display: inline-block;
+	text-indent:24px;
+	padding:9px 14px;
+	background-color: #1890ff;
+	font-size: 14px;
+	line-height: 14px;
+	background-position: 14px 7px;
+	border-radius: 4px;
+	color: #fff;
+	margin-right: 16px;
+    top: 0px;
+    position: relative;
+    right: 7px;
+    border: none;
+}
+#addBtn,#exportBtn{
+	display: inline-block;
+}
+.clbjBtn:hover,
+.beianBtn:hover,
+.liadd:hover,
+.liedit:hover,
+.lidel:hover,
+.liimport:hover,
+.liexport:hover,
+.liboper:hover,
+.libacdt:hover,
+.limodifyPw:hover,
+.discern_btn:hover,
+.case_btn:hover,
+.audit_btn:hover,
+.lireview:hover,
+.liclcase:hover,
+.discase_btn:hover,
+.material:hover,
+.liresetPw:hover,
+.play:hover {
+	/* text-decoration:underline; */
+	color: #fff;
+	background-color: rgba(24,144,255,0.65);
+}
+@media (max-width: 700px) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .boxContent fieldset {
+    border: none;
+}
+}
+
+.btn-primary {
+	background-color: #337ab7;
+	border-color: #2e6da4;
+}
+
+.operation{
+	border: none;
+	outline: none;
+	padding:0;
+	vertical-align: middle;
+	font-size: 14px;
+}
+.operation:hover{
+	opacity: 0.5;
+}
+.operation:active{
+	opacity: 1;
+}
+.operation:before{
+	width:14px;
+	height: 14px;
+	content:'';
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+    top: -1px;
+    margin-right:8px;
+}
+.editInfoBtn:before{
+	background:url(../../images/main/operbutton/icon_edit.svg) no-repeat;	
+}
+.delInfoBtn:before{
+	background:url(../../images/main/operbutton/icon_del.svg) no-repeat;	
+}
+.addInfoBtn:before{
+	background:url(../../images/main/operbutton/icon_add.svg) no-repeat;	
+}
+.reviewInfoBtn:before{
+	background:url(../../images/main/operbutton/icon_review.svg) no-repeat;	
+}
+.clcaseInfoBtn:before{
+	background:url(../../images/main/operbutton/icon_clcase.svg) no-repeat;	
+}
+.handleInfoBtn:before{
+	background:url(../../images/main/operbutton/icon_handle.svg) no-repeat;
+}
+.zgBtn:before{
+	background:url(../../images/main/operbutton/icon_zhenggai.svg) no-repeat;
+}
+.fcBtn:before{
+	background:url(../../images/main/operbutton/icon_fucha.svg) no-repeat;
+}
+.hxBtn:before{
+	background:url(../../images/main/operbutton/icon_hexiao.svg) no-repeat;
+}
+.importBtn:before{
+	background:url(../../images/main/operbutton/icon_import.svg) no-repeat;
+}
+.studyBtn:before{
+	background:url(../../images/main/operbutton/icon_study.svg) no-repeat;
+}
+.evaluationBtn:before{
+	background:url(../../images/main/operbutton/icon_evaluation.svg) no-repeat;
+}
+a img{
+	vertical-align: top;
+}

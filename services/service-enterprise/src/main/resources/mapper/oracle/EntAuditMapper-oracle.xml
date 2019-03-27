@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.enterprise.mapper.EntAuditMapper" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.enterprise.domain.EntAudit" >
+	<result column="entauditid" property="entauditid" jdbcType="VARCHAR" />
+	<result column="auditstatus" property="auditstatus" jdbcType="CHAR" />
+	<result column="audittime" property="audittime" jdbcType="TIMESTAMP" />
+	<result column="auditidea" property="auditidea" jdbcType="VARCHAR" />
+	<result column="auditorg" property="auditorg" jdbcType="VARCHAR" />
+	<result column="businessinfoid" property="businessinfoid" jdbcType="VARCHAR"/>
+	<association property="sysOrg" javaType="com.hwsafe.sys.domain.SysOrg">
+	    <id property="orgid" column="orgid" jdbcType="VARCHAR" />
+		<result column="orgname" property="orgname" jdbcType="VARCHAR" />
+   </association>
+</resultMap>
+       
+<!-- ent_audit table all fields -->
+<sql id="Base_Column_List" >
+	 entauditid,auditstatus,audittime,auditidea,auditorg,businessinfoid
+</sql>
+   
+ <!-- 分页查询 -->
+<select id ="loadByPage" resultType="map">
+  	select eat.entauditid,eat.auditstatus,eat.audittime,eat.auditidea,org.orgname as auditorg,eat.businessinfoid
+	from ent_audit eat
+  	left join sys_org org on org.orgid = eat.auditorg
+	<where> 
+        <if test=" businessinfoid!=null and  businessinfoid!='' and  businessinfoid!='null' "> and eat.businessinfoid= #{businessinfoid}</if>  
+     </where> 
+     order by audittime desc
+  </select>
+
+<!-- 查询企业审核列表 -->
+<select id="loadByList" resultMap="BaseResultMap"  parameterType="map">
+	select 
+	<include refid="Base_Column_List"/>
+	from ent_audit eat
+	<where> 
+        <if test=" businessinfoid!=null and  businessinfoid!='' and  businessinfoid!='null' "> and eat.businessinfoid= #{businessinfoid}</if>  
+     </where> 
+</select>
+
+<!-- 插入记录 -->
+<insert id="save" parameterType="com.hwsafe.enterprise.domain.EntAudit"  useGeneratedKeys="true" keyProperty="entauditid" >
+	<selectKey  resultType="java.lang.String" keyProperty="entauditid" order="BEFORE">    
+            select sys_guid() as entauditid from dual    
+    </selectKey>  
+  insert into ent_audit(entauditid,auditstatus,audittime,auditidea,auditorg,businessinfoid)
+ values(#{entauditid},#{auditstatus},#{audittime},#{auditidea},#{sysOrg.orgid},#{businessinfoid})
+</insert>
+
+<!-- 根据id修改记录-->  
+ <update id="update" parameterType="com.hwsafe.enterprise.domain.EntAudit" >
+  update ent_audit set auditstatus=#{auditstatus},audittime=#{audittime},auditidea=#{auditidea},auditorg=#{sysOrg.orgid},businessinfoid=#{businessinfoid} where entauditid=#{entauditid}
+ </update>
+ 
+<!-- 删除记录 -->
+<delete id="delete" parameterType="string">
+	delete 	 from ent_audit where entauditid = #{entauditid}
+</delete>
+
+<!-- 根据id查询 企业审核 -->
+<select id="loadById"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from ent_audit where entauditid = #{entauditid}
+</select>
+  	
+ <!-- 根据工商信息id删除记录 -->
+<delete id="deleteByBusinessinfoid" parameterType="string">
+	delete from ent_audit where businessinfoid = #{businessinfoid}
+</delete> 	
+</mapper>   

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.sys.mapper.SysOrgMapper" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.sys.domain.SysOrg" >
+	<result column="orgid" property="orgid" jdbcType="VARCHAR" />
+	<result column="districtcode" property="districtcode" jdbcType="VARCHAR" />
+	<result column="parentid" property="parentid" jdbcType="VARCHAR" />
+	<result column="orgname" property="orgname" jdbcType="VARCHAR" />
+	<result column="address" property="address" jdbcType="VARCHAR" />
+	<result column="orgcode" property="orgcode" jdbcType="VARCHAR" />
+	<result column="postcode" property="postcode" jdbcType="VARCHAR" />
+	<result column="principal" property="principal" jdbcType="VARCHAR" />
+	<result column="fax" property="fax" jdbcType="VARCHAR" />
+	<result column="principalotel" property="principalotel" jdbcType="VARCHAR" />
+	<result column="principalmtel" property="principalmtel" jdbcType="VARCHAR" />
+	<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+	<result column="note" property="note" jdbcType="VARCHAR" />
+	<result column="updateper" property="updateper" jdbcType="VARCHAR"/>
+	<result column="ismember" property="ismember" jdbcType="VARCHAR"/>
+	<result column="parentmember" property="parentmember" jdbcType="VARCHAR"/>
+	<result column="ordernum" property="ordernum" jdbcType="INTEGER"/>
+</resultMap>
+       
+<!-- sys_org table all fields -->
+<sql id="Base_Column_List" >
+	 orgid,districtcode,parentid,orgname,address,orgcode,postcode,principal,fax,principalotel,principalmtel,updatetime,note,updateper,ismember,parentmember,ordernum
+</sql>
+   
+ <!-- 分页查询 -->
+<select id ="loadByPage" resultType="map">
+  	select 
+	<include refid="Base_Column_List"/>
+	from sys_org org
+	<where>
+	   <if test="orgid!=null and orgid!='' and orgid!='null'"> and org.parentid=#{orgid}</if>
+	   <if test="orgname!=null and orgname!='' and orgname!='null'"> and org.orgname like '%${orgname}%'</if>
+	   <!-- 行业主管部门查询条件 -->
+	   <if test="ismember!=null and ismember!='' and ismember!='null'"> and org.ismember=#{ismember}</if>
+	   <if test="parentmember!=null and parentmember!='' and parentmember!='null'"> and org.parentmember=#{parentmember}</if>
+   </where>
+  </select>
+
+<!-- 查询组织机构列表 -->
+<select id="loadByList" resultMap="BaseResultMap"  parameterType="map">
+	select 
+	<include refid="Base_Column_List"/>
+	from sys_org org 
+	<where>
+	   <if test="orgid!=null and orgid!='' and orgid!='null'"> and org.parentid=#{orgid}</if>
+   </where>
+</select>
+
+<!-- 插入记录 -->
+<insert id="save" parameterType="com.hwsafe.sys.domain.SysOrg"  useGeneratedKeys="true" keyProperty="orgid" >
+	<selectKey  resultType="java.lang.String" keyProperty="orgid" order="BEFORE">    
+            select sys_guid() as orgid from dual 
+    </selectKey>  
+  insert into sys_org(orgid,districtcode,parentid,orgname,address,orgcode,postcode,principal,fax,principalotel,
+  principalmtel,updatetime,note,updateper,ismember,parentmember,ordernum)
+ values(#{orgid},#{districtcode},#{parentid},#{orgname},#{address},#{orgcode},#{postcode},#{principal},#{fax},#{principalotel},
+ #{principalmtel},#{updatetime},#{note},#{updateper},#{ismember},#{parentmember},#{ordernum})
+</insert>
+
+<!-- 根据id修改记录-->  
+ <update id="update" parameterType="com.hwsafe.sys.domain.SysOrg" >
+  update sys_org set districtcode=#{districtcode},parentid=#{parentid},orgname=#{orgname},address=#{address},orgcode=#{orgcode},
+  postcode=#{postcode},principal=#{principal},fax=#{fax},principalotel=#{principalotel},principalmtel=#{principalmtel},
+  updatetime=#{updatetime},note=#{note},updateper=#{updateper},ismember=#{ismember},parentmember=#{parentmember},ordernum=#{ordernum} 
+  where orgid=#{orgid}
+ </update>
+ 
+<!-- 删除记录 -->
+<delete id="delete" parameterType="string">
+	delete 	 from sys_org where orgid = #{orgid}
+</delete>
+
+<!-- 根据id查询 组织机构 -->
+<select id="loadById"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from sys_org where orgid = #{orgid}
+</select>
+  	
+<!-- 组织机构树 (机构管理)-->
+<select id="loadOrgTree"  resultType="map">
+     select 
+         org.orgid as "id",org.parentid as "pId",org.orgname as "name",org.districtcode as "districtcode",
+         org.address as "address",org.orgcode as "orgcode",org.postcode as "postcode",org.principal as "principal",
+         org.fax as "fax",org.principalotel as "principalotel",org.principalmtel as "principalmtel",
+         org.updatetime as "updatetime", org.updateper as "updateper", org.note as "note",org.note as "ismember",
+         org.parentmember as "parentmember", org.ordernum as "ordernum"
+	 from sys_org org 
+	 order by ordernum asc
+</select>
+
+<!-- 机构树 (查询条件)-->
+<select id="loadAllOrgTree"  resultType="map">
+	 select org.orgid as "id",org.orgname as "name",case when org.ismember = '0'
+                   then org.parentid 
+                   when org.ismember = '1'
+                   then org.parentmember
+           end  as "pId"
+from sys_org org 
+</select>
+
+<!-- 是否安委会成员单位-->
+<select id="loadIsMemberTree"  resultType="map">
+     select 
+         org.orgid as "id",org.parentid as "pId",org.orgname as "name",org.districtcode as "districtcode",
+         org.address as "address",org.orgcode as "orgcode",org.postcode as "postcode",org.principal as "principal",
+         org.fax as "fax",org.principalotel as "principalotel",org.principalmtel as "principalmtel",
+         org.updatetime as "updatetime", org.updateper as "updateper", org.note as "note",org.ismember as "ismember",
+         org.parentmember as "parentmember", org.ordernum as "ordernum"
+	 from sys_org org
+	 left join sys_district sdt on sdt.districtcode = org.districtcode
+	 <where>
+	   <if test="districtlevels != null and districtlevels.size() > 0">
+ 			  and  sdt.districtlevel  in 
+			<foreach collection="districtlevels" index="index" item="districtlevel" open="(" separator="," close=")">  
+   		 	   #{districtlevel,jdbcType=VARCHAR}  
+   			</foreach> 
+		</if>
+	   <if test="ismember!=null and ismember!='' and ismember!='null'"> and (org.ismember=#{ismember}  or org.parentid = '-1') </if>
+    </where>
+	 order by ordernum asc
+</select>
+
+<!-- 根据id查询是否有子机构-->
+<select id="loadCountLkParentById" resultType="Integer"  parameterType="map">
+	select count(*)
+	from sys_org org
+	<where> 
+  		<if test="ids != null">
+ 			 org.parentid  in 
+			<foreach collection="ids" index="index" item="item" open="(" separator="," close=")">  
+   		 	   #{item,jdbcType=VARCHAR}  
+   			</foreach> 
+		</if>
+	</where>
+</select>  
+</mapper>   

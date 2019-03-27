@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.sys.mapper.SysUserMapper" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.sys.domain.SysUser" >
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="CHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="idcard" property="idcard" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="hometel" property="hometel" jdbcType="VARCHAR" />
+    <result column="usertype" property="usertype" jdbcType="CHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="updateper" property="updateper" jdbcType="VARCHAR" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="organid" property="organid" jdbcType="VARCHAR" />
+    <result column="checkstates" property="checkstates" jdbcType="CHAR" />
+    <result column="userstates" property="userstates" jdbcType="CHAR" />
+    <result column="jobtype" property="jobtype" jdbcType="CHAR" />
+    <result column="execcode" property="execcode" jdbcType="VARCHAR" />
+    <result column="areapriflag"  property="areapriflag" jdbcType="INTEGER"/>
+    <association property="sysdepart" javaType="com.hwsafe.sys.domain.SysDepart">
+        <id property="departid" column="departid" />
+        <result property="departname" column="departname" />
+        <result property="departcode" column="departcode" />
+     </association>
+     <association property="sysuser" javaType="com.hwsafe.sys.domain.SysUser">
+        <id property="updateper" column="updateper" />
+        <result property="username" column="username" />
+        <result property="nickname" column="nickname" />
+     </association>
+</resultMap>
+       
+<!-- sys_user table all fields -->
+<sql id="Base_Column_List" >
+     userid,username,password,nickname,email,phone,sex,birthday,idcard,tel,address,hometel,usertype,updatetime,updateper,note,organid,checkstates,userstates,jobtype,execcode
+</sql>
+   
+ <!-- 分页查询 -->
+<select id ="loadByPage" resultType="map">
+    select use.*,dep.departname,org.orgname 
+    from sys_user use left join sys_depart dep on use.departid = dep.departid left join sys_org org on use.organid = org.orgid
+    <where> 
+        <if test=" nickname!=null and  nickname!='' and  nickname!='null' "> and use.nickname like '%${nickname}%'</if>  
+        <if test=" username!=null and  username!='' and  username!='null' "> and use.username like '%${username}%'</if>  
+        <if test=" orgid!=null and  orgid!='' and  orgid!='null' "> and use.organid = '${orgid}'</if>
+        <if test=" usertype!=null and  usertype!='' and  usertype!='null' "> and use.usertype = '${usertype}'</if>  
+     </where>
+  </select>
+
+  <!-- 根据条件查询用户 -->
+<select id="loadByList" resultMap="BaseResultMap"  parameterType="map">
+    select 
+    <include refid="Base_Column_List"/>
+    from sys_user use
+     <where> 
+        <if test=" userid!=null and  userid!='' and  userid!='null' "> and use.userid = '${userid}'</if>  
+        <if test=" username!=null and  username!='' and  username!='null' "> and use.username = '${username}'</if>  
+        <if test=" nickname!=null and  nickname!='' and  nickname!='null' "> and use.nickname = '${nickname}'</if>  
+        <if test=" departid!=null and  departid!='' and  departid!='null' "> and use.departid = '${departid}'</if>  
+        <if test=" userstates!=null and  userstates!='' and  userstates!='null' "> and use.userstates = '${userstates}'</if>  
+        <if test=" jobtype!=null and  jobtype!='' and  jobtype!='null' "> and use.jobtype = '${jobtype}'</if>  
+      </where>
+</select>
+
+<!-- 移动端-互动交流-查询执法人员信息 -->
+<select id="loadzfuserlist"  resultType="map" parameterType="map">
+select u.userid,u.nickname,u.phone,d.departid,d.departname,d.parentid
+ from sys_user u
+ join sys_depart d on u.departid=d.departid
+     where u.usertype='GOV'
+ 		<if test=" nickname!=null and  nickname!='' and  nickname!='null' ">
+ 		 and u.nickname like '%'||#{nickname}||'%'
+ 		 </if>  
+</select>
+
+
+  <!-- 根据条件查询用户 -->
+<select id="loadByEntList" resultMap="BaseResultMap"  parameterType="map">
+    select 
+    use.* 
+    from sys_user use 
+    left join ent_businessinfo ebi on ebi.businessinfoid = use.organid 
+     <where> 
+        <if test=" businessinfoid!=null and  businessinfoid!='' and  businessinfoid!='null' "> and ebi.businessinfoid != '${businessinfoid}'</if>  
+        <if test=" username!=null and  username!='' and  username!='null' "> and use.username = '${username}'</if>  
+        <if test=" userstates!=null and  userstates!='' and  userstates!='null' "> and use.userstates = '${userstates}'</if>  
+        <if test=" phone!=null and  phone!='' and  phone!='null' "> and use.phone = '${phone}'</if>  
+     </where>
+</select>
+
+<!-- 插入记录 -->
+<insert id="save" parameterType="com.hwsafe.sys.domain.SysUser"  useGeneratedKeys="true" keyProperty="userid" >
+    <!-- <selectKey  resultType="java.lang.String" keyProperty="userid" order="BEFORE">    
+          select sys_guid() as userid from dual 
+    </selectKey>  --> 
+  insert into sys_user(userid,username,password,nickname,email,phone,sex,birthday,idcard,tel,
+  address,hometel,usertype,updatetime,updateper,note,departid,organid,checkstates,userstates,jobtype,execcode,areapriflag)
+ values(#{userid},#{username},#{password},#{nickname},#{email},
+ #{phone},#{sex},#{birthday},#{idcard},#{tel},#{address},
+ #{hometel},#{usertype},#{updatetime},#{updateper},#{note},#{sysdepart.departid},#{organid},#{checkstates},#{userstates},#{jobtype},#{execcode},#{areapriflag})
+</insert>
+
+<!-- 根据id修改记录-->  
+ <update id="update" parameterType="com.hwsafe.sys.domain.SysUser" >
+  update sys_user set username=#{username},password=#{password},nickname=#{nickname},
+  email=#{email},phone=#{phone},sex=#{sex},birthday=#{birthday},idcard=#{idcard},
+  tel=#{tel},address=#{address},hometel=#{hometel},usertype=#{usertype},
+  updatetime=#{updatetime},updateper=#{updateper},note=#{note},departid=#{sysdepart.departid},
+  organid=#{organid},checkstates=#{checkstates},jobtype=#{jobtype},execcode=#{execcode},areapriflag=#{areapriflag},
+  userstates=#{userstates}
+   where userid=#{userid}
+ </update>
+ 
+<!-- 删除记录 -->
+<delete id="delete" parameterType="string">
+    delete   from sys_user where userid = #{userid}
+</delete>
+
+<!-- 根据id查询 用户 -->
+<select id="loadById"  resultMap="BaseResultMap" parameterType="string">
+     select use.*,dep.departname,useper.nickname from sys_user use left join 
+     sys_depart dep on use.departid = dep.departid left join 
+     sys_user useper on use.updateper = useper.userid 
+     where  use.userid = #{userid}
+</select>
+
+ <!-- 根据(工号)用户登录名查询 用户 -->
+<select id="loadUserByUsername"  resultMap="BaseResultMap" parameterType="map">
+     select suser.*, dep.departname, dep.departcode 
+     from sys_user suser left join sys_depart dep on suser.departid = dep.departid 
+     where suser.userstates = '1' 
+    <if test="username!=null and username!='' and username!='null'">and suser.username=#{username}</if>
+</select> 
+
+ <!--根据用户id查询角色是否被选中 -->
+<select id="loadRoleCheckById"  resultType="map" parameterType="map">
+    select sr.roleid as "id",sr.rolename as "rolename",
+           case when lkur.roleid is not null then 'true'
+           else 'fasle' end as "checked"
+    from sys_role sr 
+    left join (select * from lk_user_role where userid=#{userid}) lkur on lkur.roleid = sr.roleid 
+    <where> 
+        <if test="orgids != null and orgids.size() > 0">
+             sr.orgid in 
+            <foreach collection="orgids" index="index" item="item" open="(" separator="," close=")">  
+               #{item}  
+            </foreach> 
+        </if>
+         <if test="usertype!=null and usertype!='' and usertype!='null'"> and sr.usertype=#{usertype}</if>
+    </where>
+</select> 
+
+ <!-- 根据机构id查询关联用户数量-->
+<select id="loadCountLkUserByOrgId" resultType="Integer"  parameterType="map">
+    select count(*)
+    from sys_user suser
+    <where> 
+        <if test="ids != null">
+             suser.organid  in 
+            <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">  
+               #{item,jdbcType=VARCHAR}  
+            </foreach> 
+        </if>
+    </where>
+</select>  
+
+ <!-- 根据企业或机构id查询用户-->
+<select id="loadUserByOrganid"  parameterType="map" resultMap="BaseResultMap" >
+     select <include refid="Base_Column_List"/>
+     from sys_user suser
+     <where>
+         <if test="organid!=null and organid!='' and organid!='null'"> suser.organid=#{organid}</if>
+      </where>
+</select> 
+
+ <!-- 根据企业或机构id查询用户树 -->
+<select id="loadUserByOrgidSelect"  resultType="map">
+  select distinct su.userid as "code",su.nickname as "name" 
+  from sys_user su
+  where 1=1 
+  <if test="orgid!=null and orgid!='' and orgid!='null'"> and su.organid=#{orgid}</if>     
+</select>
+
+ <!-- 根据企业或机构id查询用户树，不包括已经成为巡查人员的用户 -->
+<select id="loadOtherUserByOrgidSelect" parameterType="map" resultType="map">
+  select distinct su.userid as "code",su.nickname as "name" 
+  from sys_user su 
+  where 1=1 
+  <if test="patroller!=null and patroller!='' and patroller!='null'">
+       and NOT EXISTS (select 1 from hdi_patroller hp where hp.userid=su.userid) 
+  </if>
+  <if test="lawuser!=null and lawuser!='' and lawuser!='null'">
+       and NOT EXISTS (select 1 from law_user lu where lu.userid=su.userid) 
+  </if>
+  <if test="emsuser!=null and emsuser!='' and emsuser!='null'">
+       and NOT EXISTS (select 1 from ems_res_departpreson erd where erd.userid=su.userid) 
+  </if>
+  <if test="orgid!=null and orgid!='' and orgid!='null'"> and su.organid=#{orgid}</if>
+     
+</select>
+
+ <!-- 根据机构id修改用户审核状态、用户状态 -->
+<select id="updateByOrganid" resultType="Integer"  parameterType="map">
+    update sys_user suser set suser.checkstates = #{checknum}
+    <if test="userstates!=null and userstates!='' and userstates!='null'">,suser.userstates=#{userstates}</if>
+    <where> 
+        <if test="ids != null">
+             suser.organid  in 
+            <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">  
+               #{item,jdbcType=VARCHAR}  
+            </foreach> 
+        </if>
+    </where>
+</select>  
+
+<!-- 查询执法人员 -->
+<select id="loadDepartUserSelect"  resultType="map" parameterType="map">
+    select sus.userid as "code",sus.nickname as "name", sus.execcode as "attr" 
+    from sys_user sus 
+     left join sys_depart dept on dept.departid = sus.departid  
+      <if test=" checkinfoid!=null and  checkinfoid!='' and  checkinfoid!='null' ">
+         left join law_checkinfo che on che.deptid = dept.departid 
+      </if>
+     <where> 
+        1 = 1
+        <if test="userid != null and userid != '' and userid != 'null'"> and sus.userid != '${userid}'</if> 
+        <if test="checkinfoid != null and checkinfoid != '' and checkinfoid != 'null'"> and che.checkinfoid = #{checkinfoid}</if> 
+        <if test="deptid != null and deptid != '' and deptid != 'null'"> and dept.departid = #{deptid}</if>
+        <if test="jobtype != null and jobtype != '' and jobtype != 'null' and jobtype !='jobtype' and jobtype !='-4'"> and sus.jobtype = #{jobtype}</if>
+        <if test="jobtype =='-4'"> and sus.jobtype is not null and sus.jobtype != 4</if>
+        <if test="jobtype =='jobtype'"> and sus.jobtype is not null</if>
+        <if test="usertype != null and usertype != '' and usertype != 'null'"> and sus.usertype = #{usertype}</if>
+        <if test="isSiblingsUser != null and isSiblingsUser != '' and isSiblingsUser != 'null' 
+                  and curLogUserId != null and curLogUserId != '' and curLogUserId != 'null'">
+           and sus.departid in
+               (select sd.departid
+                  from sys_depart sd
+                 start with sd.departid in
+                            (select su.departid
+                               from sys_user su
+                              where su.userid = #{curLogUserId, jdbcType=VARCHAR})
+                connect by prior sd.departid = sd.parentid)
+           and sus.checkstates = '1'
+           and sus.userstates = '1'
+           <!-- select sd.departid
+                  from sys_depart sd
+                 start with sd.departid in
+                            (select su.departid
+                               from sys_user su
+                              where su.userid = #{curLogUserId, jdbcType=VARCHAR})
+                connect by prior sd.departid = sd.parentid)
+           and sus.checkstates = '1'
+           and sus.userstates = '1' -->
+        </if>
+     </where>
+</select>
+
+  <!-- 根据当前用户类型查询上级领导 -->
+<select id="loadLeaderUserSelect" resultType="map"  parameterType="map">
+    select 
+    sus.userid as "code",sus.nickname as "name" 
+    from sys_user sus
+     <where> 
+        <if test=" userid!=null and  userid!='' and  userid!='null' "> and sus.userid &lt;&gt;  #{userid, jdbcType=VARCHAR}</if>  
+        <if test=" jobtype!=null and  jobtype!='' and  jobtype!='null' "> and sus.jobtype =  #{jobtype, jdbcType=VARCHAR}</if>  
+      </where>
+</select>
+<!-- 根据用户手机号查询userid -->
+<select id="loadUseridByPhone" resultType="map"  parameterType="map">
+    select 
+    sus.userid ,sus.nickname  
+    from sys_user sus
+     <where> 
+        <if test=" phone!=null and  phone!='' and  phone!='null' "> and sus.phone =  #{phone, jdbcType=VARCHAR}</if>    
+      </where>
+</select>
+
+
+  <!-- 根据用户userid获取企业名称 -->
+<select id="loadEntNameByUserid" resultType="string"  parameterType="string">
+    select eb.entname from sys_user su
+	left join ent_businessinfo eb on (su.organid=eb.businessinfoid)
+	where su.usertype='ENT'
+        <if test=" userid!=null and  userid!='' and  userid!='null' "> and su.userid =  #{userid, jdbcType=VARCHAR}</if>  
+</select>
+
+<!-- 获取企业信息 -->
+<select id="loadEntinfo" resultType="map" >
+    select eb.entname,su.userid from sys_user su
+	left join ent_businessinfo eb on (su.organid=eb.businessinfoid)
+	where su.usertype='ENT' and eb.DATASTATUS = '1'
+</select>
+
+<!-- 获取未删除的企业信息 -->
+<select id="loadValidEntinfo" resultType="map" >
+    select eb.entname,eb.businessinfoid from ent_businessinfo eb
+	where eb.DATASTATUS = '1'
+</select>
+    <select id="loadUserSelect" parameterType="map" resultType="map">
+        SELECT
+        per.*,dep.DEPARTNAME
+        FROM
+        SYS_USER per
+        LEFT JOIN
+        SYS_DEPART dep ON per.DEPARTID = DEP.DEPARTID
+        WHERE
+        per.USERTYPE = 'GOV'
+        <if test="nickname!=null and nickname!='' and nickname!=''">
+            and per.nickname like '%' || #{nickname} || '%'
+        </if>
+    </select>
+
+    <select id="loadCount" parameterType="map" resultType="integer">
+        select count(1) from sys_user
+        where username like #{username}||'%'
+    </select>
+</mapper>   

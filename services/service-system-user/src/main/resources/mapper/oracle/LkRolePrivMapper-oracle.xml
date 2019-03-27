@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.sys.mapper.LkRolePrivMapper" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.sys.domain.LkRolePriv" >
+	<result column="conid" property="conid" jdbcType="VARCHAR" />
+	<result column="roleid" property="roleid" jdbcType="VARCHAR" />
+	<result column="privid" property="privid" jdbcType="VARCHAR" />
+	<result column="operid" property="operid" jdbcType="VARCHAR" />
+</resultMap>
+       
+<!-- lk_role_priv table all fields -->
+<sql id="Base_Column_List" >
+	 conid,roleid,privid,operid
+</sql>
+   
+ <!-- 分页查询 -->
+<select id ="loadByPage" resultType="map">
+  	select 
+	<include refid="Base_Column_List"/>
+	from lk_role_priv 
+  </select>
+
+<!-- 查询角色权限关联列表 -->
+<select id="loadByList" resultMap="BaseResultMap"  parameterType="map">
+	select 
+	<include refid="Base_Column_List"/>
+	from lk_role_priv 
+</select>
+
+<!-- 插入记录 -->
+<insert id="save" parameterType="com.hwsafe.sys.domain.LkRolePriv"  useGeneratedKeys="true" keyProperty="conid" > 
+	<selectKey  resultType="java.lang.String" keyProperty="conid" order="BEFORE">    
+          select sys_guid() as conid from dual 
+    </selectKey> 
+  insert into lk_role_priv(conid,roleid,privid,operid)
+ values(
+ #{conid,jdbcType=VARCHAR},
+ #{roleid,jdbcType=VARCHAR},
+ #{privid,jdbcType=VARCHAR},
+ #{operid,jdbcType=VARCHAR}
+ )
+</insert>
+
+<!-- 根据id修改记录-->  
+ <update id="update" parameterType="com.hwsafe.sys.domain.LkRolePriv" >
+  update lk_role_priv 
+  set 
+  roleid=#{roleid,jdbcType=VARCHAR},
+  privid=#{privid,jdbcType=VARCHAR},
+  operid=#{operid,jdbcType=VARCHAR} 
+  where conid=#{conid,jdbcType=VARCHAR}
+ </update>
+ 
+<!-- 删除记录 -->
+<delete id="delete" parameterType="string">
+	delete from lk_role_priv where conid = #{conid}
+</delete>
+ 
+<!-- 删除角色ID数组对应的记录 -->
+<delete id="deleteByRoleids">
+    <if test="array!=null and array.length > 0 ">
+		delete from lk_role_priv
+		<where>
+			roleid in
+			<foreach collection="array" index="index" item="item" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+    </if>
+</delete>
+
+<!-- 根据id查询 角色权限关联 -->
+<select id="loadById"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from lk_role_priv where conid = #{conid}
+</select>
+
+<!-- 查询角色权限关联列表 -->
+<select id="loadRolePrivsByRoleIds" resultMap="BaseResultMap">
+    <if test="array!=null and array.length > 0 ">
+		select 
+		<include refid="Base_Column_List"/>
+		from lk_role_priv
+		<where>
+			roleid in
+			<foreach collection="array" index="index" item="item" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+	</if>
+</select>
+
+ <!-- 根据权限id查询权限角色关联 -->
+<select id="loadCountLkRoleById" resultType="Integer"  parameterType="map">
+	select count(*)
+	from lk_role_priv lkrp
+	<where> 
+  		<if test="ids != null">
+ 			 lkrp.privid  in 
+			<foreach collection="ids" index="index" item="item" open="(" separator="," close=")">  
+   		 	   #{item,jdbcType=VARCHAR}  
+   			</foreach> 
+		</if>
+	</where>
+</select> 
+
+ <!-- 查询角色的非指定角色类型的权限数量 -->
+<select id="loadCountPrivsByUsertype" resultType="Integer"  parameterType="map">
+	select count(*)
+	from lk_role_priv lkrp
+	left join sys_priv sp on lkrp.privid= sp.privid
+	where 1=1
+	<if test="roleid != null">
+		and lkrp.roleid = #{roleid}
+	</if>
+	<if test="usertype != null">
+		and sp.usertype != #{usertype}
+	</if>
+</select> 
+<!-- 根据登录人获取角色 -->
+<select id="getRole" parameterType="string" resultType="com.hwsafe.sys.domain.SysRole">
+	SELECT
+		sr.ROLEID,sr.ROLENAME,sr.USERLEVEL
+	FROM
+		SYS_ROLE sr
+	LEFT JOIN LK_USER_ROLE lsr ON lsr.ROLEID = SR.ROLEID
+	WHERE
+	LSR.USERID = #{userid}
+</select>
+</mapper>   

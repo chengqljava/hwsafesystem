@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hwsafe.sys.mapper.SysOperMapper" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.hwsafe.sys.domain.SysOper" >
+	<result column="operid" property="operid" jdbcType="VARCHAR" />
+	<result column="opercode" property="opercode" jdbcType="VARCHAR" />
+	<result column="opername" property="opername" jdbcType="VARCHAR" />
+	<result column="operstyle" property="operstyle" jdbcType="VARCHAR" />
+	<result column="ordernum" property="ordernum" jdbcType="INTEGER" />
+	<result column="updateper" property="updateper" jdbcType="VARCHAR" />
+	<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+	<result column="note" property="note" jdbcType="VARCHAR" />
+	<result column="privid" property="privid" jdbcType="VARCHAR" />
+</resultMap>
+       
+<!-- sys_oper table all fields -->
+<sql id="Base_Column_List" >
+	 operid,note,opercode,opername,operstyle,ordernum,updateper,updatetime,privid
+</sql>
+   
+ <!-- 分页查询 -->
+<select id ="loadByPage" resultType="map">
+  	select 
+	<include refid="Base_Column_List"/>
+	from sys_oper soper
+   <where>
+	   <if test="privid!=null and privid!='' and privid!='null'"> and soper.privid=#{privid}</if>
+   </where>
+    order by soper.updatetime asc
+</select>
+
+<!-- 查询操作列表 -->
+<select id="loadByList" resultMap="BaseResultMap"  parameterType="map">
+	select 
+	<include refid="Base_Column_List"/>
+	from sys_oper 
+</select>
+
+<!-- 插入记录 -->
+<insert id="save" parameterType="com.hwsafe.sys.domain.SysOper"  useGeneratedKeys="true" keyProperty="operid" >
+	<selectKey  resultType="java.lang.String" keyProperty="operid" order="BEFORE">    
+           select sys_guid() as operid from dual    
+    </selectKey>  
+  insert into sys_oper(operid,note,opercode,opername,operstyle,ordernum,updateper,updatetime,privid)
+  values(
+  		#{operid,jdbcType=VARCHAR},
+  		#{note,jdbcType=VARCHAR},
+  		#{opercode,jdbcType=VARCHAR},
+  		#{opername,jdbcType=VARCHAR},
+  		#{operstyle,jdbcType=VARCHAR},
+  		#{ordernum,jdbcType=INTEGER},
+  		#{updateper,jdbcType=VARCHAR},
+  		#{updatetime,jdbcType=TIMESTAMP},
+  		#{privid,jdbcType=VARCHAR}
+   )
+</insert>
+
+<!-- 根据id修改记录-->  
+ <update id="update" parameterType="com.hwsafe.sys.domain.SysOper" >
+  update 
+     sys_oper 
+  set 
+     note=#{note,jdbcType=VARCHAR},
+     opercode=#{opercode,jdbcType=VARCHAR},
+     opername=#{opername,jdbcType=VARCHAR},
+     operstyle=#{operstyle,jdbcType=VARCHAR},
+     ordernum=#{ordernum,jdbcType=INTEGER}, 
+     updateper=	#{updateper,jdbcType=VARCHAR},
+     updatetime=#{updatetime,jdbcType=TIMESTAMP},
+  	 privid=#{privid,jdbcType=VARCHAR}
+  where 
+     operid=#{operid,jdbcType=VARCHAR}
+ </update>
+ 
+<!-- 删除记录 -->
+<delete id="delete" parameterType="string">
+	delete 	 from sys_oper where operid = #{operid}
+</delete>
+
+<!-- 根据id查询 操作 -->
+<select id="loadById"  resultMap="BaseResultMap" parameterType="string">
+	select <include refid="Base_Column_List" /> 
+	 from sys_oper where operid = #{operid}
+</select>	
+
+ <!-- 根据权限id查询权限操作项关联 -->
+<select id="loadCountLkOperById" resultType="Integer"  parameterType="map">
+	select count(*)
+	from sys_oper soper
+	<where> 
+  		<if test="ids != null">
+ 			 soper.privid  in 
+			<foreach collection="ids" index="index" item="item" open="(" separator="," close=")">  
+   		 	   #{item,jdbcType=VARCHAR}  
+   			</foreach> 
+		</if>
+	</where>
+</select> 
+
+ <!-- 根据权限id查询操作项 -->
+ <select id="loadOperByPriId" resultMap="BaseResultMap"  parameterType="map">
+	select <include refid="Base_Column_List" /> 
+	from sys_oper soper
+	<where> 
+  		 <if test="privid!=null and privid!='' and privid!='null'"> and soper.privid=#{privid}</if>
+	</where>
+</select> 
+  	
+<!-- 根据权限id查询权限操作项关联列表 -->
+<select id="loadOperByPrivIds" resultMap="BaseResultMap">
+    <if test="array!=null and array.length > 0 ">
+		select 
+		<include refid="Base_Column_List"/>
+		from sys_oper
+		<where>
+			privid in
+			<foreach collection="array" index="index" item="item" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+	</if>
+</select>  
+  	
+<!-- 根据权限id查询权限操作项关联列表 -->
+<select id="loadOperByPrivIdsAndUserId" resultMap="BaseResultMap">
+    <if test="privids!=null and privids.length > 0 ">
+		select distinct so.operid,so.note,so.opercode,so.opername,so.operstyle,so.ordernum,so.updateper,so.updatetime,so.privid
+		from sys_oper so
+		left join lk_role_priv lrp on lrp.operid=so.operid 
+		left join lk_user_role lur on lur.roleid=lrp.roleid
+		where 1=1
+		 <if test="userid!=null and userid!='' and userid!='null'"> 
+		     and lur.userid=#{userid}
+		 </if>
+		and so.privid in
+			<foreach collection="privids" index="index" item="item" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+	</if>
+</select>  
+
+</mapper>   

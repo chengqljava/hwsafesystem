@@ -1,0 +1,207 @@
+@CHARSET "UTF-8";
+@import '../../gis/fonts-style.css';
+
+html, body, #map {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+
+.mouse-position {
+	position: absolute;
+	display: block;
+	margin: 2px;
+	padding: 0;
+	bottom: 30px;
+	left: 8px;
+	z-index: 99;
+	font-size: 12px;
+}
+
+.ol-control button {
+	margin-top: 7px;
+	opacity: 0.8;
+}
+
+.ol-zoom .ol-zoom-out {
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.ol-zoom .ol-zoom-in {
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.ol-zoom {
+	//top:2.2em;
+	right:.8em;
+	left:auto;
+}
+
+.onscreen-icon{
+	position:absolute;
+	//left:0.55em;
+	right:.8em;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	z-index:99;
+	display: block;
+    margin: 1px;
+    padding: 0;
+    color: #fff;
+    font-size: 1.14em;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    height: 1.375em;
+    width: 1.375em;
+    line-height: .4em;
+    background-color: rgba(0,60,136,.5);
+    border: none;
+    cursor:default;
+}
+
+
+#initExtent{
+	top:4.1em;
+	margin-top: 25px;
+	margin-right: 5px;
+	opacity: 0.8;
+}
+
+#initExtent:hover{
+	background-color: rgba(0,60,136,.8);
+}
+
+.big_map_bottom_drag{
+	left:50%;
+	margin-left:-100px;
+	position: absolute; 
+	border-radius: 8px; 
+	//left: 330px; 
+	width: 200px; 
+	height: 40px; 
+	opacity: 0.8; 
+	bottom: 20px; 
+	z-index: 10002; 
+	text-align: center;
+    line-height: 40px; 
+	display: block; 
+	background-color: rgb(51, 51, 51);
+}
+
+.big_map_bottom_drag_text{
+	color: #f1f1f1;
+	font-size: 14pt;
+	font-family: 'Microsoft YaHei';
+	text-align: center;
+    line-height: 40px;
+	//font: 400 12px/1.6 arial,sans-serif;
+}
+
+.big_map_bottom{
+	position: absolute; 
+	display: block; 
+	//width: 860px; 
+	width: 100%; 
+	height: 40px; 
+	opacity: 0.8; 
+	top: 0px;
+	z-index: 10002; 
+	text-align: center; 
+	line-height: 50px; 
+	background-color: rgb(51, 51, 51);
+}
+
+.big_map_bottom_style{
+	position: absolute; 
+	//width: 860px;
+	width:100%; 
+	height: 50px; 
+	bottom: 0px; 
+	z-index: 10002;
+}
+
+.big_map_bottom_text{
+	color: #f1f1f1;
+    font-size: 14pt;
+    font-family: "Microsoft YaHei";
+    bottom: 0;
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+	z-index: 10003;
+	padding-left: 20px;
+}
+
+.big_map_bottom_button_red{
+	font-size:13px;
+	font: 400 12px/1.6 arial,sans-serif;
+	position: absolute;
+    width: 74px;
+    height: 30px;
+    right: 12px;
+    bottom: 4px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    line-height: 26px;
+	z-index: 10003; 
+	background-image:url(../../../images/gis/confirm.png);
+	background-repeat: no-repeat;
+}
+
+.big_map_bottom_button_white{
+	font-size:13px;
+	font: 400 12px/1.6 arial,sans-serif;
+	position: absolute;
+    width: 68px;
+    height: 30px;
+    right: 10px;
+    bottom: 6px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 26px;
+	z-index: 10003; 
+	background-image:url(../../../images/gis/back.png); 
+	background-repeat: no-repeat;
+}
+
+.big_map_bottom_info{
+	position: absolute;
+    display: block;
+    width: 100%;
+    height: 50px;
+    opacity: 0.8;
+    bottom: 0px;
+    z-index: 10002;
+    text-align: center;
+    line-height: 50px;
+    background-color: rgb(51, 51, 51);
+    visibility: hidden;
+}
+
+.big_map_bottom_info_sucess{
+	font-size: 13px;
+	position: absolute;
+	color: #fff;
+	text-align: center;
+	height:40px;
+	line-height:40px;
+	//width:100%;
+	background-image: url(../../../images/gis/confirm_success.png);
+	background-repeat: no-repeat;
+	background-position: 70px 8px;
+}
+
+.ol-control {
+    background-color: rgba(255,255,255,0);
+}
+
+.ol-control:hover {
+    background-color: rgba(255,255,255,0);
+}

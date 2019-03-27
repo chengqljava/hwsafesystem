@@ -13,6 +13,7 @@
 	<packaging>pom</packaging>
 	<modules>
 	  <module>enterprise-web</module>
+	  <module>vguard-web</module>
 	</modules>
 	<dependencies>
 	  <dependency>
