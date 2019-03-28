@@ -1,4 +1,4 @@
-package com.hwsafe.enterprise.controller.demo;
+package com.hwsafe.enterprise.controller;
 
 import java.util.List;
 
@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hwsafe.demo.domain.Person;
 import com.hwsafe.demo.domain.PersonQuery;
-import com.hwsafe.demo.service.PersonService;
 import com.hwsafe.enterprise.controller.demo.dto.PersonDTO;
+import com.hwsafe.demo.service.PersonService;
 import com.hwsafe.utils.BeanMapper;
 
 /**

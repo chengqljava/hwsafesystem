@@ -2,6 +2,8 @@ package com.hwsafe.enterprise.controller.demo.dto;
 
 import java.io.Serializable;
 
+import lombok.Data;
+
 /**
  * @author King
  *DTO：数据传输对象(Data Transfer Object)，是一种设计模式之间传输数据的软件应用系统。
@@ -10,11 +12,14 @@ import java.io.Serializable;
  *字段的内容，但这个对象总共有20个字段，我们不需要把整个PO对象全部字段传输到客户端，而是可以用DTO重新封装，
  *传递到客户端。此时，如果这个对象用来对应界面的展现，就叫VO。
  */
+@Data
 public class PersonDTO implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	private String id;
+	private String name;
+	private Integer age;
 }

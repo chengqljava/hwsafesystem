@@ -1,4 +1,4 @@
-package com.hwsafe.enterprise.controller.demo;
+package com.hwsafe.enterprise.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
