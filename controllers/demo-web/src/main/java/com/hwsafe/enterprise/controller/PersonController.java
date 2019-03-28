@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hwsafe.demo.domain.Person;
 import com.hwsafe.demo.domain.PersonQuery;
-import com.hwsafe.enterprise.controller.demo.dto.PersonDTO;
 import com.hwsafe.demo.service.PersonService;
+import com.hwsafe.enterprise.controller.dto.PersonDTO;
 import com.hwsafe.utils.BeanMapper;
 
 /**

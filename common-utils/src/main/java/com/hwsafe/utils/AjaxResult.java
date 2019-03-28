@@ -18,7 +18,7 @@ public class AjaxResult<T> implements Serializable {
     private String            errorMsg;
     private T            value;
     
-
+ 
     public AjaxResult(boolean success, T value) {
 		super();
 		this.success = success;

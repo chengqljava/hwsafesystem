@@ -1,4 +1,4 @@
-package com.hwsafe.enterprise.controller.demo;
+package com.hwsafe.enterprise.controller;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;

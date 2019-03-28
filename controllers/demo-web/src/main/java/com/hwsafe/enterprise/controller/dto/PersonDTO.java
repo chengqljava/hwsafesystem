@@ -1,4 +1,4 @@
-package com.hwsafe.enterprise.controller.demo.dto;
+package com.hwsafe.enterprise.controller.dto;
 
 import java.io.Serializable;
 
