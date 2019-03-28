@@ -12,7 +12,7 @@
 	<description>HW safe cloud</description>
 	<packaging>pom</packaging>
 	<modules>
-	  <module>enterprise-web</module>
+	  <module>demo-web</module>
 	  <module>vguard-web</module>
 	</modules>
 	<dependencies>
