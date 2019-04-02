@@ -158,7 +158,8 @@ public class DateUtil {
     }
 
     // 获取昨天的日期
-    public static String getYesterday() {
+    @SuppressWarnings("deprecation")
+	public static String getYesterday() {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         date.setDate(date.getDate() - 1);
@@ -166,7 +167,8 @@ public class DateUtil {
     }
 
     // 获取明天的日期
-    public static String getTomorrow() {
+    @SuppressWarnings("deprecation")
+	public static String getTomorrow() {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         date.setDate(date.getDate() + 1);

@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
  
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
 import org.springframework.stereotype.Component;
 
@@ -31,7 +30,7 @@ public class RedisUtil {
     public void setRedisTemplate(RedisTemplate redisTemplate) {
 		this.redisTemplate = redisTemplate;
 	}
-    public RedisTemplate<Object,Object> getInstance(){
+    public RedisTemplate getInstance(){
         return redisTemplate;
     }
     

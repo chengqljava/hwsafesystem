@@ -33,7 +33,7 @@ public class BeanMapper {
     /**
      * 基于Dozer转换Collection中对象的类型.
      */
-    public static <T> List<T> mapList(Collection sourceList, Class<T> destinationClass) {
+    public static <T> List<T> mapList(Collection<?> sourceList, Class<T> destinationClass) {
         if (sourceList == null)
             return null;
 
