@@ -43,14 +43,14 @@
 </sql>
    
  <!-- 分页查询 -->
-<select id ="loadByPage" resultType="map">
-    select use.*,dep.departname,org.orgname 
-    from sys_user use left join sys_depart dep on use.departid = dep.departid left join sys_org org on use.organid = org.orgid
+<select id ="loadByPage" resultType="map" >
+    select sysuser.*,dep.departname departname,org.orgname  orgname
+    from sys_user sysuser left join sys_depart dep on sysuser.departid = dep.departid left join sys_org org on sysuser.organid = org.orgid
     <where> 
-        <if test=" nickname!=null and  nickname!='' and  nickname!='null' "> and use.nickname like '%${nickname}%'</if>  
-        <if test=" username!=null and  username!='' and  username!='null' "> and use.username like '%${username}%'</if>  
-        <if test=" orgid!=null and  orgid!='' and  orgid!='null' "> and use.organid = '${orgid}'</if>
-        <if test=" usertype!=null and  usertype!='' and  usertype!='null' "> and use.usertype = '${usertype}'</if>  
+        <if test=" nickname!=null and  nickname!='' and  nickname!='null' "> and sysuser.nickname like '%${nickname}%'</if>  
+        <if test=" username!=null and  username!='' and  username!='null' "> and sysuser.username like '%${username}%'</if>  
+        <if test=" orgid!=null and  orgid!='' and  orgid!='null' "> and sysuser.organid = '${orgid}'</if>
+        <if test=" usertype!=null and  usertype!='' and  usertype!='null' "> and sysuser.usertype = '${usertype}'</if>  
      </where>
   </select>
 

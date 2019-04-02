@@ -1,4 +1,4 @@
-package com.hwsafe.vguard.base.utils;
+package com.hwsafe.redis;
 
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.jedis.JedisConnection;

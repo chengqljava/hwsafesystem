@@ -16,8 +16,8 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-import com.hwsafe.enterprise.base.utils.FastJson2JsonRedisSerializer;
-import com.hwsafe.enterprise.base.utils.RedisUtil;
+import com.hwsafe.redis.FastJson2JsonRedisSerializer;
+import com.hwsafe.redis.RedisUtil;
 
 import lombok.extern.slf4j.Slf4j;
 //@Configuration

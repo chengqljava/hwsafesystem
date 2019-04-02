@@ -1,4 +1,4 @@
-package com.hwsafe.enterprise.base.utils;
+package com.hwsafe.redis;
 
 import java.util.Collection;
 

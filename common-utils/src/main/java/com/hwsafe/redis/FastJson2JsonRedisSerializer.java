@@ -1,4 +1,4 @@
-package com.hwsafe.enterprise.base.utils;
+package com.hwsafe.redis;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;

@@ -15,14 +15,11 @@ public class IndexController {
 	
 	@RequestMapping("/welcome")
 	public String welcome(Model model) {
-		
-		model.addAttribute("wrold", "中国");
 		return "welcome";
 	}
 	@RequestMapping("/last")
 	public String last(Model model) {
 		
-		model.addAttribute("wrold", "中国");
 		return "index";
 	}
 

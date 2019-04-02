@@ -24,4 +24,7 @@ public class MybatisPlusConfig {
         paginationInterceptor.setSqlParserList(sqlParserList);
         return paginationInterceptor;
     }
+    
+    
+
 }

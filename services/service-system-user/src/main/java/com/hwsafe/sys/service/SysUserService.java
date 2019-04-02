@@ -16,13 +16,16 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hwsafe.sys.constants.SysConstants;
 import com.hwsafe.sys.domain.SysOrg;
 import com.hwsafe.sys.domain.SysUser;
+import com.hwsafe.sys.domain.query.SysUserQuery;
 import com.hwsafe.sys.mapper.SysUserMapper;
 import com.hwsafe.utils.IDGenerator;
+import com.hwsafe.validate.Check;
 
 
 /**
@@ -149,6 +152,19 @@ public class SysUserService extends ServiceImpl<SysUserMapper, SysUser> {
     
     public Integer updateByOrganid(Map<String, Object> params) throws Exception {
     	return baseMapper.updateByOrganid(params);
+    }
+    @Transactional
+    public Page<Map<String, Object>> loadByPage(SysUserQuery sysUserQuery){
+    	
+    	Check.checkNotNull(sysUserQuery.getUsertype());
+    	Page<Map<String,Object>> page=new Page<Map<String,Object>>();
+    	page.setCurrent(sysUserQuery.getPage());
+    	page.setSize(sysUserQuery.getRows());
+    	page.setAsc(sysUserQuery.getAscs());
+    	page.setDesc(sysUserQuery.getDesc());
+    	page.setRecords(baseMapper.loadByPage(page,sysUserQuery.getUsername(),sysUserQuery.getNickname(),sysUserQuery.getUsertype(),sysUserQuery.getOrgid()));
+    	
+    	return page;
     }
 
 }

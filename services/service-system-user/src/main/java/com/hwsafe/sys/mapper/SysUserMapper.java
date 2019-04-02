@@ -13,7 +13,9 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hwsafe.sys.domain.SysUser;
+import com.hwsafe.sys.domain.query.SysUserQuery;
 
 
 /**
@@ -241,4 +243,6 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
     
     public SysUser loadUserByUserId(@Param("userid") String userid)
             throws Exception;
+    
+    List<Map<String, Object>>  loadByPage(Page page,@Param("username")String username,@Param("nickname")String nickname,@Param("usertype")String usertype,@Param("orgid") String orgid);
 }

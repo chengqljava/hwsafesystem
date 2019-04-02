@@ -123,7 +123,7 @@ public class LoginController {
 	 * @Description (用户退出登录).
 	 * @param request 请求参数
 	 */
-	@RequestMapping("/logout")
+	@RequestMapping("login/logout")
 	public String logout(HttpServletRequest request) {
 		try {
 			// saveOperLog(request);

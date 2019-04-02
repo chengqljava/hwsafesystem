@@ -10,6 +10,7 @@
 	<artifactId>service-enterprise</artifactId>
 	<name>service-enterprise</name>
 	<description>HW safe cloud</description>
+	<packaging>jar</packaging>
 
 
     <dependencies>
@@ -34,13 +35,6 @@
 		   <version>${hwsafe.version}</version>
 		</dependency>
    </dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+
 
 </project>

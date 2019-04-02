@@ -1,4 +1,4 @@
-package com.hwsafe.enterprise.base.utils;
+package com.hwsafe.redis;
 
 /**
  *  @ClassName: FastJson2JsonRedisSerializer

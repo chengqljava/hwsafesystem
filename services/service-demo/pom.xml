@@ -9,6 +9,7 @@
 	</parent>
 	<artifactId>service-demo</artifactId>
 	<name>service-demo</name>
+	<packaging>jar</packaging>
 	<description>HW safe cloud</description>
 
 
@@ -29,13 +30,14 @@
 		  <version>${hwsafe.version}</version>
 		</dependency>
    </dependencies>
-	<build>
+   
+   <!-- 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>
+	</build>   -->
 
 </project>

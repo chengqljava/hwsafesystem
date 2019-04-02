@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <%include("/include/constant.html"){}%>
+    <meta charset="utf-8">
+	<title>${sys_title!}</title>	
+<% include("/include/loader_css.html",{cssPart:["bootstrap","jqgrid","jqueryui","main","ztree"]}){}%>
+<% include("/include/loader_jslib.html",{jsPart:["html5"]}){}%>
+</head>
+<body>
+	<div class="container-fluid pcheck margin10">
+    	<div class="row">
+    		<div class="col-sm-12">
+    			<form>
+    				<div class="row">
+    					<div class="col-sm-2" style="padding:3px 20px;">
+    						<input class="form-control formWidth" type="text" name="username" id="username" placeholder="账户">
+    					</div>
+    					<div class="col-sm-2" style="padding:3px 20px;">
+    						<input class="form-control formWidth" type="text" name="nickname" id="nickname" placeholder="用户名">
+    					</div>
+    					<div class="col-sm-2" style="padding:3px 20px;">
+    						<button type="button"  class="search" id="searchbtn" style="width:100%;height:28px;">查询</button>
+    					</div>
+    					<div class="col-sm-2" style="padding:3px 20px;">
+    						<button type="reset"  class="search" id="resetbtn" style="width:100%;height:28px;"><span>重置</span></button>
+    					</div>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+    </div>
+	<% var menus=session["SESSION_KEY_OBJ_MENU_BEAN"];%>
+	<div id="btnli" class="dropdown smallShow" style="margin-left: 10px;">
+		<!--  #mobileDisplayOper($privcode)##手机兼容操作按钮-->
+		<%for(var item in menus!){%>
+		  <%if(item.privcode==privcode){%>
+		        <%for(var oper in item.sysOpers!){%>
+		           <%if(oper.operid!!=null){%>
+		           <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<span class="clickBtn">	下拉按钮</span>
+                            <span class="caret"></span>
+                        </button>
+		           <%}%>
+		        <%}%>
+		        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        		   <%for(var oper in $item.sysOpers!){%>
+        			 <%if(oper.operid!!=null){%>
+        				   <li><button class="${oper.operstyle!}" id="${oper.opercode!}">${oper.opername!}</button></li>
+        			 <%}%>
+        			<%}%>
+				</ul>
+		  <%}%>
+		<%}%>
+				
+	</div>
+	
+	<div class="table-line" >
+        <div class="showBtn">
+         <div class="tableTitle">
+          <div class="rgt" style="right:30px;">
+             <%for(var item in menus!){%>
+                <%if(item.privcode==privcode!){%>
+                  <%for(var oper in item.sysOpers!){%>
+                      <%if(oper.operid!!=null){%>
+                        <button class="${oper.operstyle!}" id="${oper.opercode!}">${oper.opername!}</button>
+                      <%}%>
+                  <%}%>
+                <%}%>
+             <%}%>
+          </div>
+        </div>
+       </div>
+        <table id="grid-table"></table>
+        <div id="grid-pager"></div>
+	</div>
+
+<% include("/include/loader_jslib.html",{jsPart:["jquery","bootstrap","jqgrid","shrink","jqueryui","dateutil","select_option","ztree"]}){}%>
+<script src="${ctxPath}/static/js/module/system/sysuser/sysuserList.js"></script>
+
+</body>
+</html>
