@@ -75,7 +75,7 @@ public class Check {
 
     public static <T> T checkNotNullAndNotEmpty(T value) {
         if (value instanceof Collection) {
-            if (value == null || ((Collection) value).isEmpty()) {
+            if (value == null || ((Collection<?>) value).isEmpty()) {
                 throw new CheckException();
             }
         } else if (value instanceof String) {
@@ -91,7 +91,7 @@ public class Check {
 
     public static <T> T checkNotNullAndNotEmpty(T value, String errorMessageTemplate) {
         if (value instanceof Collection) {
-            if (value == null || ((Collection) value).isEmpty()) {
+            if (value == null || ((Collection<?>) value).isEmpty()) {
                 throw new CheckException(errorMessageTemplate);
             }
         } else if (value instanceof String) {
@@ -108,7 +108,7 @@ public class Check {
     public static <T> T checkNotNullAndNotEmpty(T value, String errorMessageTemplate,
                                                 Object... errorMessageArgs) {
         if (value instanceof Collection) {
-            if (value == null || ((Collection) value).isEmpty()) {
+            if (value == null || ((Collection<?>) value).isEmpty()) {
                 throw new CheckException(errorMessageTemplate, errorMessageArgs);
             }
         } else if (value instanceof String) {
